@@ -5,15 +5,20 @@ const STORAGE_LEADERBOARD_KEY = 'toeic_leaderboard_records_v2';
 const STORAGE_MISTAKES_KEY = 'toeic_mistakes_notebook_v2';
 const STORAGE_SETTINGS_KEY = 'toeic_custom_settings_v2';
 
+const DEFAULT_WEBHOOK_URL = (import.meta.env.PUBLIC_WEBHOOK_URL as string) || '';
+const DEFAULT_SECRET_TOKEN = (import.meta.env.PUBLIC_SECRET_TOKEN as string) || '';
+
 export interface AppSettings {
   webhookUrl: string;
+  secretToken?: string;
   autoSync: boolean;
   showInstantAnswer: boolean;
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  webhookUrl: '',
-  autoSync: false,
+  webhookUrl: DEFAULT_WEBHOOK_URL,
+  secretToken: DEFAULT_SECRET_TOKEN,
+  autoSync: true,
   showInstantAnswer: true,
 };
 
@@ -168,7 +173,13 @@ export const Storage = {
     if (typeof window === 'undefined') return DEFAULT_SETTINGS;
     try {
       const raw = localStorage.getItem(STORAGE_SETTINGS_KEY);
-      return raw ? { ...DEFAULT_SETTINGS, ...JSON.parse(raw) } : DEFAULT_SETTINGS;
+      const parsed = raw ? JSON.parse(raw) : {};
+      return {
+        ...DEFAULT_SETTINGS,
+        ...parsed,
+        webhookUrl: parsed.webhookUrl || DEFAULT_SETTINGS.webhookUrl,
+        secretToken: parsed.secretToken || DEFAULT_SETTINGS.secretToken,
+      };
     } catch {
       return DEFAULT_SETTINGS;
     }

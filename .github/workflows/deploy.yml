@@ -38,6 +38,9 @@ jobs:
 
       - name: Build Astro website
         run: npm run build
+        env:
+          PUBLIC_WEBHOOK_URL: ${{ secrets.PUBLIC_WEBHOOK_URL }}
+          PUBLIC_SECRET_TOKEN: ${{ secrets.PUBLIC_SECRET_TOKEN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
