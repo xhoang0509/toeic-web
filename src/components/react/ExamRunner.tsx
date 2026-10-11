@@ -8,6 +8,7 @@ import { calculateScaledToeic, calculateSectionScaledScore, getCefrLevel, format
 import { syncExamResultToWebhook } from '../../lib/webhook';
 import { gradeExamOnServer } from '../../lib/api';
 import { shuffleToeicQuestions } from '../../lib/shuffle';
+import { Portal } from './Portal';
 import confetti from 'canvas-confetti';
 import {
   Clock,
@@ -341,177 +342,198 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
 
       {/* Question Navigator Drawer / Modal */}
       {showNavigator && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl p-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-              <h3 className="font-bold text-slate-900 dark:text-white text-base">Danh Sách Câu Hỏi</h3>
-              <div className="flex items-center gap-3 text-xs">
-                <span className="flex items-center gap-1 text-slate-500">
-                  <span className="w-3 h-3 rounded bg-sky-500" /> Đã làm
-                </span>
-                <span className="flex items-center gap-1 text-slate-500">
-                  <span className="w-3 h-3 rounded bg-amber-400" /> Cần xem lại
-                </span>
-                <span className="flex items-center gap-1 text-slate-500">
-                  <span className="w-3 h-3 rounded bg-slate-200 dark:bg-slate-700" /> Chưa làm
-                </span>
+        <Portal>
+          <div
+            className="fixed inset-0 z-[9999] overflow-y-auto flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setShowNavigator(false);
+            }}
+          >
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl p-6 relative my-auto">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+                <h3 className="font-bold text-slate-900 dark:text-white text-base">Danh Sách Câu Hỏi</h3>
+                <div className="flex items-center gap-3 text-xs">
+                  <span className="flex items-center gap-1 text-slate-500">
+                    <span className="w-3 h-3 rounded bg-sky-500" /> Đã làm
+                  </span>
+                  <span className="flex items-center gap-1 text-slate-500">
+                    <span className="w-3 h-3 rounded bg-amber-400" /> Cần xem lại
+                  </span>
+                  <span className="flex items-center gap-1 text-slate-500">
+                    <span className="w-3 h-3 rounded bg-slate-200 dark:bg-slate-700" /> Chưa làm
+                  </span>
+                </div>
               </div>
+
+              <div className="overflow-y-auto flex-1 my-4 grid grid-cols-6 sm:grid-cols-10 gap-2 p-1">
+                {examQuestions.map((q, idx) => {
+                  const isAns = Boolean(answers[q.id]);
+                  const isFlg = flaggedIds.has(q.id);
+                  const isCur = idx === currentIndex;
+
+                  let cls = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
+                  if (isAns) cls = 'bg-sky-500 text-white border-sky-500 font-bold';
+                  if (isFlg) cls = 'bg-amber-400 text-slate-950 border-amber-500 font-bold ring-2 ring-amber-300';
+                  if (isCur) cls += ' ring-2 ring-sky-400 ring-offset-2';
+
+                  return (
+                    <button
+                      key={q.id}
+                      type="button"
+                      onClick={() => {
+                        setCurrentIndex(idx);
+                        setShowNavigator(false);
+                      }}
+                      className={`h-9 rounded-lg text-xs flex items-center justify-center border transition-all ${cls}`}
+                    >
+                      {idx + 1}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowNavigator(false)}
+                className="w-full py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold"
+              >
+                Đóng Danh Sách
+              </button>
             </div>
-
-            <div className="overflow-y-auto flex-1 my-4 grid grid-cols-6 sm:grid-cols-10 gap-2 p-1">
-              {examQuestions.map((q, idx) => {
-                const isAns = Boolean(answers[q.id]);
-                const isFlg = flaggedIds.has(q.id);
-                const isCur = idx === currentIndex;
-
-                let cls = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700';
-                if (isAns) cls = 'bg-sky-500 text-white border-sky-500 font-bold';
-                if (isFlg) cls = 'bg-amber-400 text-slate-950 border-amber-500 font-bold ring-2 ring-amber-300';
-                if (isCur) cls += ' ring-2 ring-sky-400 ring-offset-2';
-
-                return (
-                  <button
-                    key={q.id}
-                    type="button"
-                    onClick={() => {
-                      setCurrentIndex(idx);
-                      setShowNavigator(false);
-                    }}
-                    className={`h-9 rounded-lg text-xs flex items-center justify-center border transition-all ${cls}`}
-                  >
-                    {idx + 1}
-                  </button>
-                );
-              })}
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setShowNavigator(false)}
-              className="w-full py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold"
-            >
-              Đóng Danh Sách
-            </button>
           </div>
-        </div>
+        </Portal>
       )}
 
       {/* Confirm Submit Modal */}
       {showConfirmSubmit && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-md shadow-2xl p-6 text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 mx-auto flex items-center justify-center">
-              <CheckCircle className="w-6 h-6" />
-            </div>
-
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Bạn Muốn Nộp Bài Thi?</h3>
-
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Bạn đã hoàn thành <span className="font-bold text-slate-800 dark:text-slate-200">{answeredCount}/{examQuestions.length}</span> câu hỏi.
-              {examQuestions.length - answeredCount > 0 && (
-                <span className="text-rose-500 block mt-1 font-semibold">
-                  (Còn {examQuestions.length - answeredCount} câu chưa trả lời)
-                </span>
-              )}
-            </p>
-
-            {submitError && (
-              <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-semibold flex items-center gap-2 text-left">
-                <AlertTriangle className="w-4 h-4 shrink-0 text-rose-600" />
-                <span>{submitError}</span>
+        <Portal>
+          <div
+            className="fixed inset-0 z-[9999] overflow-y-auto flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm"
+            onClick={(e) => {
+              if (!isSubmitting && e.target === e.currentTarget) setShowConfirmSubmit(false);
+            }}
+          >
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-md shadow-2xl p-6 text-center space-y-4 relative my-auto">
+              <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 mx-auto flex items-center justify-center">
+                <CheckCircle className="w-6 h-6" />
               </div>
-            )}
 
-            <div className="flex gap-2 pt-2">
-              <button
-                type="button"
-                disabled={isSubmitting}
-                onClick={() => setShowConfirmSubmit(false)}
-                className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50"
-              >
-                Tiếp tục làm bài
-              </button>
-              <button
-                type="button"
-                disabled={isSubmitting}
-                onClick={handleSubmitExam}
-                className="flex-1 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 disabled:opacity-50"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Đang chấm điểm...</span>
-                  </>
-                ) : (
-                  <span>Xác nhận nộp bài</span>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Bạn Muốn Nộp Bài Thi?</h3>
+
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Bạn đã hoàn thành <span className="font-bold text-slate-800 dark:text-slate-200">{answeredCount}/{examQuestions.length}</span> câu hỏi.
+                {examQuestions.length - answeredCount > 0 && (
+                  <span className="text-rose-500 block mt-1 font-semibold">
+                    (Còn {examQuestions.length - answeredCount} câu chưa trả lời)
+                  </span>
                 )}
-              </button>
+              </p>
+
+              {submitError && (
+                <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-semibold flex items-center gap-2 text-left">
+                  <AlertTriangle className="w-4 h-4 shrink-0 text-rose-600" />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
+              <div className="flex gap-2 pt-2">
+                <button
+                  type="button"
+                  disabled={isSubmitting}
+                  onClick={() => setShowConfirmSubmit(false)}
+                  className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50"
+                >
+                  Tiếp tục làm bài
+                </button>
+                <button
+                  type="button"
+                  disabled={isSubmitting}
+                  onClick={handleSubmitExam}
+                  className="flex-1 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Đang chấm điểm...</span>
+                    </>
+                  ) : (
+                    <span>Xác nhận nộp bài</span>
+                  )}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </Portal>
       )}
 
       {/* Certificate Modal */}
       {showCertificate && examResult && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
-            <button
-              onClick={() => setShowCertificate(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 font-bold text-sm"
-            >
-              ✕
-            </button>
-
-            {/* Certificate Template */}
-            <div className="border-4 border-double border-amber-500/70 p-6 sm:p-8 rounded-xl bg-amber-50/20 text-center space-y-4">
-              <div className="text-xs font-bold tracking-widest text-amber-700 uppercase">
-                ETS Simulated Online Assessment
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-slate-900 dark:text-white">
-                CHỨNG CHỈ HOÀN THÀNH
-              </h2>
-              <p className="text-xs text-slate-500 italic">Chứng nhận thí sinh đã hoàn thành kỳ kiểm tra năng lực TOEIC</p>
-
-              <div className="py-4">
-                <div className="text-2xl font-serif font-bold text-sky-800 dark:text-sky-300 uppercase tracking-wide">
-                  {examResult.candidateName}
-                </div>
-                <div className="text-xs text-slate-500 mt-1">Mã xác thực: {examResult.id}</div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2 py-3 border-y border-amber-300/40 text-xs">
-                <div>
-                  <div className="text-slate-400 font-medium">Listening</div>
-                  <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{examResult.scaledListening}</div>
-                </div>
-                <div>
-                  <div className="text-slate-400 font-medium">Reading</div>
-                  <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{examResult.scaledReading}</div>
-                </div>
-                <div>
-                  <div className="text-amber-600 font-bold">Tổng Điểm</div>
-                  <div className="text-xl font-black text-amber-600">{examResult.totalScaledScore} / 990</div>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-center text-[11px] text-slate-500 pt-2">
-                <div>Ngày cấp: {examResult.completedAt}</div>
-                <div>Xếp loại: {examResult.cefrLevel}</div>
-              </div>
-            </div>
-
-            <div className="mt-6 flex justify-end gap-3 print:hidden">
+        <Portal>
+          <div
+            className="fixed inset-0 z-[9999] overflow-y-auto flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setShowCertificate(false);
+            }}
+          >
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative my-auto">
               <button
-                type="button"
-                onClick={() => window.print()}
-                className="px-4 py-2 bg-sky-600 text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shadow-sm"
+                onClick={() => setShowCertificate(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 font-bold text-sm p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"
               >
-                <Printer className="w-4 h-4" />
-                In / Lưu PDF
+                ✕
               </button>
+
+              {/* Certificate Template */}
+              <div className="border-4 border-double border-amber-500/70 p-6 sm:p-8 rounded-xl bg-amber-50/20 text-center space-y-4">
+                <div className="text-xs font-bold tracking-widest text-amber-700 uppercase">
+                  ETS Simulated Online Assessment
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-slate-900 dark:text-white">
+                  CHỨNG CHỈ HOÀN THÀNH
+                </h2>
+                <p className="text-xs text-slate-500 italic">Chứng nhận thí sinh đã hoàn thành kỳ kiểm tra năng lực TOEIC</p>
+
+                <div className="py-4">
+                  <div className="text-2xl font-serif font-bold text-sky-800 dark:text-sky-300 uppercase tracking-wide">
+                    {examResult.candidateName}
+                  </div>
+                  <div className="text-xs text-slate-500 mt-1">Mã xác thực: {examResult.id}</div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 py-3 border-y border-amber-300/40 text-xs">
+                  <div>
+                    <div className="text-slate-400 font-medium">Listening</div>
+                    <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{examResult.scaledListening}</div>
+                  </div>
+                  <div>
+                    <div className="text-slate-400 font-medium">Reading</div>
+                    <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{examResult.scaledReading}</div>
+                  </div>
+                  <div>
+                    <div className="text-amber-600 font-bold">Tổng Điểm</div>
+                    <div className="text-xl font-black text-amber-600">{examResult.totalScaledScore} / 990</div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center text-[11px] text-slate-500 pt-2">
+                  <div>Ngày cấp: {examResult.completedAt}</div>
+                  <div>Xếp loại: {examResult.cefrLevel}</div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex justify-end gap-3 print:hidden">
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="px-4 py-2 bg-sky-600 text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shadow-sm"
+                >
+                  <Printer className="w-4 h-4" />
+                  In / Lưu PDF
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </Portal>
       )}
     </div>
   );
