@@ -29,12 +29,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xhoang0509/toiec-web.git"
+    "url": "git+https://github.com/xhoang0509/toeic-web.git"
   },
   "bugs": {
-    "url": "https://github.com/xhoang0509/toiec-web/issues"
+    "url": "https://github.com/xhoang0509/toeic-web/issues"
   },
-  "homepage": "https://xhoang0509.github.io/toiec-web/",
+  "homepage": "https://xhoang0509.github.io/toeic-web/",
   "dependencies": {
     "@astrojs/react": "^7.0.1",
     "@astrojs/sitemap": "^3.7.4",

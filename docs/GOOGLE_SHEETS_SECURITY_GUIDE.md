@@ -111,7 +111,7 @@ function doPost(e) {
 Có 2 cách cấu hình bí mật:
 
 ### Cách A: Cấu hình trên GitHub Secrets (Khuyên Dùng Cho Production)
-1. Truy cập repo trên GitHub: `https://github.com/xhoang0509/toiec-web`.
+1. Truy cập repo trên GitHub: `https://github.com/xhoang0509/toeic-web`.
 2. Vào **Settings** ➔ **Secrets and variables** ➔ **Actions**.
 3. Bấm **New repository secret** và thêm 2 secret:
    - `PUBLIC_WEBHOOK_URL`: Dán link Web App URL Google Script ở Bước 2.

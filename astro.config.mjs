@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://xhoang0509.github.io',
-  base: process.env.BASE_PATH || '/toiec-web',
+  base: process.env.BASE_PATH || '/toeic-web',
   trailingSlash: 'ignore',
   integrations: [
     react(),

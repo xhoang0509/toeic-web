@@ -1,9 +1,9 @@
 # 🎓 TOEIC Web Assessment & Comprehensive Learning System
 
-[![Deploy to GitHub Pages](https://github.com/xhoang0509/toiec-web/actions/workflows/deploy.yml/badge.svg)](https://github.com/xhoang0509/toiec-web/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/xhoang0509/toeic-web/actions/workflows/deploy.yml/badge.svg)](https://github.com/xhoang0509/toeic-web/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform: Static HTML5](https://img.shields.io/badge/Platform-Static%20HTML5-brightgreen.svg)](#)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-orange.svg)](https://xhoang0509.github.io/toiec-web/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-orange.svg)](https://xhoang0509.github.io/toeic-web/)
 
 Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương tiện (Audio + Hình ảnh + Trắc nghiệm), tích hợp **Bắt buộc nhập tên thí sinh**, **Bảng Xếp Hạng thời gian thực (Leaderboard)**, **Luyện tập theo từng Part**, **Audio Controller nâng cao**, **Phân tích kỹ năng Radar Chart**, **Sổ tay câu sai**, **Chứng chỉ hoàn thành PDF**, và **Đồng bộ Google Sheets Webhook**.
 
@@ -84,7 +84,7 @@ Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương
 ## 📁 Cấu Trúc Dự Án
 
 ```
-toiec-web/
+toeic-web/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions workflow tự động deploy GitHub Pages
@@ -144,13 +144,13 @@ Dự án đã cấu hình sẵn `.github/workflows/deploy.yml` và `.nojekyll`.
    git push origin main
    ```
 2. **Kích hoạt GitHub Pages**:
-   - Truy cập vào Repository trên GitHub: `https://github.com/xhoang0509/toiec-web`
+   - Truy cập vào Repository trên GitHub: `https://github.com/xhoang0509/toeic-web`
    - Vào **Settings** ➔ **Pages** (cột trái).
    - Tại **Build and deployment** ➔ **Source**: Chọn **GitHub Actions**.
 3. **Xem trang web trực tiếp**:
    - Chờ GitHub Actions hoàn thành (khoảng 30-60 giây).
    - Trang web sẽ online tại:  
-     👉 **`https://xhoang0509.github.io/toiec-web/`**
+     👉 **`https://xhoang0509.github.io/toeic-web/`**
 
 ---
 
