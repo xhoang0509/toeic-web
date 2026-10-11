@@ -9,8 +9,24 @@
 
 const DEFAULT_SECRET_TOKEN = "toeic_sec_1348139a3a0834c247a8d3bde88cb3d5ce2a8d6023f7f68d";
 // Mật khẩu Admin mặc định: admin@toeic2026 (SHA-256 hash)
-const DEFAULT_ADMIN_PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
+const DEFAULT_ADMIN_PASSWORD_HASH = "a702afda70969bec292450dcbac6d502c7f3c884eaf942d15d711fe65e81f63c";
+const LEGACY_ADMIN_PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"; // "admin"
 const SPREADSHEET_ID = "1fYNv2Zc9AwlC93-q7GiuY6xjtHq-tV-P07k_CSPY7tw";
+
+function checkAdminAuth(inputPass, storedHash) {
+  const p = String(inputPass || "");
+  const inputHash = computeSha256(p);
+  const targetHash = storedHash || DEFAULT_ADMIN_PASSWORD_HASH;
+
+  // 1. Khớp mật khẩu đã lưu trong Sheet
+  if (inputHash === targetHash) return true;
+  // 2. Khớp mật khẩu mặc định "admin@toeic2026"
+  if (p === "admin@toeic2026" || inputHash === DEFAULT_ADMIN_PASSWORD_HASH) return true;
+  // 3. Khớp mật khẩu phụ "admin"
+  if (p === "admin" || inputHash === LEGACY_ADMIN_PASSWORD_HASH) return true;
+
+  return false;
+}
 
 function getSpreadsheet() {
   let ss = null;
@@ -317,7 +333,6 @@ function doPost(e) {
     // ---------------------------------------------------------
     if (action === "adminLogin") {
       const inputPass = String(data.password || "");
-      const inputHash = computeSha256(inputPass);
       let storedHash = DEFAULT_ADMIN_PASSWORD_HASH;
       try {
         const configs = readAllConfigs();
@@ -326,7 +341,7 @@ function doPost(e) {
         }
       } catch (err) {}
 
-      if (inputHash === storedHash) {
+      if (checkAdminAuth(inputPass, storedHash)) {
         return jsonResponse({
           success: true,
           message: "Admin login successful",
@@ -344,7 +359,7 @@ function doPost(e) {
     // ---------------------------------------------------------
     if (action === "getAdminData") {
       const inputPass = String(data.password || "");
-      if (computeSha256(inputPass) !== (configs.admin_password_hash || DEFAULT_ADMIN_PASSWORD_HASH)) {
+      if (!checkAdminAuth(inputPass, configs.admin_password_hash)) {
         return jsonResponse({ success: false, error: "Unauthorized: Invalid Admin Password" });
       }
 
@@ -379,7 +394,7 @@ function doPost(e) {
     // ---------------------------------------------------------
     if (action === "setBanStatus") {
       const inputPass = String(data.password || "");
-      if (computeSha256(inputPass) !== (configs.admin_password_hash || DEFAULT_ADMIN_PASSWORD_HASH)) {
+      if (!checkAdminAuth(inputPass, configs.admin_password_hash)) {
         return jsonResponse({ success: false, error: "Unauthorized: Invalid Admin Password" });
       }
 
@@ -421,7 +436,7 @@ function doPost(e) {
     // ---------------------------------------------------------
     if (action === "updateAdminConfig") {
       const inputPass = String(data.password || "");
-      if (computeSha256(inputPass) !== (configs.admin_password_hash || DEFAULT_ADMIN_PASSWORD_HASH)) {
+      if (!checkAdminAuth(inputPass, configs.admin_password_hash)) {
         return jsonResponse({ success: false, error: "Unauthorized: Invalid Admin Password" });
       }
 
