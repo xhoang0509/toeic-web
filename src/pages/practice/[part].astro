@@ -1,0 +1,98 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { PracticeRunner } from '../../components/react/PracticeRunner';
+import { PARTS_META, type PartMeta, type Question } from '../../data/types';
+import questions from '../../data/questions.json';
+
+export function getStaticPaths() {
+  return PARTS_META.map((part) => ({
+    params: { part: part.slug },
+    props: { partMeta: part },
+  }));
+}
+
+interface Props {
+  partMeta: PartMeta;
+}
+
+const { partMeta } = Astro.props;
+const typedQuestions = questions as Question[];
+const partQuestions = typedQuestions.filter((q) => q.partId === partMeta.id);
+const base = import.meta.env.BASE_URL;
+
+const pageTitle = `Luyện Thi TOEIC ${partMeta.name} — ${partMeta.title} (${partQuestions.length} Câu Có Giải Thích)`;
+const pageDescription = `Luyện tập chuyên sâu TOEIC ${partMeta.name}: ${partMeta.description}. Mẹo làm bài: ${partMeta.strategy}. Kèm audio bản xứ và lời giải thích chi tiết.`;
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <div class="space-y-6">
+    <!-- Breadcrumb & Header -->
+    <div>
+      <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+        <a href={`${base}/`} class="hover:text-sky-600">Trang chủ</a>
+        <span>/</span>
+        <a href={`${base}/practice`} class="hover:text-sky-600">Luyện từng Part</a>
+        <span>/</span>
+        <span class="text-slate-800 font-semibold">{partMeta.name}</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 rounded-lg bg-sky-600 text-white font-extrabold text-xs">
+              {partMeta.name}
+            </span>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-slate-200 text-slate-700">
+              {partMeta.skill}
+            </span>
+            <span class="text-xs text-slate-500 font-medium">
+              {partQuestions.length} câu hỏi chuẩn hóa
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+            {partMeta.title}
+          </h1>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs">
+          {PARTS_META.map((p) => (
+            <a
+              href={`${base}/practice/${p.slug}`}
+              class={`px-2.5 py-1.5 rounded-lg font-bold transition-all ${
+                p.id === partMeta.id
+                  ? 'bg-sky-600 text-white shadow-sm'
+                  : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+              }`}
+            >
+              P{p.id}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategy & Tips Box (Great for User Experience & SEO Context) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-sky-50/60 border border-sky-200 rounded-2xl p-4 text-xs space-y-1">
+        <div class="font-bold text-sky-900 flex items-center gap-1.5">
+          <span>💡 Mẹo & Chiến Lược Làm Bài ({partMeta.name})</span>
+        </div>
+        <p class="text-slate-700 leading-relaxed">{partMeta.strategy}</p>
+      </div>
+
+      <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 text-xs space-y-1">
+        <div class="font-bold text-amber-900 flex items-center gap-1.5">
+          <span>⏱️ Phân Bổ Thời Gian Chuẩn ETS</span>
+        </div>
+        <p class="text-slate-700 leading-relaxed">{partMeta.timeRecommendation}</p>
+      </div>
+    </div>
+
+    <!-- Practice Runner Component for this specific part -->
+    <PracticeRunner
+      client:load
+      questions={typedQuestions}
+      initialPartId={partMeta.id}
+    />
+  </div>
+</MainLayout>

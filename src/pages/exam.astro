@@ -1,0 +1,29 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { ExamRunner } from '../components/react/ExamRunner';
+import questions from '../data/questions.json';
+import type { Question } from '../data/types';
+
+const typedQuestions = questions as Question[];
+
+const pageTitle = 'Phòng Thi Thử TOEIC Online 120 Phút — Format Chuẩn Quốc Tế ETS';
+const pageDescription = 'Tham gia làm bài thi thử TOEIC 183 câu với đồng hồ đếm ngược 120 phút, audio nghe chất lượng cao, tính điểm quy đổi ETS ~/990 và phân tích trình độ CEFR.';
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <div class="mb-4">
+    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+      <a href={`${import.meta.env.BASE_URL}/`} class="hover:text-sky-600">Trang chủ</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">Phòng thi 120 phút</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+      Kỳ Thi Đánh Giá Năng Lực Tiếng Anh TOEIC
+    </h1>
+    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+      Thời gian làm bài: 120 phút • Số lượng câu hỏi: {typedQuestions.length} câu • Bắt buộc nhập tên để lưu bảng điểm
+    </p>
+  </div>
+
+  <ExamRunner client:only="react" questions={typedQuestions} />
+</MainLayout>

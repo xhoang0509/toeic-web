@@ -1,0 +1,30 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { MistakesRunner } from '../components/react/MistakesRunner';
+import questions from '../data/questions.json';
+import type { Question } from '../data/types';
+
+const typedQuestions = questions as Question[];
+const base = import.meta.env.BASE_URL;
+
+const pageTitle = 'Sổ Tay Câu Sai TOEIC — Ôn Luyện Lại Các Câu Chưa Nắm Vững';
+const pageDescription = 'Sổ tay câu sai cá nhân hóa: Tự động lưu lại các câu bạn trả lời sai trong quá trình thi thử và luyện tập. Làm lại từng câu kèm giải thích chi tiết cho đến khi hiểu bài.';
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <div class="mb-6">
+    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+      <a href={`${base}/`} class="hover:text-sky-600">Trang chủ</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">Sổ tay câu sai</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+      Sổ Tay Câu Sai & Ghi Nhớ Lỗi Thường Gặp
+    </h1>
+    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+      Học từ những lỗi sai là con đường ngắn nhất để nâng điểm TOEIC. Bạn có thể làm lại câu hỏi và bấm "Đã hiểu" khi đã nắm vững kiến thức.
+    </p>
+  </div>
+
+  <MistakesRunner client:only="react" allQuestions={typedQuestions} />
+</MainLayout>

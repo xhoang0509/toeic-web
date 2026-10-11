@@ -1,0 +1,59 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-12 pb-8 mt-20 text-slate-500 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-100 dark:border-slate-800">
+      <div class="space-y-3 md:col-span-1">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-sky-600 flex items-center justify-center text-white font-black text-sm">
+            T
+          </div>
+          <span class="font-bold text-slate-900 dark:text-white text-sm">TOEIC Online Prep</span>
+        </div>
+        <p className="leading-relaxed">
+          Nền tảng thi thử và luyện tập TOEIC Online chuẩn format ETS 2026. Tích hợp audio phát âm bản xứ, lời giải thích chi tiết và phân tích năng lực đa chiều.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider text-[11px]">Luyện Nghe (Listening)</h4>
+        <ul class="space-y-2">
+          <li><a href={`${base}/practice/part-1`} class="hover:text-sky-600 transition-colors">Part 1 - Mô tả tranh (12 câu)</a></li>
+          <li><a href={`${base}/practice/part-2`} class="hover:text-sky-600 transition-colors">Part 2 - Hỏi & Đáp (49 câu)</a></li>
+          <li><a href={`${base}/practice/part-3`} class="hover:text-sky-600 transition-colors">Part 3 - Hội thoại ngắn (15 câu)</a></li>
+          <li><a href={`${base}/practice/part-4`} class="hover:text-sky-600 transition-colors">Part 4 - Bài nói ngắn (15 câu)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider text-[11px]">Luyện Đọc (Reading)</h4>
+        <ul class="space-y-2">
+          <li><a href={`${base}/practice/part-5`} class="hover:text-sky-600 transition-colors">Part 5 - Điền câu (60 câu)</a></li>
+          <li><a href={`${base}/practice/part-6`} class="hover:text-sky-600 transition-colors">Part 6 - Điền đoạn văn (8 câu)</a></li>
+          <li><a href={`${base}/practice/part-7`} class="hover:text-sky-600 transition-colors">Part 7 - Đọc hiểu (24 câu)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider text-[11px]">Tiện Ích</h4>
+        <ul class="space-y-2">
+          <li><a href={`${base}/exam`} class="hover:text-sky-600 transition-colors">Phòng thi mô phỏng 120p</a></li>
+          <li><a href={`${base}/leaderboard`} class="hover:text-sky-600 transition-colors">Bảng vàng xếp hạng</a></li>
+          <li><a href={`${base}/mistakes`} class="hover:text-sky-600 transition-colors">Sổ tay câu sai</a></li>
+          <li><a href="https://github.com/xhoang0509/toiec-web" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 transition-colors">Mã nguồn GitHub (Open Source)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-[11px]">
+      <div>
+        © 2026 TOEIC Web Assessment System. Giấy phép mã nguồn mở MIT License.
+      </div>
+      <div>
+        Được tối ưu hóa SEO với kiến trúc Astro SSG & React Islands.
+      </div>
+    </div>
+  </div>
+</footer>

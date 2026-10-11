@@ -1,0 +1,194 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { PARTS_META } from '../data/types';
+import questions from '../data/questions.json';
+
+const base = import.meta.env.BASE_URL;
+
+const pageTitle = 'Luyện Thi & Thi Thử TOEIC Online Miễn Phí Chuẩn Format ETS 2026';
+const pageDescription = 'Hệ thống thi thử TOEIC Online 183 câu với Audio bản xứ, hình ảnh sắc nét, giải thích chi tiết từng câu, bảng xếp hạng thí sinh và phân tích biểu đồ năng lực Radar Chart.';
+
+const totalQuestions = questions.length;
+const listeningCount = questions.filter(q => q.skill === 'Listening').length;
+const readingCount = questions.filter(q => q.skill === 'Reading').length;
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="py-12 sm:py-16 text-center max-w-4xl mx-auto space-y-6">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 text-sky-800 text-xs font-bold border border-sky-200">
+      <span class="w-2 h-2 rounded-full bg-sky-600 animate-ping"></span>
+      Format ETS 2026 — Đầy Đủ Audio & Lời Giải Thích
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+      Luyện Thi & Đánh Giá Năng Lực <br class="hidden sm:inline" />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-indigo-600">
+        TOEIC Toàn Diện Trực Tuyến
+      </span>
+    </h1>
+
+    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+      Trải nghiệm phòng thi mô phỏng 120 phút hoặc luyện tập chuyên sâu từng phần từ Part 1 đến Part 7 với ngân hàng <strong>{totalQuestions} câu hỏi chuẩn hóa</strong>, kiểm tra đáp án tức thì và phân tích điểm số ETS ~/990.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+      <a
+        href={`${base}/exam`}
+        class="px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm shadow-lg shadow-sky-600/25 transition-all active:scale-95 flex items-center gap-2"
+      >
+        <span>Bắt Đầu Thi Thử (120 Phút)</span>
+        <span>→</span>
+      </a>
+
+      <a
+        href={`${base}/practice`}
+        class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm border border-slate-200 shadow-sm transition-all"
+      >
+        Luyện Tập Theo Từng Part
+      </a>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-3 max-w-lg mx-auto pt-8 border-t border-slate-200 text-center">
+      <div>
+        <div class="text-2xl sm:text-3xl font-black text-slate-900">{totalQuestions}</div>
+        <div class="text-xs text-slate-500 font-medium">Tổng số câu hỏi</div>
+      </div>
+      <div>
+        <div class="text-2xl sm:text-3xl font-black text-sky-600">{listeningCount} câu</div>
+        <div class="text-xs text-slate-500 font-medium">Nghe hiểu (Listening)</div>
+      </div>
+      <div>
+        <div class="text-2xl sm:text-3xl font-black text-emerald-600">{readingCount} câu</div>
+        <div class="text-xs text-slate-500 font-medium">Đọc hiểu (Reading)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part-by-Part Grid (SEO Optimized) -->
+  <section class="py-12 border-t border-slate-200">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="text-xs uppercase font-bold tracking-wider text-sky-600 mb-1">Cấu Trúc Đề Thi</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Ôn Luyện Chuyên Sâu 7 Phần</h2>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-500 max-w-md">
+        Mỗi phần đều cung cấp mẹo tránh bẫy đề thi, audio tua ±5s linh hoạt và xem lời thoại transcript ngay lập tức.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {PARTS_META.map((part) => (
+        <a
+          href={`${base}/practice/${part.slug}`}
+          class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-sky-400 hover:shadow-md transition-all group flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-1 rounded-lg bg-sky-50 text-sky-700 font-bold text-xs border border-sky-100">
+                {part.name}
+              </span>
+              <span class={`text-[11px] font-semibold px-2 py-0.5 rounded ${part.skill === 'Listening' ? 'bg-amber-50 text-amber-700' : 'bg-emerald-50 text-emerald-700'}`}>
+                {part.skill} ({part.questionCount} câu)
+              </span>
+            </div>
+
+            <h3 class="font-bold text-base text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
+              {part.title}
+            </h3>
+
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+              {part.description}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-sky-600 font-semibold">
+            <span>Luyện tập ngay</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Key Advantages / Features -->
+  <section class="py-12 border-t border-slate-200">
+    <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Trọn Bộ Công Cụ Học Tập Toàn Diện</h2>
+      <p class="text-xs sm:text-sm text-slate-500">Được tối ưu để giúp thí sinh bứt phá mục tiêu điểm số từ 500+ lên 850+</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2.5">
+        <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-lg">
+          🎧
+        </div>
+        <h4 class="font-bold text-slate-900 text-sm">Smart Audio Controller</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Tùy chỉnh tốc độ phát 0.8x - 1.5x, tua nhanh/lùi ±5s và lặp đoạn phục vụ luyện nghe chép chính tả (Dictation).
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2.5">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg">
+          📊
+        </div>
+        <h4 class="font-bold text-slate-900 text-sm">Biểu Đồ Radar & CEFR</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Đánh giá năng lực 7 phần trực quan qua biểu đồ mạng nhện SVG và xếp hạng khung tham chiếu châu Âu (A1 - C1+).
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2.5">
+        <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg">
+          📕
+        </div>
+        <h4 class="font-bold text-slate-900 text-sm">Sổ Tay Câu Sai</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Tự động ghi nhận mọi câu trả lời sai vào bộ nhớ máy, cho phép làm lại tới khi hiểu bản chất câu hỏi.
+        </p>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2.5">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">
+          🏆
+        </div>
+        <h4 class="font-bold text-slate-900 text-sm">Bảng Xếp Hạng & Sync</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Vinh danh thí sinh xuất sắc, xuất báo cáo Excel/CSV và đồng bộ điểm thi tự động qua Google Sheets Webhook.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section for SEO -->
+  <section class="py-12 border-t border-slate-200">
+    <div class="max-w-3xl mx-auto space-y-6">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900 text-center">Câu Hỏi Thường Gặp Về Kỳ Thi TOEIC</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div class="bg-white p-5 rounded-xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 mb-1">Cấu trúc bài thi TOEIC 2 kỹ năng gồm những gì?</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Bài thi TOEIC gồm 2 phần chính: Listening (100 câu trong 45 phút, gồm Part 1 đến Part 4) và Reading (100 câu trong 75 phút, gồm Part 5 đến Part 7). Thang điểm tối đa là 990 điểm (mỗi phần 495 điểm).
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 mb-1">Làm thế nào để cải thiện điểm số TOEIC Listening?</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Tập thói quen đọc trước câu hỏi và đáp án trước khi băng phát. Sử dụng tính năng Audio Controller để nghe lại ở tốc độ 0.8x hoặc 1.2x để rèn luyện phản xạ nghe từ khóa (keywords) và các hiện tượng nối âm, nuốt âm.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl border border-slate-200">
+          <h4 class="font-bold text-slate-900 mb-1">Hệ thống có lưu lại kết quả thi và câu làm sai không?</h4>
+          <p class="text-slate-600 leading-relaxed">
+            Toàn bộ lịch sử làm bài, thứ hạng trên bảng xếp hạng và các câu bạn trả lời sai đều được tự động lưu trữ trên trình duyệt của bạn (Local Storage) mà không cần đăng ký tài khoản phức tạp.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

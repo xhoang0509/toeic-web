@@ -1,0 +1,68 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+}
+
+const {
+  title,
+  description,
+  image = `${import.meta.env.BASE_URL}/data/apple-touch-icon.png`,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  type = 'website',
+} = Astro.props;
+
+const siteTitle = 'TOEIC Web Assessment — Luyện Thi & Thi Thử Chuẩn Quốc Tế';
+const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
+<link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}/data/apple-touch-icon.png`} />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="author" content="xhoang0509" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:locale" content="vi_VN" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "EducationalApplication",
+  "name": fullTitle,
+  "description": description,
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "VND"
+  },
+  "inLanguage": "vi"
+})} />

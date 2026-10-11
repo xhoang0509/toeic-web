@@ -1,0 +1,49 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { PracticeRunner } from '../../components/react/PracticeRunner';
+import { PARTS_META } from '../../data/types';
+import questions from '../../data/questions.json';
+import type { Question } from '../../data/types';
+
+const typedQuestions = questions as Question[];
+const base = import.meta.env.BASE_URL;
+
+const pageTitle = 'Luyện Thi TOEIC Theo Từng Part — Part 1 Đến Part 7 Có Đáp Án';
+const pageDescription = 'Ôn luyện chuyên sâu trọn bộ 7 phần TOEIC: Part 1 Mô tả tranh, Part 2 Hỏi đáp, Part 3 Hội thoại, Part 4 Bài nói, Part 5 Điền câu, Part 6 Điền đoạn văn, Part 7 Đọc hiểu với lời giải chi tiết.';
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <div class="mb-6">
+    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+      <a href={`${base}/`} class="hover:text-sky-600">Trang chủ</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">Luyện tập theo từng Part</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+      Chế Độ Luyện Thi Chuyên Sâu Từng Phần
+    </h1>
+    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+      Chọn từng Part để tập trung củng cố kỹ năng còn yếu. Có thể bật/tắt đáp án để tự kiểm tra hoặc xem lời giải tức thì.
+    </p>
+  </div>
+
+  <!-- Part Navigation Tabs -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 mb-8">
+    {PARTS_META.map((part) => (
+      <a
+        href={`${base}/practice/${part.slug}`}
+        class="p-3 bg-white hover:bg-sky-50 rounded-xl border border-slate-200 hover:border-sky-300 transition-all text-center group"
+      >
+        <div class="font-extrabold text-xs text-slate-900 group-hover:text-sky-600">
+          {part.name}
+        </div>
+        <div class="text-[10px] text-slate-400 mt-0.5 truncate">
+          {part.questionCount} câu
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- Interactive Runner Island -->
+  <PracticeRunner client:load questions={typedQuestions} />
+</MainLayout>

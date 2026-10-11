@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { LeaderboardTable } from '../components/react/LeaderboardTable';
+
+const base = import.meta.env.BASE_URL;
+
+const pageTitle = 'Bảng Xếp Hạng Thí Sinh TOEIC Online — Top Điểm Cao & Vinh Danh';
+const pageDescription = 'Bảng xếp hạng thành tích thi thử TOEIC theo thời gian thực. Vinh danh top thí sinh đạt điểm cao nhất, thống kê điểm trung bình và xuất báo cáo CSV.';
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <div class="mb-6">
+    <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+      <a href={`${base}/`} class="hover:text-sky-600">Trang chủ</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">Bảng xếp hạng</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+      Bảng Vàng Thành Tích Thí Sinh
+    </h1>
+    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+      Hệ thống xếp hạng đa tiêu chí: Điểm thi TOEIC cao hơn ➔ Thời gian làm bài ngắn hơn ➔ Nộp bài sớm hơn.
+    </p>
+  </div>
+
+  <LeaderboardTable client:load />
+</MainLayout>

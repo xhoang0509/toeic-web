@@ -4,7 +4,10 @@
   "description": "Hệ thống thi và đánh giá năng lực tiếng Anh TOEIC Online với tính năng Xếp hạng (Leaderboard), Tra cứu đáp án và Báo cáo chi tiết",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve -l 3000 .",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "serve": "python3 -m http.server 3000",
     "extract": "node scripts/extract_quiz.js",
     "inject": "node scripts/inject_answers.js",
@@ -29,5 +32,20 @@
   "bugs": {
     "url": "https://github.com/xhoang0509/toiec-web/issues"
   },
-  "homepage": "https://xhoang0509.github.io/toiec-web/"
+  "homepage": "https://xhoang0509.github.io/toiec-web/",
+  "dependencies": {
+    "@astrojs/react": "^7.0.1",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/tailwind": "^6.0.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.3.8",
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^1.55.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2"
+  }
 }
