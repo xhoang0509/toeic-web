@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import type { Question } from '../../data/types';
 import { QuestionCard } from './QuestionCard';
 import { Storage } from '../../lib/storage';
-import { Eye, EyeOff, RotateCcw, CheckCircle2, ChevronLeft, ChevronRight, Layers } from 'lucide-react';
+import { Eye, EyeOff, RotateCcw, CheckCircle2, ChevronLeft, ChevronRight, Layers, Shuffle } from 'lucide-react';
+import { shuffleToeicQuestions } from '../../lib/shuffle';
+import { checkAnswerOnServer } from '../../lib/api';
 
 interface PracticeRunnerProps {
   questions: Question[];
@@ -17,7 +19,12 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showInstantAnswer, setShowInstantAnswer] = useState<boolean>(true);
+  const [isShuffled, setIsShuffled] = useState<boolean>(false);
   const [savedMistakes, setSavedMistakes] = useState<Set<string>>(new Set());
+  const [verifiedAnswers, setVerifiedAnswers] = useState<
+    Record<string, { isCorrect: boolean; correctLetter: string; explanation: string }>
+  >({});
+  const [verifyingId, setVerifyingId] = useState<string | null>(null);
 
   // Load mistake bookmarks
   useEffect(() => {
@@ -25,23 +32,46 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
     setSavedMistakes(new Set(list.map((m) => m.questionId)));
   }, []);
 
-  const filteredQuestions = selectedPart === 0
+  const baseQuestions = selectedPart === 0
     ? questions
     : questions.filter((q) => q.partId === selectedPart);
 
+  const filteredQuestions = React.useMemo(() => {
+    return isShuffled
+      ? shuffleToeicQuestions(baseQuestions, { keepPartsInOrder: true, shuffleReadingOptions: true })
+      : baseQuestions;
+  }, [baseQuestions, isShuffled]);
+
   const currentQuestion = filteredQuestions[currentIndex] || filteredQuestions[0];
 
-  const handleSelectOption = (questionId: string, letter: string) => {
+  const handleSelectOption = async (questionId: string, letter: string) => {
     setAnswers((prev) => ({
       ...prev,
       [questionId]: letter,
     }));
 
-    // If answer is wrong, auto-add to mistakes
-    const q = questions.find((item) => item.id === questionId);
-    if (q && letter !== q.correctLetter) {
-      Storage.addMistake(questionId, letter);
-      setSavedMistakes((prev) => new Set(prev).add(questionId));
+    if (showInstantAnswer) {
+      setVerifyingId(questionId);
+      const cand = Storage.getCandidate();
+      const res = await checkAnswerOnServer(questionId, letter, cand?.emailOrCode);
+      setVerifyingId(null);
+
+      if (res.success && res.correctLetter) {
+        const isRight = Boolean(res.isCorrect);
+        setVerifiedAnswers((prev) => ({
+          ...prev,
+          [questionId]: {
+            isCorrect: isRight,
+            correctLetter: res.correctLetter!,
+            explanation: res.explanation || '',
+          },
+        }));
+
+        if (!isRight) {
+          Storage.addMistake(questionId, letter);
+          setSavedMistakes((prev) => new Set(prev).add(questionId));
+        }
+      }
     }
   };
 
@@ -61,7 +91,7 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
   };
 
   const answeredInPart = filteredQuestions.filter((q) => Boolean(answers[q.id])).length;
-  const correctInPart = filteredQuestions.filter((q) => answers[q.id] === q.correctLetter).length;
+  const correctInPart = filteredQuestions.filter((q) => verifiedAnswers[q.id]?.isCorrect).length;
 
   return (
     <div className="space-y-6">
@@ -116,18 +146,37 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
             )}
           </div>
 
-          <button
-            type="button"
-            onClick={() => setShowInstantAnswer(!showInstantAnswer)}
-            className={`px-3 py-1.5 rounded-xl border flex items-center gap-1.5 font-semibold transition-all ${
-              showInstantAnswer
-                ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300'
-            }`}
-          >
-            {showInstantAnswer ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
-            <span>{showInstantAnswer ? 'Hiện đáp án: BẬT' : 'Hiện đáp án: TẮT'}</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setIsShuffled(!isShuffled);
+                setCurrentIndex(0);
+              }}
+              title="Xáo trộn câu hỏi và đáp án để tăng độ khó"
+              className={`px-3 py-1.5 rounded-xl border flex items-center gap-1.5 font-semibold transition-all ${
+                isShuffled
+                  ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-300'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300'
+              }`}
+            >
+              <Shuffle className="w-3.5 h-3.5" />
+              <span>{isShuffled ? 'Xáo trộn: BẬT' : 'Xáo trộn: TẮT'}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setShowInstantAnswer(!showInstantAnswer)}
+              className={`px-3 py-1.5 rounded-xl border flex items-center gap-1.5 font-semibold transition-all ${
+                showInstantAnswer
+                  ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300'
+              }`}
+            >
+              {showInstantAnswer ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+              <span>{showInstantAnswer ? 'Hiện đáp án: BẬT' : 'Hiện đáp án: TẮT'}</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -140,6 +189,8 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
             onSelectOption={(letter) => handleSelectOption(currentQuestion.id, letter)}
             mode="practice"
             showInstantAnswer={showInstantAnswer}
+            verifiedAnswer={verifiedAnswers[currentQuestion.id]}
+            isVerifying={verifyingId === currentQuestion.id}
             isSavedMistake={savedMistakes.has(currentQuestion.id)}
             onToggleMistake={() => toggleMistake(currentQuestion.id)}
             questionIndex={currentIndex}

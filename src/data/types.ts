@@ -6,7 +6,7 @@ export interface MediaFile {
 export interface Option {
   letter: string;
   text: string;
-  isCorrect: boolean;
+  isCorrect?: boolean;
 }
 
 export interface Question {
@@ -20,10 +20,20 @@ export interface Question {
   mediaFiles?: MediaFile[];
   question: string;
   options: Option[];
-  correctLetter: string;
-  correctAnswer: string;
-  explanation: string;
+  correctLetter?: string;
+  correctAnswer?: string;
+  explanation?: string;
   passage?: string;
+}
+
+export interface UserAccount {
+  email: string;
+  name: string;
+  status: 'ACTIVE' | 'BANNED';
+  totalExams: number;
+  bestScore: number;
+  lastActive: string;
+  bannedReason?: string;
 }
 
 export interface PartMeta {

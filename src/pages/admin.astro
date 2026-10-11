@@ -1,0 +1,15 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { AdminDashboard } from '../components/react/AdminDashboard';
+
+const pageTitle = 'Quản Trị Hệ Thống — TOEIC Assessment & Google Sheet Config';
+const pageDescription = 'Khu vực quản trị cấu hình hệ thống, bảo mật Secret Token và dữ liệu Google Sheet.';
+---
+
+<MainLayout title={pageTitle} description={pageDescription}>
+  <head slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <AdminDashboard client:only="react" />
+</MainLayout>

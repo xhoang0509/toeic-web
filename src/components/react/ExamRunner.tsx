@@ -6,6 +6,8 @@ import { RadarSkillChart } from './RadarSkillChart';
 import { Storage } from '../../lib/storage';
 import { calculateScaledToeic, calculateSectionScaledScore, getCefrLevel, formatTime } from '../../lib/score';
 import { syncExamResultToWebhook } from '../../lib/webhook';
+import { gradeExamOnServer } from '../../lib/api';
+import { shuffleToeicQuestions } from '../../lib/shuffle';
 import confetti from 'canvas-confetti';
 import {
   Clock,
@@ -19,6 +21,8 @@ import {
   RotateCcw,
   Trophy,
   Award,
+  Loader2,
+  AlertTriangle,
 } from 'lucide-react';
 
 interface ExamRunnerProps {
@@ -26,6 +30,9 @@ interface ExamRunnerProps {
 }
 
 export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
+  const [examQuestions] = useState<Question[]>(() =>
+    shuffleToeicQuestions(questions, { keepPartsInOrder: true, shuffleReadingOptions: true })
+  );
   const [candidate, setCandidate] = useState<CandidateInfo | null>(null);
   const [showOnboarding, setShowOnboarding] = useState<boolean>(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -36,6 +43,9 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
   const [showConfirmSubmit, setShowConfirmSubmit] = useState<boolean>(false);
   const [showNavigator, setShowNavigator] = useState<boolean>(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
+  const [reviewDetails, setReviewDetails] = useState<Record<string, { correctLetter: string; explanation: string; isCorrect: boolean }>>({});
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string>('');
   const [showCertificate, setShowCertificate] = useState<boolean>(false);
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -70,7 +80,7 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
     };
   }, [candidate, isExamCompleted]);
 
-  const currentQuestion = questions[currentIndex] || questions[0];
+  const currentQuestion = examQuestions[currentIndex] || examQuestions[0];
 
   const answeredCount = Object.keys(answers).length;
   const flaggedCount = flaggedIds.size;
@@ -95,84 +105,40 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
     });
   };
 
-  const handleSubmitExam = () => {
+  const handleSubmitExam = async () => {
     if (timerRef.current) clearInterval(timerRef.current);
-    setShowConfirmSubmit(false);
-
-    // Calculate score
-    let totalCorrect = 0;
-    let listeningCorrect = 0;
-    let readingCorrect = 0;
-    let totalListening = 0;
-    let totalReading = 0;
-
-    const partTotal: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 };
-    const partCorrect: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 };
-
-    questions.forEach((q) => {
-      const selected = answers[q.id];
-      partTotal[q.partId] = (partTotal[q.partId] || 0) + 1;
-      if (q.skill === 'Listening') totalListening++;
-      else totalReading++;
-
-      if (selected === q.correctLetter) {
-        totalCorrect++;
-        partCorrect[q.partId] = (partCorrect[q.partId] || 0) + 1;
-        if (q.skill === 'Listening') listeningCorrect++;
-        else readingCorrect++;
-      } else {
-        // Automatically save wrong question to mistakes notebook
-        Storage.addMistake(q.id, selected || 'NONE');
-      }
-    });
-
-    const partAccuracy: Record<number, number> = {};
-    for (let p = 1; p <= 7; p++) {
-      const tot = partTotal[p] || 1;
-      const cor = partCorrect[p] || 0;
-      partAccuracy[p] = Math.round((cor / tot) * 100);
-    }
-
-    const scaledListening = calculateSectionScaledScore(listeningCorrect, totalListening);
-    const scaledReading = calculateSectionScaledScore(readingCorrect, totalReading);
-    const totalScaled = scaledListening + scaledReading;
-    const cefr = getCefrLevel(totalScaled);
+    setIsSubmitting(true);
+    setSubmitError('');
 
     const timeSpent = 120 * 60 - secondsRemaining;
-    const now = new Date();
-    const dateStr = `${now.getDate() < 10 ? '0' : ''}${now.getDate()}/${now.getMonth() + 1 < 10 ? '0' : ''}${now.getMonth() + 1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes() < 10 ? '0' : ''}${now.getMinutes()}`;
+    const cand = candidate || { name: 'Thí sinh', emailOrCode: 'HV-0000', targetScore: '650+' };
 
-    const result: ExamResult = {
-      id: `EXAM-${Date.now()}`,
-      candidateName: candidate?.name || 'Thí sinh',
-      candidateId: candidate?.emailOrCode || 'HV-0000',
-      targetScore: candidate?.targetScore || '650+',
-      totalCorrect,
-      totalQuestions: questions.length,
-      listeningCorrect,
-      readingCorrect,
-      scaledListening,
-      scaledReading,
-      totalScaledScore: totalScaled,
-      cefrLevel: cefr.level,
-      partAccuracy,
-      timeSpentSeconds: timeSpent,
-      completedAt: dateStr,
-    };
+    const serverRes = await gradeExamOnServer(cand, timeSpent, answers);
+    setIsSubmitting(false);
 
-    setExamResult(result);
-    setIsExamCompleted(true);
-    Storage.addExamResult(result);
-    syncExamResultToWebhook(result);
-
-    // Confetti celebration
-    try {
-      confetti({
-        particleCount: 120,
-        spread: 80,
-        origin: { y: 0.6 },
-      });
-    } catch {}
+    if (serverRes.success && serverRes.examResult) {
+      setShowConfirmSubmit(false);
+      setExamResult(serverRes.examResult);
+      if (serverRes.reviewDetails) {
+        setReviewDetails(serverRes.reviewDetails);
+        Object.entries(serverRes.reviewDetails).forEach(([qId, detail]) => {
+          if (!detail.isCorrect) {
+            Storage.addMistake(qId, answers[qId] || 'NONE');
+          }
+        });
+      }
+      setIsExamCompleted(true);
+      Storage.addExamResult(serverRes.examResult);
+      try {
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 },
+        });
+      } catch {}
+    } else {
+      setSubmitError(serverRes.error || 'Lỗi khi nộp bài thi. Vui lòng kiểm tra lại kết nối.');
+    }
   };
 
   return (
@@ -225,7 +191,7 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
               <ListFilter className="w-4 h-4 text-sky-500" />
               <span className="hidden md:inline">Bảng câu hỏi:</span>
               <span className="font-bold text-sky-600 dark:text-sky-400">
-                {answeredCount}/{questions.length}
+                {answeredCount}/{examQuestions.length}
               </span>
             </button>
 
@@ -272,13 +238,13 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
             </button>
 
             <span className="text-xs font-semibold text-slate-400">
-              Câu {currentIndex + 1} trên {questions.length}
+              Câu {currentIndex + 1} trên {examQuestions.length}
             </span>
 
             <button
               type="button"
-              disabled={currentIndex === questions.length - 1}
-              onClick={() => setCurrentIndex((prev) => Math.min(questions.length - 1, prev + 1))}
+              disabled={currentIndex === examQuestions.length - 1}
+              onClick={() => setCurrentIndex((prev) => Math.min(examQuestions.length - 1, prev + 1))}
               className="px-4 py-2.5 rounded-xl bg-sky-600 text-white font-semibold text-xs flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-sky-500 transition-colors shadow-sm"
             >
               <span>Câu tiếp theo</span>
@@ -311,7 +277,7 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
                     {examResult?.scaledListening}
                   </div>
                   <div className="text-[11px] text-slate-400">
-                    {examResult?.listeningCorrect}/{questions.filter((q) => q.skill === 'Listening').length} câu
+                    {examResult?.listeningCorrect}/{examQuestions.filter((q) => q.skill === 'Listening').length} câu
                   </div>
                 </div>
 
@@ -321,7 +287,7 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
                     {examResult?.scaledReading}
                   </div>
                   <div className="text-[11px] text-slate-400">
-                    {examResult?.readingCorrect}/{questions.filter((q) => q.skill === 'Reading').length} câu
+                    {examResult?.readingCorrect}/{examQuestions.filter((q) => q.skill === 'Reading').length} câu
                   </div>
                 </div>
 
@@ -393,7 +359,7 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
             </div>
 
             <div className="overflow-y-auto flex-1 my-4 grid grid-cols-6 sm:grid-cols-10 gap-2 p-1">
-              {questions.map((q, idx) => {
+              {examQuestions.map((q, idx) => {
                 const isAns = Boolean(answers[q.id]);
                 const isFlg = flaggedIds.has(q.id);
                 const isCur = idx === currentIndex;
@@ -441,28 +407,44 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">Bạn Muốn Nộp Bài Thi?</h3>
 
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Bạn đã hoàn thành <span className="font-bold text-slate-800 dark:text-slate-200">{answeredCount}/{questions.length}</span> câu hỏi.
-              {questions.length - answeredCount > 0 && (
+              Bạn đã hoàn thành <span className="font-bold text-slate-800 dark:text-slate-200">{answeredCount}/{examQuestions.length}</span> câu hỏi.
+              {examQuestions.length - answeredCount > 0 && (
                 <span className="text-rose-500 block mt-1 font-semibold">
-                  (Còn {questions.length - answeredCount} câu chưa trả lời)
+                  (Còn {examQuestions.length - answeredCount} câu chưa trả lời)
                 </span>
               )}
             </p>
 
+            {submitError && (
+              <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-semibold flex items-center gap-2 text-left">
+                <AlertTriangle className="w-4 h-4 shrink-0 text-rose-600" />
+                <span>{submitError}</span>
+              </div>
+            )}
+
             <div className="flex gap-2 pt-2">
               <button
                 type="button"
+                disabled={isSubmitting}
                 onClick={() => setShowConfirmSubmit(false)}
-                className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="flex-1 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50"
               >
                 Tiếp tục làm bài
               </button>
               <button
                 type="button"
+                disabled={isSubmitting}
                 onClick={handleSubmitExam}
-                className="flex-1 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold shadow-md shadow-sky-600/20"
+                className="flex-1 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold shadow-md shadow-sky-600/20 flex items-center justify-center gap-1.5 disabled:opacity-50"
               >
-                Xác nhận nộp bài
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Đang chấm điểm...</span>
+                  </>
+                ) : (
+                  <span>Xác nhận nộp bài</span>
+                )}
               </button>
             </div>
           </div>
