@@ -45,5 +45,6 @@ Thumbs.db
 *.temp
 *~
 
-# Tooling cache
+# Tooling cache & private config
 .codegraph/
+.clasp.json
