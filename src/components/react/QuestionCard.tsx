@@ -61,7 +61,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     : (correctLetter ? selectedLetter === correctLetter : false);
 
   const showAnswerFeedback = Boolean(
-    (mode === 'practice' && showInstantAnswer && (verifiedAnswer || correctLetter)) ||
+    (mode === 'practice' && showInstantAnswer && isAnswered && (verifiedAnswer || correctLetter)) ||
     (mode === 'exam' && verifiedAnswer)
   );
 
@@ -222,7 +222,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       </div>
 
       {/* Explanation toggle for Practice Mode or Post-Exam Review */}
-      {(verifiedAnswer || (mode === 'practice' && question.explanation)) && (
+      {showAnswerFeedback && (verifiedAnswer?.explanation || question.explanation) && (
         <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
           <button
             type="button"
@@ -233,7 +233,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             <span>
               {showExplanation
                 ? 'Ẩn lời giải thích & Transcript'
-                : 'Xem lời giải thích & Transcript (Từ máy chủ)'}
+                : 'Xem lời giải thích & Transcript'}
             </span>
             {showExplanation ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
@@ -245,7 +245,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                   Đáp án chính xác:
                 </span>
                 <span className="px-2 py-0.5 rounded font-extrabold text-xs bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                  {correctLetter}
+                  {question.correctAnswer || correctLetter}
                 </span>
               </div>
               <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">

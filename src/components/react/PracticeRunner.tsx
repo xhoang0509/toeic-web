@@ -50,28 +50,83 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
       [questionId]: letter,
     }));
 
-    if (showInstantAnswer) {
+    const q = filteredQuestions.find((item) => item.id === questionId) || questions.find((item) => item.id === questionId);
+    const localCorrect = q?.correctLetter;
+    const isLocalRight = localCorrect ? letter === localCorrect : false;
+
+    // Immediately record mistake if wrong
+    if (localCorrect && !isLocalRight) {
+      Storage.addMistake(questionId, letter);
+      setSavedMistakes((prev) => new Set(prev).add(questionId));
+    }
+
+    // If instant answer is ON, immediately display local verified answer
+    if (showInstantAnswer && localCorrect) {
+      setVerifiedAnswers((prev) => ({
+        ...prev,
+        [questionId]: {
+          isCorrect: isLocalRight,
+          correctLetter: localCorrect,
+          explanation: q?.explanation || '',
+        },
+      }));
+    }
+
+    // Also check on server asynchronously if webhook is configured
+    const settings = Storage.getSettings();
+    if (showInstantAnswer && settings.webhookUrl) {
       setVerifyingId(questionId);
       const cand = Storage.getCandidate();
-      const res = await checkAnswerOnServer(questionId, letter, cand?.emailOrCode);
-      setVerifyingId(null);
+      try {
+        const res = await checkAnswerOnServer(questionId, letter, cand?.emailOrCode);
+        if (res.success && res.correctLetter) {
+          const isRight = Boolean(res.isCorrect);
+          setVerifiedAnswers((prev) => ({
+            ...prev,
+            [questionId]: {
+              isCorrect: isRight,
+              correctLetter: res.correctLetter!,
+              explanation: res.explanation || q?.explanation || '',
+            },
+          }));
 
-      if (res.success && res.correctLetter) {
-        const isRight = Boolean(res.isCorrect);
-        setVerifiedAnswers((prev) => ({
-          ...prev,
-          [questionId]: {
-            isCorrect: isRight,
-            correctLetter: res.correctLetter!,
-            explanation: res.explanation || '',
-          },
-        }));
-
-        if (!isRight) {
-          Storage.addMistake(questionId, letter);
-          setSavedMistakes((prev) => new Set(prev).add(questionId));
+          if (!isRight) {
+            Storage.addMistake(questionId, letter);
+            setSavedMistakes((prev) => new Set(prev).add(questionId));
+          }
         }
+      } catch (e) {
+        console.warn('Server verification error, using local answer:', e);
+      } finally {
+        setVerifyingId(null);
       }
+    }
+  };
+
+  const handleToggleInstantAnswer = () => {
+    const nextVal = !showInstantAnswer;
+    setShowInstantAnswer(nextVal);
+
+    if (nextVal) {
+      // Reveal answers for all questions already answered
+      setVerifiedAnswers((prev) => {
+        const updated = { ...prev };
+        let changed = false;
+        Object.entries(answers).forEach(([qId, selected]) => {
+          if (!updated[qId]) {
+            const q = questions.find((item) => item.id === qId);
+            if (q && q.correctLetter) {
+              updated[qId] = {
+                isCorrect: selected === q.correctLetter,
+                correctLetter: q.correctLetter,
+                explanation: q.explanation || '',
+              };
+              changed = true;
+            }
+          }
+        });
+        return changed ? updated : prev;
+      });
     }
   };
 
@@ -91,7 +146,10 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
   };
 
   const answeredInPart = filteredQuestions.filter((q) => Boolean(answers[q.id])).length;
-  const correctInPart = filteredQuestions.filter((q) => verifiedAnswers[q.id]?.isCorrect).length;
+  const correctInPart = filteredQuestions.filter((q) => {
+    if (verifiedAnswers[q.id]) return verifiedAnswers[q.id].isCorrect;
+    return q.correctLetter ? answers[q.id] === q.correctLetter : false;
+  }).length;
 
   return (
     <div className="space-y-6">
@@ -166,7 +224,7 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
 
             <button
               type="button"
-              onClick={() => setShowInstantAnswer(!showInstantAnswer)}
+              onClick={handleToggleInstantAnswer}
               className={`px-3 py-1.5 rounded-xl border flex items-center gap-1.5 font-semibold transition-all ${
                 showInstantAnswer
                   ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300'

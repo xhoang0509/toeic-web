@@ -1,5 +1,5 @@
 // ====================================================================
-// TOEIC Online Assessment - Backend Google Sheets Relational Database
+// TOEIC Online Assessment - Backend Google Sheets Relational Database v5.1
 // 4 Tables (Sheets):
 //   1. Questions: 183 câu hỏi + Đáp án bí mật (Zero-knowledge client)
 //   2. Results: Lịch sử nộp bài & bảng điểm đã chấm
@@ -10,9 +10,26 @@
 const DEFAULT_SECRET_TOKEN = "toeic_sec_1348139a3a0834c247a8d3bde88cb3d5ce2a8d6023f7f68d";
 // Mật khẩu Admin mặc định: admin@toeic2026 (SHA-256 hash)
 const DEFAULT_ADMIN_PASSWORD_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
+const SPREADSHEET_ID = "1fYNv2Zc9AwlC93-q7GiuY6xjtHq-tV-P07k_CSPY7tw";
+
+function getSpreadsheet() {
+  let ss = null;
+  try {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+  } catch (e) {}
+  if (!ss) {
+    try {
+      ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    } catch (e) {}
+  }
+  return ss;
+}
 
 function getOrInitDatabase() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet();
+  if (!ss) {
+    throw new Error("Không thể mở Google Spreadsheet Database: " + SPREADSHEET_ID);
+  }
 
   // -----------------------------------------------------------
   // 1. Table Questions (Chứa 183 câu hỏi & đáp án bí mật)
@@ -294,8 +311,6 @@ function doPost(e) {
 
     const data = JSON.parse(e.postData.contents);
     const action = data.action || "gradeExam";
-    const configs = readAllConfigs();
-    const db = getOrInitDatabase();
 
     // ---------------------------------------------------------
     // ACTION: ADMIN AUTHENTICATION
@@ -303,7 +318,13 @@ function doPost(e) {
     if (action === "adminLogin") {
       const inputPass = String(data.password || "");
       const inputHash = computeSha256(inputPass);
-      const storedHash = configs.admin_password_hash || DEFAULT_ADMIN_PASSWORD_HASH;
+      let storedHash = DEFAULT_ADMIN_PASSWORD_HASH;
+      try {
+        const configs = readAllConfigs();
+        if (configs && configs.admin_password_hash) {
+          storedHash = configs.admin_password_hash;
+        }
+      } catch (err) {}
 
       if (inputHash === storedHash) {
         return jsonResponse({
@@ -314,6 +335,9 @@ function doPost(e) {
       }
       return jsonResponse({ success: false, error: "Sai mật khẩu quản trị viên" });
     }
+
+    const configs = readAllConfigs();
+    const db = getOrInitDatabase();
 
     // ---------------------------------------------------------
     // ACTION: ADMIN GET ALL DATA (Configs + Users + Results)
