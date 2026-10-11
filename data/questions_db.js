@@ -1,0 +1,7332 @@
+window.TOEIC_QUESTIONS_DB = [
+  {
+    "id": "{D3BCB42C-E18F-44CF-87D8-9580FC45F079}",
+    "questionNumber": 1,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound820AC5C5-2474-4F69-A4C3-2A83410B3180.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/imgF388E9C2-A2AA-4CA1-ACCF-1CC752DDCEA6.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{0187387C-7E66-4993-A935-535BBD3DED3A}",
+    "questionNumber": 2,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound5C8EAD45-5FF4-4BC8-8DDC-0CF4A4EAE2C2.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img21EC1B16-1664-435C-914F-1F9FB70DF15B.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. D",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{D0468EBC-E0ED-420F-A6FA-86704EFDEEE0}",
+    "questionNumber": 3,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound28728B17-7753-4086-8C39-8EDD4F021A80.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img27D8DEB9-7C04-480B-8BAA-752B3E6E782D.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{365EDD21-C618-4676-8A95-CD984D38CE5E}",
+    "questionNumber": 4,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound9CC7663B-45CD-4BF7-ABDD-D183B0C2433A.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img4C4F053D-94AB-4569-A286-443949CBFB66.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{D40BA071-DE7E-4EBE-8672-FF0A1BCA5534}",
+    "questionNumber": 5,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound8B5423C5-4FA9-44B2-8130-EA0E3CD8E408.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img0F033346-6DA2-44A9-9728-939755F6BF2A.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{4BBF8E98-DB98-463D-B997-5BE2C6DA0AE5}",
+    "questionNumber": 6,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundBF9B9D8C-8AED-47A9-8643-86184DB040CF.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img96020CF5-B934-4E15-BED4-2B91810B6114.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{852E0AF2-6BC3-4BAB-97F7-E30C9285E583}",
+    "questionNumber": 7,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundC67BDD89-1974-438C-9FAE-28C262F67363.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img4B120F8F-7AD0-4C7A-8125-412E6E5CB333.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{6A0A3B37-1D39-4055-A536-ACA0F3A30B42}",
+    "questionNumber": 8,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound326AE5BB-354B-4357-8230-437FC90CEB07.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img730902F2-1A85-41CE-9B7F-3B8EBC515092.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{3C8AD70F-D1EA-469A-A3FF-3FDBD9D8F72D}",
+    "questionNumber": 9,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound5E268EFE-F7A1-4911-8D1C-82DC0A0CEF16.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img0968125C-D48E-4208-84E7-F80B9C6E601C.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{82F6521A-6DF2-4364-A0EF-102AE9A57901}",
+    "questionNumber": 10,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundF4BEC46C-D5A8-4565-9080-F177B4BF11B1.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img84E5E833-B3B1-4E02-AE40-8F1719AF0AD9.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. D",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{2DEA08D0-FB22-435C-B3EC-FA7CA4271F8B}",
+    "questionNumber": 11,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundB890D34F-EAB8-48F2-9AE7-72E0707E2974.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/imgE65A2726-0349-4B8A-95DB-4C27C1B3EC50.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{C2475E06-8569-4793-BBD8-8370B7C58F5F}",
+    "questionNumber": 12,
+    "partId": 1,
+    "partName": "Part 1 - Mô tả tranh (Photographs)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio + Image",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound4D63A134-8497-41CF-B879-8475960A1D1B.mp3"
+      },
+      {
+        "type": "image",
+        "file": "quiz1/img091A0050-7CE0-4CF4-8D98-F48C2E1865C1.jpg"
+      }
+    ],
+    "question": "Chọn mô tả phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "D",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. D",
+    "explanation": "Quan sát hành động của người hoặc vị trí các đồ vật trong tranh để chọn đáp án miêu tả chính xác và khách quan nhất. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{A1BD544F-9E12-44C1-9905-9812404570E2}",
+    "questionNumber": 13,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundC1B7A068-A387-4179-B165-4D8FE69E0748.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{83FEFE5E-5F70-494F-8D65-E27E4103EC6A}",
+    "questionNumber": 14,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound748CA4A6-8474-415C-B13C-F07A12CB44F2.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{14442642-29CA-420A-B767-BF7D825DEBDF}",
+    "questionNumber": 15,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound4A76E9A7-FF1A-4F2C-83C5-C34601C09E46.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{1D2AA4DA-07B4-45BE-93A7-07FB7CEDC6DF}",
+    "questionNumber": 16,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundA80D22F0-7A3E-4E11-8B22-7EF461D98D00.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{B8FF119F-C6FB-47E1-BDFE-1E459AB88F87}",
+    "questionNumber": 17,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound601D83FA-AB23-486E-A912-EF9E7A2B837F.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{776B223C-A09C-437F-AA94-0398BC317AEC}",
+    "questionNumber": 18,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundA4CDB188-9DB1-4668-B987-7211902B1C75.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{9A6E282C-D05E-48E8-9158-355ADCF57D17}",
+    "questionNumber": 19,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound28C318C2-B184-4CF9-92EB-D0CA13F539D7.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{36B6C76B-019E-4378-AF0E-BAC1EBA27847}",
+    "questionNumber": 20,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundA567055B-0412-4006-81F9-92413BBC9A96.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{3911F877-9B06-4D3A-ABAB-81EE6AD9DE06}",
+    "questionNumber": 21,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound1B09B0B4-9BCD-4496-8536-547D365DC99C.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{14BDA11F-867E-4C32-AFD9-3E65BDF9D251}",
+    "questionNumber": 22,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundE95B2C04-D8BC-40D1-8D98-805DCFCD18A0.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{C391A323-8E03-4E1C-ADA5-25678E206C4F}",
+    "questionNumber": 23,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound20BFAF70-1643-49DD-9510-469856B315A8.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{423FC7B3-4483-4224-AA85-02B8CE635631}",
+    "questionNumber": 24,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound41216055-654D-46D9-AE16-56967DC79BFF.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{2F78D2BC-C310-44F3-B664-A66AD42F55D7}",
+    "questionNumber": 25,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound14D6B9A9-B444-4C8B-A540-58D232865625.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{C4F410F0-C5BA-42EC-B1C8-5A4D3FD939C5}",
+    "questionNumber": 26,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound5271844A-F6E0-46CB-BCF1-2DACE1A2F43F.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{0D432DB1-AC6A-4B6F-9E2F-67DD17FC764F}",
+    "questionNumber": 27,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound594379D6-0A93-435F-8DBC-EE832C9E91E2.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{1BE9DE16-E04C-4C66-9424-03BF25FECC50}",
+    "questionNumber": 28,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound1C00021C-84FA-4CA8-966F-B8B9DC78B167.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{0E90939C-A777-477B-9351-8757600ACC57}",
+    "questionNumber": 29,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound607BDBE2-6443-41B0-A891-DF6F2683BE3F.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{3CE02949-0CE5-4A00-9C99-CA881693FD0B}",
+    "questionNumber": 30,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound6DF72EF9-3DE0-4D55-9655-7457FE216BC7.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{1E8397ED-24D5-41BD-AE19-86D4CE0FF31A}",
+    "questionNumber": 31,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundCEDCA333-C411-4E21-90D0-221DBBA1B364.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{79D93AAF-3F5D-4179-889C-D7172912CE92}",
+    "questionNumber": 32,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound9044FFD8-F982-4AF1-9C91-5C182221E45C.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{292EC637-D41A-4C7E-BE16-8BBE521B96CA}",
+    "questionNumber": 33,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundCEAF881C-D594-419D-84E5-0D4504910C18.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{19FDFE42-F1D9-4D6F-ADAA-5F5ED826CFAA}",
+    "questionNumber": 34,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound3347DD99-D98E-45DB-A360-2D56D8B91E06.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{B89A3E1B-75E6-470B-9A10-819C04D019CB}",
+    "questionNumber": 35,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundD15D9263-F44A-4F34-A410-A7D779EAA5D9.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{727DD584-6047-4B14-B552-8127E258F50B}",
+    "questionNumber": 36,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound4692001B-0CCB-4C5C-BE2E-87588BD2B731.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{6770DB04-A3CC-428F-9487-E0687981FD46}",
+    "questionNumber": 37,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound32241CEF-14B4-4DF1-9DB1-E47432B080C2.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{3DACBA53-3C8A-4AFF-B411-378536B2D919}",
+    "questionNumber": 38,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundE7EBB44B-5E12-4E53-B672-7199146DA57D.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{E648A1EF-2996-4E79-8384-B7D9FEF5AA34}",
+    "questionNumber": 39,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundF927C53F-EAB1-45C8-B02A-5EC2622DA7F2.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{816D63EC-A6EA-4E61-9743-90EAC38B2691}",
+    "questionNumber": 40,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound7F603A9E-4BD9-4134-90A2-3B6A546C5129.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{8A9B7DC4-CFA3-4A55-8427-6DA8D57A2A0B}",
+    "questionNumber": 41,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound3C3E02C4-9119-4E3F-ADEB-7B4719213864.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{DD9CFCE9-04D9-4766-8BA7-1CE5315BABED}",
+    "questionNumber": 42,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound59201BBB-7118-4ABE-A15B-833B471B10B9.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{412D1FBB-AE2F-4F93-AD87-974706061897}",
+    "questionNumber": 43,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound46EF38AF-91ED-44E4-9465-F9F0C7EE6A6C.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{7C303EBB-EE15-4DEE-804F-35A12A28A816}",
+    "questionNumber": 44,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundE4893D65-64AB-4C4A-8CF9-A6924A48DA1F.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{0F684B84-96DE-4E72-9A4E-3F5A078D44E7}",
+    "questionNumber": 45,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundE9B65D8A-AEDE-471A-9A79-7BB3F2946075.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{12CC6040-FC72-4C7A-808D-56B58CDD063C}",
+    "questionNumber": 46,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound909960A9-5920-4742-B1EB-5E65B4B61D7B.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{19A76EAE-FFFD-4CDA-A3DA-07F6CA00731A}",
+    "questionNumber": 47,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundA70DA5AB-63E9-491F-8A0A-79C28E103456.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{243536BC-2DEC-47D4-AB44-2A70CBEC960C}",
+    "questionNumber": 48,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound5F44F7BA-5775-4CE7-9EFB-40A99FE171AB.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{49129B49-59F6-4C59-950F-F9DF608D44B7}",
+    "questionNumber": 49,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundFFF12F27-0008-4542-9C11-B0E62C70195B.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{71711BAC-E310-4F9B-8297-FD54A3C1DE8D}",
+    "questionNumber": 50,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound5D53E47C-EFE7-4287-989A-16E370D49952.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{787C46F0-7E2E-4260-9443-6FFBF46B7A6F}",
+    "questionNumber": 51,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound2DAAB2F5-25C2-4692-8593-7FA25B05F6B1.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{FB7639EB-9FDA-4DEF-B155-BEA49033436B}",
+    "questionNumber": 52,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound3C341E52-F060-483D-8958-B3D085608084.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{FBE108DF-7867-4BD8-B940-865568B05DB5}",
+    "questionNumber": 53,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound6176265A-3813-4167-8021-65A4241A0A25.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{4B17C35D-67A3-415E-9E9F-29DE1B5DF524}",
+    "questionNumber": 54,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound4227FE16-CB29-465B-86CD-586F6932BF3F.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{274FFED7-40A9-4F2D-8B26-08A3CE70E061}",
+    "questionNumber": 55,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundC38414A4-E307-47E4-86A6-00A0A5DB27A7.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{2C174EC1-01D7-40CB-83F7-9EF9404027AD}",
+    "questionNumber": 56,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundCE9D030E-8885-4168-AAF7-49D23374DA07.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{70BAA5BF-0C99-4C5C-820F-73E80F8A0422}",
+    "questionNumber": 57,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound86E915B3-1317-477E-87F1-1EEF72162EBF.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{4D58D7AF-A942-466C-AEFA-8879FDE61CC2}",
+    "questionNumber": 58,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundD0AC1932-BAA5-4314-9D2D-5319B1603B81.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{B6987A72-69E8-4FDA-8E89-971C8D044F90}",
+    "questionNumber": 59,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundB63D51B8-CFB1-447F-B782-DEEDA9743BB9.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. C",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{7E9A8CD3-3F6B-47F1-BC74-0E75214416B8}",
+    "questionNumber": 60,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound47F01F78-70CC-4ED7-BABC-8567F2AD6F14.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. B",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{BA5390E3-1B72-4771-8DE9-4F8F2CA1FCFB}",
+    "questionNumber": 61,
+    "partId": 2,
+    "partName": "Part 2 - Hỏi & Đáp (Question-Response)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundF6AD75D8-70C5-4657-B90A-142F39053DB5.mp3"
+      }
+    ],
+    "question": "Chọn câu trả lời phù hợp nhất cho câu trả lời của bạn.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "B",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "C",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A",
+    "explanation": "Chú ý từ để hỏi (Who, When, Where, Why, How, Did, Can). Tránh các bẫy lặp từ hoặc từ đồng âm gây nhầm lẫn. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{FDA29EE5-E210-472A-AF27-43DBF253EC51}",
+    "questionNumber": 62,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound46652B1C-3446-4335-A9B0-65A0625546F1.mp3"
+      }
+    ],
+    "question": "【Đoạn hội thoại ngắn 1】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【对话1】（此听力有3道题目，请听完再开始答题）\nNo.21：Who most likely are they?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A ticket agent",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "A taxi driver",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A customs official",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A flight attendant",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A ticket agent",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (A)."
+  },
+  {
+    "id": "{1D39AF35-A7CF-4B0F-8E0C-78015DDDF229}",
+    "questionNumber": 63,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 1】\nNo.22：What does the man say he has to do this afternoon?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Review a presentation",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Find a receipt",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Fill out a form",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Attend a meeting",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Attend a meeting",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{D97C1417-B866-4D89-B1CD-A2E226D57F42}",
+    "questionNumber": 64,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 1】\nNo.23：What does the woman say is available?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Complimentary beverages",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "An upgraded seat",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "A hotel shuttle",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Maps of local attractions",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. An upgraded seat",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{A493B715-1C54-43B3-932B-6EF6E392861A}",
+    "questionNumber": 65,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound701D709E-6A67-41EE-9C6F-E4AFDCC7228C.mp3"
+      }
+    ],
+    "question": "【Đoạn hội thoại ngắn 2】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【对话2】（此听力有3道题目，请听完再开始答题）\nNo.24：What is mentioned about Caster Bank?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "They are expanding overseas.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "They have been in business a long time.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "They contribute to many regional charities.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "They finance local businesses.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. They have been in business a long time.",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{3ABAB7E4-24CD-4BEF-9633-5967ED5F6AC0}",
+    "questionNumber": 66,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 2】\nNo.25：What does the man suggest the woman do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Apply for a job",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Open an account",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Interview a bank president",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Tour a bank building",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. Interview a bank president",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (C)."
+  },
+  {
+    "id": "{680BD7F9-A0BB-4A2E-94A5-1EFB3B3B5BF8}",
+    "questionNumber": 67,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 2】\nNo.26：What will the man probably do next?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Photocopy an article",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Request an interview time",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Set up a camera",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Arrange for a press pass",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Arrange for a press pass",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{D1841F0F-515D-4FA7-85DF-3D5E3A1EDEF5}",
+    "questionNumber": 68,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundCCB65F84-0CB7-4A68-9B27-1D767C0766BD.mp3"
+      }
+    ],
+    "question": "【Đoạn hội thoại ngắn3】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【对话3】（此听力有3道题目，请听完再开始答题）\nNo.27：What will happen in August?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A contract will be negotiated.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "An award will be presented.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A promotion will be announced.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A colleague will be transferred",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. A colleague will be transferred",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{D55CFF7D-D72B-44AD-8E67-950BEC92E73A}",
+    "questionNumber": 69,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 3】\nNo.28：What type of business do the speakers most likely work for?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A tour company",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "An accounting firm",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "An advertising company",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A newspaper publisher",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. An accounting firm",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{310CA2FC-38F0-4EFC-A325-20341A3990B2}",
+    "questionNumber": 70,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 3】\nNo.29：What does the man ask the woman to do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Plan a company celebration",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Speak with an employment agency",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Organize some market research",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Register for a certification course",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. Speak with an employment agency",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{35B72D6C-F6D8-4063-A8CF-7D9047E2D854}",
+    "questionNumber": 71,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundEF046FD4-9521-4FE3-89E8-E40E6A6B1650.mp3"
+      }
+    ],
+    "question": "【Đoạn hội thoại ngắn 4】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【对话4】（此听力有3道题目，请听完再开始答题）\nNo.30：Why is the man calling the woman's company?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "To book an event space",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "To conduct a survey",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "To offer a discount",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "To confirm a design",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. To offer a discount",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (C)."
+  },
+  {
+    "id": "{DC3A8314-EAC1-454C-8C01-B9D971E79264}",
+    "questionNumber": 72,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 4】\nNo.31：What does the woman imply when she says,\"we do have a technology trade show coming up\"?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "She is too busy to talk.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "She wants to hire an employee quickly.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "She does not want the man to worry.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "She thinks some supplies may be needed.",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. She thinks some supplies may be needed.",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{412109D3-94AB-4E0B-A5C9-D424A3938FA6}",
+    "questionNumber": 73,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 4】\nNo.32：What does the woman instruct the man to do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Call again later",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Leave a voice message",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Read an online notification",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Consult a directory",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. Leave a voice message",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{86191704-64E0-4E5C-920A-883E15D512EB}",
+    "questionNumber": 74,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound72785D8F-D4AF-4A6C-9427-79CB53B91719.mp3"
+      }
+    ],
+    "question": "【Đoạn hội thoại ngắn 5】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【对话5】（此听力有3道题目，请听完再开始答题）\nNo.33：Who most likely is the woman?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A photographer",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "A financial advisor",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A postal worker",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A musician",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A photographer",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (A)."
+  },
+  {
+    "id": "{9E852A98-F994-44BE-AA14-6B4A68139AE8}",
+    "questionNumber": 75,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 5】\nNo.34：What is the woman calling about?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "An interview",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A venue",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A payment",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "A deadline",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. A payment",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (C)."
+  },
+  {
+    "id": "{6A10FDED-F29F-4EFA-ADA2-BFC3C1912B14}",
+    "questionNumber": 76,
+    "partId": 3,
+    "partName": "Part 3 - Đoạn hội thoại (Short Conversations)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Đoạn hội thoại ngắn 5】\nNo.35：What does the woman ask the man to do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Expedite a process",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Review some policies",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Remove a job posting",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Provide some documentation",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Provide some documentation",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{FE347253-BF19-43D1-8013-2D6650CD0689}",
+    "questionNumber": 77,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundA4A3EB0A-E637-4297-AAD8-310D19505C8F.mp3"
+      }
+    ],
+    "question": "【Độc thoại ngắn 1】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【独白1】（此听力有3道题目，请听完再开始答题）\nNo.36：What is the purpose of the announcement?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "To acknowledge a coworker",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "To inquire about an advertisement",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "To explain a department policy",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "To discuss sales techniques",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. To acknowledge a coworker",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (A)."
+  },
+  {
+    "id": "{252F76E7-4BC3-4DD2-958D-0D9CDA4F494F}",
+    "questionNumber": 78,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 1】\nNo.37：What has Janet Kalasky been working on recently?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Finalizing a conference agenda",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Developing mobile phone software",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Updating training manuals",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Creating promotional displays",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Creating promotional displays",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{510DD12D-CC53-4C85-B58C-99D575C181D1}",
+    "questionNumber": 79,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 1】\nNo.38：Where does the speaker encourage the listeners to go?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "To the security desk",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "To the employee lounge",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "To a training session",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "To a trade show",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. To the employee lounge",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{02295F3F-CD9F-496D-BDEB-E872758E213F}",
+    "questionNumber": 80,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound0BE9D6AC-6AA8-4D9A-B852-ADB2520F9E18.mp3"
+      }
+    ],
+    "question": "【Độc thoại ngắn 2】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【独白2】（此听力有3道题目，请听完再开始答题）\nNo.39：Where is the speaker reporting from?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A movie theater",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "An opera house",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "A shopping mall",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A convention center",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. An opera house",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{99E5691C-3522-4444-A385-9CC248C5C5BA}",
+    "questionNumber": 81,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 2】\nNo.40：What does the speaker imply when he says, \"It's located right next to historic city hall, the oldest building in the city\"?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "An old building needs to be repaired.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A historic landmark is worth visiting.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A new building contrasts with older ones.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "A building is not difficult to get to.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. A new building contrasts with older ones.",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (C)."
+  },
+  {
+    "id": "{3E461990-B4C3-405F-8C48-5AF5B819DA27}",
+    "questionNumber": 82,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 2】\nNo.41：What can the listeners do on a Web site?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Purchase event merchandise",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Read reviews",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Register for a newsletter",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "View a performance schedule",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. View a performance schedule",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{10261CCE-80B8-4377-9BCA-C6C4E1CFC653}",
+    "questionNumber": 83,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundF206885F-9639-4791-A04D-36C90605845F.mp3"
+      }
+    ],
+    "question": "【Độc thoại ngắn 3】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【独白3】（此听力有3道题目，请听完再开始答题）\nNo.42：Why is the speaker calling?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "To report an accident",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "To inquire about an advertisement",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "To point out a mistake",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "To give driving directions",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. To inquire about an advertisement",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{A8F77057-764F-4B9D-8FC8-C7B52B1DC2E7}",
+    "questionNumber": 84,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 3】\nNo.43：What does the speaker say she is concerned about?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A selling price",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "The cost of a delivery",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "An application requirement",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The time of an event",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. A selling price",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (A)."
+  },
+  {
+    "id": "{10EF0C8D-8936-43EE-91FF-AB8D33007663}",
+    "questionNumber": 85,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 3】\nNo.44：What does the speaker offer to do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Test a product",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "E-mail a contract",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Pick up an item",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Provide a photograph",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. Pick up an item",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (C)."
+  },
+  {
+    "id": "{423061AE-D7F6-477B-9815-F6E46DF458F3}",
+    "questionNumber": 86,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/sound7A0E9839-354C-4E92-AD84-57451CC7C4FC.mp3"
+      }
+    ],
+    "question": "【Độc thoại ngắn 4】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【独白4】（此听力有3道题目，请听完再开始答题）\nNo.45：Who most likely are the listeners?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Marketing specialists",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Fashion models",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Interior designers",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Hairstylists",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Hairstylists",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{3801ED74-1DA2-420D-A10B-8741DB8D5855}",
+    "questionNumber": 87,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 4】\nNo.46：What does the speaker imply when she says. \"I placed some surveys by the door\"?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Her documents are missing.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "She hopes to receive feedback.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Participants should depart promptly.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A task has already been completed.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. She hopes to receive feedback.",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{AC4C8F44-7EAD-46E8-B3B3-C040A6515624}",
+    "questionNumber": 88,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 4】\nNo.47：What does the speaker remind the listeners about?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Contacting clients",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Signing up for a workshop",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Submitting a personal profile",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Taking a brochure",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. Signing up for a workshop",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (B)."
+  },
+  {
+    "id": "{A836F955-79BA-4A65-A7BE-D4287947BB61}",
+    "questionNumber": 89,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Audio",
+    "mediaFiles": [
+      {
+        "type": "audio",
+        "file": "quiz1/soundB43B581C-3833-4144-810F-10D14FEC82CD.mp3"
+      }
+    ],
+    "question": "【Độc thoại ngắn 5】(đoạn này có 3 câu hỏi, các bạn vui lòng nghe xong trước khi bắt đầu trả lời câu hỏi)\n【独白5】（此听力有3道题目，请听完再开始答题）\nNo.48：According to the speaker, what will happen next Saturday?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A recording session",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A fund-raising dinner",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A grand opening",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "An anniversary celebration",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. An anniversary celebration",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (D)."
+  },
+  {
+    "id": "{FCCFB78D-C5A3-493B-AFC4-CCC7C4BD356B}",
+    "questionNumber": 90,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 5】\nNo.49：What does the speaker tell the listeners they can do?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vote for their favorite songs",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Take a quiz",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Post questions",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Donate money to the radio station",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. Vote for their favorite songs",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (A)."
+  },
+  {
+    "id": "{CAD56410-048F-44A5-938D-D6AA5081C4A4}",
+    "questionNumber": 91,
+    "partId": 4,
+    "partName": "Part 4 - Bài nói ngắn (Short Talks)",
+    "skill": "Listening",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "【Độc thoại ngắn 5】\nNo.50：What will Ezra Ortiz be discussing next?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "His song-writing process",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The release of a new song",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "An upcoming tour",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Music programs in schools",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. An upcoming tour",
+    "explanation": "Nghe kỹ các thông tin về bối cảnh (người nói là ai, cuộc nói chuyện diễn ra ở đâu) và mục đích của cuộc đối thoại. Đáp án chính xác: (C)."
+  },
+  {
+    "id": "{C36596C0-9B24-4B4E-BA0C-26923802B298}",
+    "questionNumber": 92,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "This discounted train ticket is ______ only at certain times of the day.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "valid",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "validate",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "validating",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "validation",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. valid",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{B9C30ED3-3DC1-4936-BDEC-093011A28113}",
+    "questionNumber": 93,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "To participate in the Advantage Discount program, ______ the registration form on our Web site.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "reply",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "inquire",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "complete",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "apply",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. complete",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{94741BA3-7F9B-43FB-9360-5A6D2A031ED3}",
+    "questionNumber": 94,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Ms. Srisati is unavailable today ______ she is flying to Mumbai.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "because",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "how",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "regarding",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "sooner",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. because",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{FD491D58-DE94-4C88-ADD8-0403B5AD36DA}",
+    "questionNumber": 95,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The contract ______ states that the tenants must renew their rental-property agreement by March 1.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "clear",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "clearly",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "clearer",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "cleared",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. clearly",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{5854E1A3-56DD-4E15-B725-7BB72E06A2B4}",
+    "questionNumber": 96,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Aiko Arts plans to host a reception ______ the artist, Remco Koeman.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "except",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "for",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "off",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "into",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. for",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{AE88E6BE-CA3C-4AD5-ABA5-1C5B596A9D26}",
+    "questionNumber": 97,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Unfortunately, replacing the copy machine will cost more than ______ had anticipated.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "we",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "us",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "our",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ours",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. we",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{92F74759-B9FD-4F8B-AE47-5ABB2CD57C48}",
+    "questionNumber": 98,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Your Polytonics e-mail account will be set up ______  you arrive on your first day.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "at",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "around",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "until",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "before",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. before",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{F78069DF-E8DB-4642-9853-B6B91B0E8416}",
+    "questionNumber": 99,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "If ______ are willing to work on the project this weekend, Ms. Craig will buy everyone lunch.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "employees",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "employing",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "employments",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "employs",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. employees",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{F26A9D06-CA00-4975-AE56-0DBECEA70688}",
+    "questionNumber": 100,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Financial adviser Jenna Sotulo helps professionals devise a ______ for managing their finances.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "prediction",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "gesture",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "strategy",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "request",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. strategy",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{BFCC4E93-FC02-4059-B35E-D24C81D9A2A6}",
+    "questionNumber": 101,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Each employee must coordinate with management so that ______ time off can be properly scheduled.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "alone",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "individual",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "isolating",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "separated",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. individual",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{B2F68C8F-BAAB-4EA1-A1DB-97F27F688907}",
+    "questionNumber": 102,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The cost of building Juniper High Towers exceeded the contractor's original ______ by over ￡5,000.00.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "estimating",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "estimate",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "estimated",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "estimator",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. estimate",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{14C585B5-4A77-4BDB-B3BB-667269D2B519}",
+    "questionNumber": 103,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "At Links Fine Meats, we pride ______ on providing the highest-quality products on the market.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "oneself",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "yourselves",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "itself",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Ourselves",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Ourselves",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{F43DA087-85AC-4E26-B99E-B4ADDA851D23}",
+    "questionNumber": 104,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "______ he is usually quiet around the office, Mr. Heineman is known for his witty and engaging public speeches.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Although",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Otherwise",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Despite",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Instead",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. Although",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{CFBC4010-5327-4AA8-849F-709DA72838B7}",
+    "questionNumber": 105,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Ancient Chitimacha baskets are ______ featured in the Louisiana Museum of Archeology.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "prominent",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "prominently",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "prominence",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "prominences",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. prominently",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{85DBDB2E-DC21-4ADD-B260-AAEB7F3A34FE}",
+    "questionNumber": 106,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "______ tea and coffee are available in the lobby for all guests of the Farrison Hotel.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Compliment",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "To compliment",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Complimented",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Complimentary",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Complimentary",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{2BCBF698-B818-4788-8A40-500FD076AEF5}",
+    "questionNumber": 107,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "______ representatives of Light Cloud Airlines, flights are rarely overbooked.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "As opposed to",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "In addition to",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "According to",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Prior to",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. According to",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{F5ECD0D6-7CE4-41FB-90D2-290E56A34680}",
+    "questionNumber": 108,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Mr. Krause will reorganize the supply room ______ the cabinets are delivered.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "overall",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "due to",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "once",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "soon",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. once",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{19CF0191-602F-47D6-AF6A-9BB3585313E3}",
+    "questionNumber": 109,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "By completing employee-satisfaction surveys anonymously, workers can more ______ state their concerns about the workplace.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "wholly",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "openly",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "favorably",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "laboriously",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. openly",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{0EAC9BAF-1310-4F6A-A587-573FC4A0B012}",
+    "questionNumber": 110,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The final blueprints must ______ by Ms. Ito after the final draft is produced.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "approve",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "be approved",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "approving",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "to approve",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. be approved",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{B1C389A7-095B-4643-85E4-BAF5D97CE06A}",
+    "questionNumber": 111,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "This sewing workshop is ideal for beginner tailors ______ professionals who would like to refresh their knowledge.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "but",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "either",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "as well as",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "additionally",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. as well as",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{E7680337-B4A3-4694-AE5A-E3AECA1BD767}",
+    "questionNumber": 112,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "All posters and flyers must be removed from the bulletin board ______ 48 hours after the event has occurred.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "within",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "among",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "unless",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "while",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. within",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{3770D2A5-9CA4-4759-ABFD-84EB2BAC600D}",
+    "questionNumber": 113,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The ______ technology used in pots by Claypol Housewares keeps the handles from getting too hot to touch.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "warm",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "frequent",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "unattached",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "innovative",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. innovative",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{7760A611-34E1-40A5-A014-3523A53E8B81}",
+    "questionNumber": 114,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Gerardo Lentini will build _______ second clinic in June.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "he",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "his",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "him",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "himself",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. his",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{C704A7AD-A864-4944-A3D7-CBD965F67F31}",
+    "questionNumber": 115,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The person hired must be able to adapt ______ to changes in work assignments and schedules.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "readies",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "readily",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "readiness",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "ready",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. readily",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{F70BCB70-519C-483B-B0BF-F0C10194BF40}",
+    "questionNumber": 116,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Organizational behavior specialist Ray Majory believes a good sense of humor in a leader can increase the quality of ______ in the team.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "declaration",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "statement",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "message",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "communication",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. communication",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{FBDA9D60-D5F8-44C5-8028-22B343E62B2D}",
+    "questionNumber": 117,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Failure to pay bills on time ______ result in additional late fees.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "when",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "may",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "part",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "itself",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. may",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{32426A39-7EF4-41B9-8BF0-7025E8E27FF4}",
+    "questionNumber": 118,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The manufacturer recommends cleaning the natural wood table with a ______ cotton cloth.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "dry",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "dryly",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "dryness",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "to dry",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. dry",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{40408B2B-CA22-47CE-9B7D-07407DBD9612}",
+    "questionNumber": 119,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "At Furnred Finance, _______ encourage associates with different points of view to find common ground.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ourselves",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "ours",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "us",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "we",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. we",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{167637C2-1C9F-4D86-BBEB-560CCB184FFB}",
+    "questionNumber": 120,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The report describes the environmental impact on lakes and rivers of using ______ energy sources.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "together",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "hopeful",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "regulatory",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "renewable",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. renewable",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{A1B393A5-B6D7-4DEB-A43B-D0C7E5C7AC43}",
+    "questionNumber": 121,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Any decorations on the ceilings or walls must be fully removed, including any material used to ______ them to the surfaces.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "adhere",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "attract",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "construct",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "sustain",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. adhere",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{E2BA608B-DE13-43F0-B285-3E5A75A60210}",
+    "questionNumber": 122,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The Telra Corporation complies with all local and national _____ .",
+    "options": [
+      {
+        "letter": "A",
+        "text": "regulate",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "regulated",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "regulatory",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "regulations",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. regulations",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{A94CDFBD-D6A3-4703-BCB8-71A5B5D1E65E}",
+    "questionNumber": 123,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "If you are not satisfied with your purchase _____ CXT Electronics, return it within 30 days for a full refund.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "to",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "out",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "from",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "along",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. from",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{15616F90-E3A6-46AD-8B82-3D30E03188A9}",
+    "questionNumber": 124,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Ms. Anderson has just received her invitation, so we cannot yet confirm whether _____ will attend the end-of-year banquet.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "she",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "her",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "hers",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "herself",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. she",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{B51B1D3B-55F6-4C0E-9ECD-7D705049857C}",
+    "questionNumber": 125,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "As part of the writing workshop, participants will read their compositions _____ to the group.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "throughout",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "aloud",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "meanwhile",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "significantly",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. aloud",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{998AC7A7-31EB-4350-898C-5C20676BBEBB}",
+    "questionNumber": 126,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Our programmers have benefited from the rigorous _____ required by the company.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "trainee",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "trains",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "training",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "trained",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. training",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{418BBE2A-9DD6-4709-9972-E768F761505B}",
+    "questionNumber": 127,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "A recent _____ of restaurants across the nation suggests that people are dining out much more frequently.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "collection",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "cuisine",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "survey",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "supply",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. survey",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{12756B38-F26B-4C17-82F1-111A49FDF10D}",
+    "questionNumber": 128,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "During the summer, the Clayburgh Museum _____ its hours until 10:00 P.M. on the weekend.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "extends",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "extending",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "extensions",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "extendable",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. extends",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{E9BD3AC0-C1DA-47DD-8F10-1ADB59CECD2F}",
+    "questionNumber": 129,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "After reviewing the latest real-estate reports, Ms. González _____ the sale of the property.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "replaced",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "invested",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "commented",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "authorized",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. authorized",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{3C34DB17-9A17-4BA5-843E-0351D9F16484}",
+    "questionNumber": 130,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Atlas Printing _____ can accommodate large orders within 24 hours.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "general",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "generalize",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "generalized",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "generally",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. generally",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{7C06A631-9C73-4D9D-9A51-2C8A77036484}",
+    "questionNumber": 131,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The Kwon Group employee handbook contains _____ information about payroll, benefits, and terms of employment.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "every",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "entire",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "whole",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "complete",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. complete",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{4850F06A-66CD-47AD-A2DF-7F810041144F}",
+    "questionNumber": 132,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Mr. Shim has decided that he will present the figures to the board of trustees _____ rather than appoint someone else to do it.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "his",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "himself",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "him",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "he",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. himself",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{313C8723-FDB2-426D-96DD-C711D6AD817C}",
+    "questionNumber": 133,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "_____ he arrived in Indonesia, risk analyst Hoi-Tung Lai has been assessing the spending of Jakarta's middle class.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "While",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "During",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Since",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "For",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. Since",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{027DBCFB-FD76-45D0-91C2-ECCBBFC327F1}",
+    "questionNumber": 134,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Robert Lum is one of the most _____ leaders in the import-export business.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "persuasive",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "persuade",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "persuasively",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "persuades",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. persuasive",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{8384DE3E-DA61-402F-9736-F959945AEA07}",
+    "questionNumber": 135,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Compared with other dairy products, yogurt has remained _____ inexpensive.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "thoroughly",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "relatively",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "early",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "minimally",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. relatively",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{663A7BE0-04D5-4DB4-A146-175A2F3DAFD6}",
+    "questionNumber": 136,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Please place all orders for new office furniture _____ February 17.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "despite",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "before",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "inside",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "when",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. before",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{427F4574-9BEA-402C-9897-460FBF6B183E}",
+    "questionNumber": 137,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The Ott Institute designs successful training videos, but the process _____ to take longer than expected.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "finds",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "shows",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "works",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "tends",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. tends",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{6B254D12-7542-448C-A0A2-4D586E56C8BB}",
+    "questionNumber": 138,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Two candidates were recently interviewed for the marketing position, and _____ were impressive.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "some",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "both",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "any",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "either",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. both",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{37D53D04-7D37-431B-8180-A5EBA94D0073}",
+    "questionNumber": 139,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "If Mr. Itoh is unable to attend the conference in Brasilia, then Ms. Gruber will speak in his  _____ .",
+    "options": [
+      {
+        "letter": "A",
+        "text": "place",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "purpose",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "concern",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "permission",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. place",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{875F8C14-28B7-446F-8FE2-6AFA920D9963}",
+    "questionNumber": 140,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "We have simplified the bill-paying feature on our secure Web site _____ convenience.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "above all",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "with some",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "for your",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "by its",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. for your",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{3AD884B8-F76C-4580-87ED-9D2933FABE98}",
+    "questionNumber": 141,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The rebate offered by Genton Vitamins will expire _____ six months.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "among",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "within",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "except",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Besides",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. within",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{786C62C0-00C8-45C1-B529-8761EF25583E}",
+    "questionNumber": 142,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The results of the test are only as meaningful as the quality of the specimen ______ for analysis.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "submitted",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "submittal",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "submits",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "submitting",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. submitted",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{AA3402EF-B088-4A39-9F77-7687E79CD807}",
+    "questionNumber": 143,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Ms. Chou has ordered the ______ of all the bookcases sold by Bielke Office Furnishings.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "narrowly",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "narrower",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "narrowest",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "narrow",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. narrowest",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{DB188CCE-C160-42FA-82E0-3A68C967CEAD}",
+    "questionNumber": 144,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Sales from the Plainlee Organics juice line ______ for less than 25 percent of the company's total revenue.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "account",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "accounts",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "accounting",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "accountant",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. account",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{643E4B06-C8E6-4815-BAD7-D80FF7393B23}",
+    "questionNumber": 145,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Saturn Bank is working _______ to resolve technical difficulties with its mobile app and online banking.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "quickening",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "quickened",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "quickness",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "quickly",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. quickly",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{2A8F9834-4EF4-48E3-BDA5-7B081F238474}",
+    "questionNumber": 146,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The city ______ that all buildings pass an inspection does not apply to historic landmarks.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "require",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "requires",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "required",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "requirement",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. requirement",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (D)."
+  },
+  {
+    "id": "{5EB6845B-5EEB-4692-B28A-E21567200058}",
+    "questionNumber": 147,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Ms. Nicholas was promoted _______ managing editor of the Irontown Daily Press.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "of",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "at",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "to",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "on",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. to",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{D4272B6E-B870-428C-BB60-47A7B308EB8B}",
+    "questionNumber": 148,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The price quoted by the movers is only an ______ cost and is subject to change.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "approximately",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "approximate",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "approximating",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "approximation",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. approximate",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{ADDD064C-D690-4306-A88D-63DC6E4CA3C4}",
+    "questionNumber": 149,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Through the years, Ontario Housewares has ______ its commitment to sell only the highest-quality kitchen appliances.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "linked",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "relieved",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "honored",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "attracted",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. honored",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (C)."
+  },
+  {
+    "id": "{93BD1F3A-37FE-46D7-8D0A-C2619790F228}",
+    "questionNumber": 150,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "Mr. Mehretu will discuss the ______ of the new payroll policy at the company meeting tomorrow.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "specifics",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "specifically",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "specifies",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "specific",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. specifics",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (A)."
+  },
+  {
+    "id": "{1E04766D-7D36-495F-B9F1-55FF960F0B56}",
+    "questionNumber": 151,
+    "partId": 5,
+    "partName": "Part 5 - Điền câu (Incomplete Sentences)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Text",
+    "mediaFiles": [],
+    "question": "The contract must be signed ______ the opening of formal discussions.",
+    "options": [
+      {
+        "letter": "A",
+        "text": "in order to",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "prior to",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "except for",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "on top of",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. prior to",
+    "explanation": "Xét từ loại cần điền (danh từ, động từ, tính từ hay trạng từ) và mối liên kết ngữ pháp trong câu để chọn phương án chính xác: (B)."
+  },
+  {
+    "id": "{3DEA0E68-945A-4263-91D2-2C1F5999E8E5}",
+    "questionNumber": 152,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nBakery Gets Technological\nMOMBASA (June 10) — Incredible Cravings, a nationwide bakery and pastry chain with more than 28 store locations, has introduced a new way to use technology to better serve its customers. During the last quarter, the company began using an infrared-sensor system that [___Blank #1___] monitors products in the store as they are added to and removed from shelves.\nPersonnel from each bakery can see [___Blank #2___] in real time as it is analyzed and updated by the Computer. [___Blank #3___] For example, when many customers purchase a certain type of bread, employees who are monitoring the screen can immediately restock the popular item.",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "precise",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "precisely",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "precision",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "preciseness",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. precisely"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "inventory",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "scheduling",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "vendors",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "ingredients",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. inventory"
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "This system ensures that shoppers can always find what they want.",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "This computer sends data to store security staff.",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "The Mombasa store is gaining more and more customers.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "The most popular item at Incredible Cravings is the chocolate croissant.",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. This system ensures that shoppers can always find what they want."
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: B. precisely | Blank #2: A. inventory | Blank #3: A. This system ensures that shoppers can always find what they want.",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{957F73ED-7652-4B45-8FEF-27FDEA89F6E0}",
+    "questionNumber": 153,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nMMifflin Moving Services\nFrequently Asked Questions (FAQs): When is the best time to move?\nThere are several factors to consider as you decide when to schedule your move. It may be helpful to know that being flexible with your scheduling can often save you money. [___Blank #1___] , moving costs are higher during the summer months when the volume of shipments being handled by your moving company tends to increase. Conversely, moving costs are relatively low during the winter months. [___Blank #2___] . \nMoreover, regardless of the time of year that you move, being flexible about your loading and delivery dates can also be [___Blank #3___] . For example, by giving your moving company a seven-day window to load your shipment, you reduce the chance that your goods will sit in a truck for a long period of time",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "Equally",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "Rather",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "In general",
+            "isCorrect": true
+          },
+          {
+            "letter": "D",
+            "text": "As a result",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "C. In general"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "This is true for both residential and commercial moves.",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "Therefore, allow one to two weeks for your shipment to arrive.",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "Most moving companies are based in large cities.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "Moving is stressful at any time of the year.",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. This is true for both residential and commercial moves."
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "frustrating",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "similar",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "beneficial",
+            "isCorrect": true
+          },
+          {
+            "letter": "D",
+            "text": "unusual",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "C. beneficial"
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: C. In general | Blank #2: A. This is true for both residential and commercial moves. | Blank #3: C. beneficial",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{59AC72C8-1DD5-4527-A44E-7737C97D400C}",
+    "questionNumber": 154,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nThe Durham Fitness and Health Expo (DFHE) is an international event that brings the fitness and health industries together for three days in one place, [___Blank #1___] the perfect opportunity for these industries to showcase their products and services. The award-winning DFHE is now heading into its fifth year, and plans are in place to make it the largest and most diverse exposition yet ,with record numbers of consumers and industry professionals expected to attend .\n141 .Both large and small booths in the vendor exhibition area are stil available. Call [___Blank #2___] . 1(800) 555-0156 for more information or to reserve your [___Blank #3___] .",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "provided",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "provides",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "will provide",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "providing",
+            "isCorrect": true
+          }
+        ],
+        "correctAnswer": "D. providing"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "The event will take place from August 6 to 8 at the Durham Convention Center.",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "Changes to the schedule will be announced in the coming weeks.",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "Most reviews of the event have been positive.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "It is not necessary to provide a credit card number at this time.",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. The event will take place from August 6 to 8 at the Durham Convention Center."
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "vehicle",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "space",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "upgrade",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "date",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. space"
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: D. providing | Blank #2: A. The event will take place from August 6 to 8 at the Durham Convention Center. | Blank #3: B. space",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{841A5DE8-C873-49C0-A1E7-25F5F439A84D}",
+    "questionNumber": 155,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nMilo Ferris \n1690 Ascot Road \nKenilworth\nCape Town 7708\n19 October \nDear Mr. Ferris,\nThis letter is to advise you that the water main in your area will be [___Blank #1___] between the hours of 1:00 AM. and 6:00 AM. on 29 and 30 October.\nThe system is [___Blank #2___] some urgent work to accommodate the increasing demand for water use in Kenilworth. [___Blank #3___] . The entire project will be completed within the next three months. \nWe apologize for the inconvenience that the interruption in your water supply will cause. These upgrades, however, are essential. We will make every effort to complete the work as efficiently as possible.\nSincerely,\nKagiso Pillay\nOperations Manager, Cape Town Water Supply and Maintenance \nkpillay@ctwsm.za / (021-555-0012)",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "left out",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "put down",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "let go",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "shut off",
+            "isCorrect": true
+          }
+        ],
+        "correctAnswer": "D. shut off"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "needed",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "in need of",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "a need for",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "necessary",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. in need of"
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "The total cost is still not known.",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "The hours of operation are subject to change.",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "Sales are expected to increase steadily.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "The work will be done in several stages.",
+            "isCorrect": true
+          }
+        ],
+        "correctAnswer": "D. The work will be done in several stages."
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: D. shut off | Blank #2: B. in need of | Blank #3: D. The work will be done in several stages.",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{DAEDC790-9B68-494C-BD3C-7310CD9D3325}",
+    "questionNumber": 156,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nLosilly Perfumes is pleased to announce that its newest fragrance, Pink Roses, has been [___Blank #1___] Fragrance of the Year by the World Perfume Council. The council considers dozens of entries every year, and the award carries a great deal of prestige in the industry. This is the first time [___Blank #2___] of Losilly's fragrances has received this honor. Pink Roses uniquely combines the scent of freshly picked roses with a hint of vanilla.\nThe Pink Roses scent had a limited release early this year and is stil sold exclusively online. [___Blank #3___] .",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "granted",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "supported",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "named",
+            "isCorrect": true
+          },
+          {
+            "letter": "D",
+            "text": "founded",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "C. named"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "none",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "each",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "others",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "any",
+            "isCorrect": true
+          }
+        ],
+        "correctAnswer": "D. any"
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "The fragrance will be available in stores next month.",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "The previous winner was also a floral scent.",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "It’s distinctive packaging has been redesigned.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "Losilly is currently working on a replacement product.",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. The fragrance will be available in stores next month."
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: C. named | Blank #2: D. any | Blank #3: A. The fragrance will be available in stores next month.",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{9423149D-83F8-400E-B113-0260C05CA980}",
+    "questionNumber": 157,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nFrom: Felizia Wolfmeier <felizia@feliziasbakery. com> \nTo: Ji Hyun Park <jhpark@polysthetics.com>\nDate: May 18\nSubject: Your feedback\nDear Ms. Park:\nThank you for contacting Felizia's Bakery with your suggestion .We are [___Blank #1___] to inform you that your idea, cinnamon mango cupcakes, will be added to our menu next month.\nWe would like to thank you by offering you a complimentary half-dozen cupcakes in the flavor of your choice. To [___Blank #2___] your gift, simply take this message with you the next time you visit Felizia's Bakery. [___Blank #3___] We look forward to seeing you soon.\nSincerely,\nFelizia Wolfmeier, Owner \nFelizia's Bakery",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "delight",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "delighted",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "delightful",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "delights",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. delighted"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "return",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "exchange",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "claim",
+            "isCorrect": true
+          },
+          {
+            "letter": "D",
+            "text": "display",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "C. claim"
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "It is fortunate that we have the item in stock.",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "We hope you enjoy this token of our appreciation.",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "Please contact us with the requested information.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "Gift receipts do not contain prices.",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. We hope you enjoy this token of our appreciation."
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: B. delighted | Blank #2: C. claim | Blank #3: B. We hope you enjoy this token of our appreciation.",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{2152590D-F3DC-494E-86F7-4C67332D1A9A}",
+    "questionNumber": 158,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\nTimbi Construction Shelters\nIf you work in the construction industry, you know how frustrating [___Blank #1___] can be when unexpected rain forces you to halt work on a project. Not only do you risk inconveniencing your client when a deadline is missed, but you may have to postpone other planned projects as well.\nTimbi Construction Shelters provide the protection you need to continue the job! These temporary structures [___Blank #2___] installed directly at your work site. They remain intact for the duration of your project, enabling your crew members to work uninterrupted in rain or sunshine. They also ensure that all equipment and materials are kept dry, eliminating the risk of water and mold damage. [___Blank #3___] . Visit www.timbishelters.com for more information!",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "it",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "one",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "they",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "some",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. it"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "can be",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "are being",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "have been",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "would have been",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. can be"
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "Make sure to explain which repairs are most critical.",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "You will never have to delay work because of rain again.",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "We will send a professional to your facility right away.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "How much time a project requires is difficult to predict.",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. You will never have to delay work because of rain again."
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: A. it | Blank #2: A. can be | Blank #3: B. You will never have to delay work because of rain again.",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{F39C8D56-F28C-4051-A1CB-13004813813A}",
+    "questionNumber": 159,
+    "partId": 6,
+    "partName": "Part 6 - Điền đoạn văn (Text Completion)",
+    "skill": "Reading",
+    "type": "mct",
+    "mediaType": "Text (Passage with Dropdowns)",
+    "mediaFiles": [],
+    "question": "Choose one correct answer in each drop-down list\n\nPassage:\n(April 15)—Starting on May 1, the city of Moreton will adopt a new recycling system. Residents will no longer have to sort recyclable materials. 143, they can put everything into the same container. [___Blank #1___] .\n\"This process is much more streamlined,\" says Liam Brown of Moreton Waste Management. \"It wil be just as easy to recycle as it is to throw things away. [___Blank #2___] . \"\nSkeptics say that while collection costs may be lower with the new system, processing costs will be much higher. \"It may be more convenient for residents,\" says Moreton resident Sophia Preston, \"but these recyclables have to be taken to a facility to be sorted anyway. Then the city is going to have to pay high processing fees. People [___Blank #3___] that the old system was better.\"",
+    "options": [
+      {
+        "blankNumber": 1,
+        "options": [
+          {
+            "letter": "A",
+            "text": "Instead",
+            "isCorrect": true
+          },
+          {
+            "letter": "B",
+            "text": "Otherwise",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "In the meantime",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "As a rule",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "A. Instead"
+      },
+      {
+        "blankNumber": 2,
+        "options": [
+          {
+            "letter": "A",
+            "text": "They have undergone additional training.",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "It has been interesting to see the results.",
+            "isCorrect": false
+          },
+          {
+            "letter": "C",
+            "text": "The benefits of this are unclear.",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "People will be more likely to comply.",
+            "isCorrect": true
+          }
+        ],
+        "correctAnswer": "D. People will be more likely to comply."
+      },
+      {
+        "blankNumber": 3,
+        "options": [
+          {
+            "letter": "A",
+            "text": "realized",
+            "isCorrect": false
+          },
+          {
+            "letter": "B",
+            "text": "will realize",
+            "isCorrect": true
+          },
+          {
+            "letter": "C",
+            "text": "would have realized",
+            "isCorrect": false
+          },
+          {
+            "letter": "D",
+            "text": "been realizing",
+            "isCorrect": false
+          }
+        ],
+        "correctAnswer": "B. will realize"
+      }
+    ],
+    "correctLetter": "",
+    "correctAnswer": "Blank #1: A. Instead | Blank #2: D. People will be more likely to comply. | Blank #3: B. will realize",
+    "explanation": "Đọc câu trước và câu sau chỗ trống để nắm ngữ cảnh toàn đoạn văn và chọn từ/câu phù hợp nhất."
+  },
+  {
+    "id": "{2BAA47F6-8D0B-4FD5-9E4E-E214E2B7B42B}",
+    "questionNumber": 160,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img5B61B549-37AF-4A0F-8F69-0489DBE2499D.jpg"
+      }
+    ],
+    "question": "【Bài số 1】No.77：What is being advertised?\n【第一篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A gardening center",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A retail store",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "An office building",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A private house",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. A private house",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{C146B55E-8A15-4E7D-9E4E-E08A20EFAE34}",
+    "questionNumber": 161,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img5B61B549-37AF-4A0F-8F69-0489DBE2499D.jpg"
+      }
+    ],
+    "question": "【Bài số 1】No.78：Where is the property?\n【第一篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Next to an industrial park",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "In an apartment building",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Near the Botanical Gardens",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "In a rural area",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. Near the Botanical Gardens",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{DA8520B7-B7D5-437F-B1FC-1CA442B333EC}",
+    "questionNumber": 162,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img5B61B549-37AF-4A0F-8F69-0489DBE2499D.jpg"
+      }
+    ],
+    "question": "【Bài số 1】No.79：What is indicated about the property?\n【第一篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It is currently under contract.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It has no parking garage.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "It is being sold through a real estate agency.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Its price has been reduced.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. It has no parking garage.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{CC9AE663-B8D8-4AEA-937A-73CBEB08FA8D}",
+    "questionNumber": 163,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/imgEAE3D173-6399-4CBB-A8D2-7385D2B31D43.jpg"
+      }
+    ],
+    "question": "【Bài số 2】No.80： What is NOT indicated about Young Roboticists Canada?\n【第二篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Its participants have received university scholarships.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It teaches children how to build robots.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "It prepares children for international competitions.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "It gives young students the chance to work in a laboratory.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. It prepares children for international competitions.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{67A5DB2E-1151-42F8-873A-3FD7445E89A2}",
+    "questionNumber": 164,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/imgEAE3D173-6399-4CBB-A8D2-7385D2B31D43.jpg"
+      }
+    ],
+    "question": "【Bài số 2】No.81：What is mentioned about the instructors?\n【第二篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "They provide references for their students.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "They give tours of their laboratories.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "They are involved in research.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "They have written many publications.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. They are involved in research.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{821FA8EB-F593-49B2-B5D1-E2B4FA5CD276}",
+    "questionNumber": 165,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/imgEAE3D173-6399-4CBB-A8D2-7385D2B31D43.jpg"
+      }
+    ],
+    "question": "【Bài số 2】No.82：What are parents asked to do?\n【第二篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Complete scholarship applications",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Check course requirements",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Attend an information session",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Purchase some equipment",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. Check course requirements",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{B16A8065-A8E1-4D27-9B20-280C4667DE2D}",
+    "questionNumber": 166,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img2A6EDD84-BDD2-40B4-85EB-BD049623A01D.png"
+      }
+    ],
+    "question": "【Bài số 3】No.83：What information does Mr. Sento ask for? \n【第三篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The floor plan of the office",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "The color selection for the walls",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The quality of the blinds",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The design of the flooring materials",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. The design of the flooring materials",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{30E44899-581B-432D-BE1C-99E3F1E8845D}",
+    "questionNumber": 167,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img2A6EDD84-BDD2-40B4-85EB-BD049623A01D.png"
+      }
+    ],
+    "question": "【Bài số 3】No.84：At 11:17 A.M., what does Mr. Han most likely mean when he writes, \"Never mind\"?\n【第三篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "He is not concerned with the estimated cost.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "He has changed his mind about the color choice.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Ms. Charbel is no longer talking on the phone.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "Mr. Sento does not need to install the blinds.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. Ms. Charbel is no longer talking on the phone.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{9E1ADFEF-D10B-49AC-9DF8-9DA5534F0175}",
+    "questionNumber": 168,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img2A6EDD84-BDD2-40B4-85EB-BD049623A01D.png"
+      }
+    ],
+    "question": "【Bài số 3】No.85：What is a promise Mr. Sento made to Ms. Charbel?\n【第三篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "He will obtain some information for her.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "He will put her in touch with his flooring contractor.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "He will complete the work by the end of the week.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "He will take the furniture out of a delivery truck.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. He will obtain some information for her.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{79503242-F32B-4800-81D3-EBB854C0F440}",
+    "questionNumber": 169,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img2A6EDD84-BDD2-40B4-85EB-BD049623A01D.png"
+      }
+    ],
+    "question": "【Bài số 3】No.86：Why most likely is the work being done?\n【第三篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A new business is opening soon.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "An office space is going to be sold.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A business wanted to update its work space.",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "A property owner needed to remove some damaged materials.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. A business wanted to update its work space.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{8EE62300-E50B-4F44-96A3-4FD10537D40B}",
+    "questionNumber": 170,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img486BDB5D-26CB-4097-822B-4A4CCCA20ABE.jpg"
+      }
+    ],
+    "question": "【Bài số 4】No.87：Who most likely is Mr. Sciandra?\n【第四篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A finance professional",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A business owner in Buckley",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A manager at a printing company",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "An employee of the city of Buckley",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. An employee of the city of Buckley",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{B817C20A-18C0-4B54-8228-FE66F9EA941B}",
+    "questionNumber": 171,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img486BDB5D-26CB-4097-822B-4A4CCCA20ABE.jpg"
+      }
+    ],
+    "question": "【Bài số 4】No.88：What is indicated about the race?\n【第四篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It also took place last year.",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "Its participants are all from Buckley.",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Its circuit is less than 5 kilometers.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It is scheduled for February 15.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. It also took place last year.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{FB969E4E-7AAF-411B-B30B-7B9441640497}",
+    "questionNumber": 172,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img486BDB5D-26CB-4097-822B-4A4CCCA20ABE.jpg"
+      }
+    ],
+    "question": "【Bài số 4】No.89：What tier did Ms. Whitfield most likely choose?\n【第四篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tier 1",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Tier 2",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Tier 3",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Tier 4",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Tier 4",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{10F77811-DB00-438F-BF8F-F6035FC38207}",
+    "questionNumber": 173,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img486BDB5D-26CB-4097-822B-4A4CCCA20ABE.jpg"
+      }
+    ],
+    "question": "【Bài số 4】No.90：In the e-mail, the word \"nearly\" in paragraph 1, line 3, is closest in meaning to _____\n【第四篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "least",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "almost",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "seldom",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "closely",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. almost",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{A791DE06-0B5C-457A-A37F-FF374C6DFDBF}",
+    "questionNumber": 174,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img03D679FB-9C92-44D1-BE33-CD52BDAB6340.png"
+      }
+    ],
+    "question": "【Bài số 5】No.91：What is indicated about Give-and-Take Bookstore?\n【第五篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "It has two locations in Delford.",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "It supports community projects.",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "It is located next to Delford Park.",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "It sells both new and used books.",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. It supports community projects.",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{3C51A93B-DC1E-4EBF-BAD6-A34F17BB5E7F}",
+    "questionNumber": 175,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img03D679FB-9C92-44D1-BE33-CD52BDAB6340.png"
+      }
+    ],
+    "question": "【Bài số 5】No.92：According to the Web site, what do book donors receive?\n【第五篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "A free book",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A £3 cash payment",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A merchandise credit",
+        "isCorrect": true
+      },
+      {
+        "letter": "D",
+        "text": "A 10 percent discount coupon",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "C",
+    "correctAnswer": "C. A merchandise credit",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (C)."
+  },
+  {
+    "id": "{2F7682E9-5F58-4B21-89A0-718C4BE3F16B}",
+    "questionNumber": 176,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img03D679FB-9C92-44D1-BE33-CD52BDAB6340.png"
+      }
+    ],
+    "question": "【Bài số 5】No.93：In the e-mail, the word \"arrange\" in paragraph 1, line 2, is closest in meaning to _____\n【第五篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "put away",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "place in order",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "do a favor for",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "make preparations",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. make preparations",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{F4330DB5-6A28-4937-A5EA-0A6C0CDB97B0}",
+    "questionNumber": 177,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img03D679FB-9C92-44D1-BE33-CD52BDAB6340.png"
+      }
+    ],
+    "question": "【Bài số 5】No.94：What store policy was waived for Mr. Plum?\n【第五篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "The distance traveled to collect books",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "The genres of books that are accepted for donation",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "The condition of books that are given to the store",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "The minimum number of books that can be picked up",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. The distance traveled to collect books",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (A)."
+  },
+  {
+    "id": "{8190B627-82B3-4371-9678-40A084B69F7E}",
+    "questionNumber": 178,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img03D679FB-9C92-44D1-BE33-CD52BDAB6340.png"
+      }
+    ],
+    "question": "【Bài số 5】No.95：In the e-mail, what is Mr. Plum asked to do?\n【第五篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Seal books in a box",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Deliver books by 2 P.M",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "Provide a list of book titles",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Organize books by category",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. Organize books by category",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{08E30FF6-88FA-48BB-AF74-716416543A0B}",
+    "questionNumber": 179,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img77B38623-AA63-43DF-8B40-F6E0F46F0EA6.jpg"
+      }
+    ],
+    "question": "【Bài số 6】No.96：Who most likely is Ms. Myers?\n【第六篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "An exhibitor at the museum",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "A museum services representative",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "A first-time visitor to the museum",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "A current museum member",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. A current museum member",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{4814A790-1E57-42D1-89C3-975A04128D7F}",
+    "questionNumber": 180,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img77B38623-AA63-43DF-8B40-F6E0F46F0EA6.jpg"
+      }
+    ],
+    "question": "【Bài số 6】No.97：In the e-mail, the word \"meet\" in paragraph 1, line 3, is closest in meaning to _____\n【第六篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "get together",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "be introduced",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "join",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "satisfy",
+        "isCorrect": true
+      }
+    ],
+    "correctLetter": "D",
+    "correctAnswer": "D. satisfy",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (D)."
+  },
+  {
+    "id": "{ADD90A5A-5FB8-4065-9E40-5065FBBFA439}",
+    "questionNumber": 181,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img77B38623-AA63-43DF-8B40-F6E0F46F0EA6.jpg"
+      }
+    ],
+    "question": "【Bài số 6】No.98：What was recently improved at the museum?\n【第六篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Exhibition halls",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Dining facilities",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Ticketing procedures",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Parking",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. Dining facilities",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{5CFDFE51-B540-45EE-99E6-AB224EA9DB0D}",
+    "questionNumber": 182,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img77B38623-AA63-43DF-8B40-F6E0F46F0EA6.jpg"
+      }
+    ],
+    "question": "【Bài số 6】No.99：What activity at the museum is Ms. Myers least likely to participate in?\n【第六篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Eating in the cafés",
+        "isCorrect": false
+      },
+      {
+        "letter": "B",
+        "text": "Attending lectures",
+        "isCorrect": true
+      },
+      {
+        "letter": "C",
+        "text": "Shopping for gifts",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "Seeing the special exhibitions",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "B",
+    "correctAnswer": "B. Attending lectures",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (B)."
+  },
+  {
+    "id": "{1841C109-B0C3-41F7-91B2-27AAF160D77D}",
+    "questionNumber": 183,
+    "partId": 7,
+    "partName": "Part 7 - Đọc hiểu đoạn văn (Reading Comprehension)",
+    "skill": "Reading",
+    "type": "mc",
+    "mediaType": "Image",
+    "mediaFiles": [
+      {
+        "type": "image",
+        "file": "quiz1/img77B38623-AA63-43DF-8B40-F6E0F46F0EA6.jpg"
+      }
+    ],
+    "question": "【Bài số 6】No.100：When did Ms. Myers visit the museum?\n【第六篇】",
+    "options": [
+      {
+        "letter": "A",
+        "text": "In April",
+        "isCorrect": true
+      },
+      {
+        "letter": "B",
+        "text": "In June",
+        "isCorrect": false
+      },
+      {
+        "letter": "C",
+        "text": "In July",
+        "isCorrect": false
+      },
+      {
+        "letter": "D",
+        "text": "In September",
+        "isCorrect": false
+      }
+    ],
+    "correctLetter": "A",
+    "correctAnswer": "A. In April",
+    "explanation": "Tìm từ khóa (keywords) trong câu hỏi, sau đó quét (scan) đoạn văn để tìm vị trí thông tin tương ứng. Đáp án đúng là (A)."
+  }
+];

@@ -1,0 +1,33 @@
+{
+  "name": "toiec-web",
+  "version": "1.0.0",
+  "description": "Hệ thống thi và đánh giá năng lực tiếng Anh TOEIC Online với tính năng Xếp hạng (Leaderboard), Tra cứu đáp án và Báo cáo chi tiết",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "serve": "python3 -m http.server 3000",
+    "extract": "node scripts/extract_quiz.js",
+    "inject": "node scripts/inject_answers.js",
+    "markdown": "node scripts/generate_markdown.js"
+  },
+  "keywords": [
+    "toeic",
+    "exam",
+    "assessment",
+    "elearning",
+    "quiz",
+    "english",
+    "leaderboard",
+    "static-site"
+  ],
+  "author": "xhoang0509",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xhoang0509/toiec-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xhoang0509/toiec-web/issues"
+  },
+  "homepage": "https://xhoang0509.github.io/toiec-web/"
+}
