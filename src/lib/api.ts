@@ -50,7 +50,8 @@ export async function gradeExamOnServer(
   try {
     const res = await fetch(settings.webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'gradeExam',
         candidate: {
@@ -92,7 +93,8 @@ export async function checkAnswerOnServer(
   try {
     const res = await fetch(settings.webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'checkAnswer',
         questionId,
@@ -122,7 +124,8 @@ export async function fetchAdminData(password: string): Promise<AdminDataRespons
   try {
     const res = await fetch(settings.webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'getAdminData',
         password,
@@ -152,7 +155,8 @@ export async function setBanStatus(
   try {
     const res = await fetch(settings.webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'setBanStatus',
         email,

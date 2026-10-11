@@ -54,7 +54,8 @@ export async function authenticateAdmin(
   try {
     const res = await fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'adminLogin',
         password,
@@ -78,7 +79,8 @@ export async function fetchAdminConfigs(
   try {
     const res = await fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'getAdminConfig',
         password,
@@ -102,7 +104,8 @@ export async function updateAdminConfigs(
   try {
     const res = await fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      redirect: 'follow',
       body: JSON.stringify({
         action: 'updateAdminConfig',
         password,
