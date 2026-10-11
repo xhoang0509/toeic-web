@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="toeic-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0284c7"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="30" y1="20" x2="36" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fde047"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded squircle -->
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#toeic-grad)"/>
+  <rect x="2" y="2" width="44" height="44" rx="12" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+  <!-- Graduation cap base -->
+  <path d="M24 12L37 18.5L24 25L11 18.5L24 12Z" fill="#ffffff"/>
+  <!-- Cap Underbody -->
+  <path d="M16 22V27.5C16 31.5 19.5 34.5 24 34.5C28.5 34.5 32 31.5 32 27.5V22L24 26L16 22Z" fill="#e0f2fe"/>
+  <!-- Gold Tassel Ribbon -->
+  <path d="M34 20V28L32.5 30L31 28V20" stroke="url(#gold-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Audio wave arcs to represent Listening skill -->
+  <path d="M7 24C7 14.6 14.6 7 24 7" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M41 24C41 33.4 33.4 41 24 41" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/>
+</svg>
