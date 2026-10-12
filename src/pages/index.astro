@@ -1,16 +1,16 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import { PARTS_META } from '../data/types';
-import questions from '../data/questions.json';
+import questions from '../data/questions.public.json';
 
 const base = import.meta.env.BASE_URL;
 
-const pageTitle = 'Luyện Thi & Thi Thử TOEIC Online Miễn Phí Chuẩn Format ETS 2026';
-const pageDescription = 'Hệ thống thi thử TOEIC Online 183 câu với Audio bản xứ, hình ảnh sắc nét, giải thích chi tiết từng câu, bảng xếp hạng thí sinh và phân tích biểu đồ năng lực Radar Chart.';
-
 const totalQuestions = questions.length;
-const listeningCount = questions.filter(q => q.skill === 'Listening').length;
-const readingCount = questions.filter(q => q.skill === 'Reading').length;
+const listeningCount = questions.filter((q) => q.skill === 'Listening').length;
+const readingCount = questions.filter((q) => q.skill === 'Reading').length;
+
+const pageTitle = 'Luyện Thi & Thi Thử TOEIC Online Miễn Phí Chuẩn Format ETS 2026';
+const pageDescription = `Hệ thống thi thử TOEIC Online ${totalQuestions} câu với Audio bản xứ, hình ảnh sắc nét, giải thích chi tiết từng câu, bảng xếp hạng thí sinh và phân tích biểu đồ năng lực Radar Chart.`;
 ---
 
 <MainLayout title={pageTitle} description={pageDescription}>

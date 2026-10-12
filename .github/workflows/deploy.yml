@@ -36,11 +36,15 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Run unit tests
+        run: npm test
+
       - name: Build Astro website
         run: npm run build
         env:
-          PUBLIC_WEBHOOK_URL: ${{ secrets.PUBLIC_WEBHOOK_URL }}
-          PUBLIC_SECRET_TOKEN: ${{ secrets.PUBLIC_SECRET_TOKEN }}
+          # Endpoint Cloudflare Worker API. Đặt repository secret PUBLIC_API_BASE_URL;
+          # nếu chưa đặt thì dùng deployment mặc định bên dưới.
+          PUBLIC_API_BASE_URL: ${{ secrets.PUBLIC_API_BASE_URL || 'https://toeic-api.xhoang0509.workers.dev' }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

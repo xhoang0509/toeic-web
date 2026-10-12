@@ -1,4 +1,5 @@
-import '@testing-library/jest-dom';
+// Mở rộng matcher của Vitest với jest-dom (bản /vitest để type được augment đúng)
+import '@testing-library/jest-dom/vitest';
 
 // Mock Web Crypto API for jsdom if needed
 if (!globalThis.crypto) {

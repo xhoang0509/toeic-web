@@ -2,14 +2,10 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import { AdminDashboard } from '../components/react/AdminDashboard';
 
-const pageTitle = 'Quản Trị Hệ Thống — TOEIC Assessment & Google Sheet Config';
-const pageDescription = 'Khu vực quản trị cấu hình hệ thống, bảo mật Secret Token và dữ liệu Google Sheet.';
+const pageTitle = 'Quản Trị Hệ Thống — TOEIC Assessment';
+const pageDescription = 'Khu vực quản trị cấu hình kỳ thi, quản lý thí sinh và dữ liệu Cloudflare D1.';
 ---
 
-<MainLayout title={pageTitle} description={pageDescription}>
-  <head slot="head">
-    <meta name="robots" content="noindex, nofollow" />
-  </head>
-
+<MainLayout title={pageTitle} description={pageDescription} noindex={true}>
   <AdminDashboard client:only="react" />
 </MainLayout>

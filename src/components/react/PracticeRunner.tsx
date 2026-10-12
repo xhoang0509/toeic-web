@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import type { Question } from '../../data/types';
 import { QuestionCard } from './QuestionCard';
 import { Storage } from '../../lib/storage';
-import { Eye, EyeOff, RotateCcw, CheckCircle2, ChevronLeft, ChevronRight, Layers, Shuffle } from 'lucide-react';
-import { shuffleToeicQuestions } from '../../lib/shuffle';
+import { Eye, EyeOff, ChevronLeft, ChevronRight, Shuffle, AlertTriangle } from 'lucide-react';
+import { shuffleToeicQuestions, toOriginalLetter, toDisplayedLetter } from '../../lib/shuffle';
 import { checkAnswerOnServer } from '../../lib/api';
 
 interface PracticeRunnerProps {
@@ -25,108 +25,82 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
     Record<string, { isCorrect: boolean; correctLetter: string; explanation: string }>
   >({});
   const [verifyingId, setVerifyingId] = useState<string | null>(null);
+  const [checkError, setCheckError] = useState<string>('');
 
-  // Load mistake bookmarks
+  // Load mistake bookmarks & tùy chọn cá nhân
   useEffect(() => {
     const list = Storage.getMistakes();
     setSavedMistakes(new Set(list.map((m) => m.questionId)));
+    setShowInstantAnswer(Storage.getSettings().showInstantAnswer);
   }, []);
 
-  const baseQuestions = selectedPart === 0
-    ? questions
-    : questions.filter((q) => q.partId === selectedPart);
-
+  // useMemo phải phụ thuộc trực tiếp vào questions/selectedPart: nếu phụ thuộc vào một
+  // mảng mới tạo mỗi lần render thì bộ đề sẽ bị xáo trộn lại sau từng lần chọn đáp án.
   const filteredQuestions = React.useMemo(() => {
+    const base = selectedPart === 0 ? questions : questions.filter((q) => q.partId === selectedPart);
     return isShuffled
-      ? shuffleToeicQuestions(baseQuestions, { keepPartsInOrder: true, shuffleReadingOptions: true })
-      : baseQuestions;
-  }, [baseQuestions, isShuffled]);
+      ? shuffleToeicQuestions(base, { keepPartsInOrder: true, shuffleReadingOptions: true })
+      : base;
+  }, [questions, selectedPart, isShuffled]);
 
   const currentQuestion = filteredQuestions[currentIndex] || filteredQuestions[0];
 
-  const handleSelectOption = async (questionId: string, letter: string) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [questionId]: letter,
-    }));
+  /** Hỏi server đáp án đúng cho 1 câu (không phụ thuộc state showInstantAnswer) */
+  const verifyAnswer = async (questionId: string, letter: string) => {
+    const question = filteredQuestions.find((item) => item.id === questionId);
+    if (!question) return;
 
-    const q = filteredQuestions.find((item) => item.id === questionId) || questions.find((item) => item.id === questionId);
-    const localCorrect = q?.correctLetter;
-    const isLocalRight = localCorrect ? letter === localCorrect : false;
+    // Đáp án đúng chỉ tồn tại trên server; nhãn hiển thị có thể đã xáo trộn nên phải quy đổi.
+    setVerifyingId(questionId);
+    try {
+      const candidate = Storage.getCandidate();
+      const originalLetter = toOriginalLetter(question, letter);
+      const res = await checkAnswerOnServer(questionId, originalLetter, candidate?.emailOrCode);
 
-    // Immediately record mistake if wrong
-    if (localCorrect && !isLocalRight) {
-      Storage.addMistake(questionId, letter);
-      setSavedMistakes((prev) => new Set(prev).add(questionId));
-    }
+      if (!res.success || !res.correctLetter) {
+        setCheckError(res.error || 'Không chấm được câu này. Vui lòng kiểm tra kết nối mạng.');
+        return;
+      }
 
-    // If instant answer is ON, immediately display local verified answer
-    if (showInstantAnswer && localCorrect) {
+      const isCorrect = Boolean(res.isCorrect);
       setVerifiedAnswers((prev) => ({
         ...prev,
         [questionId]: {
-          isCorrect: isLocalRight,
-          correctLetter: localCorrect,
-          explanation: q?.explanation || '',
+          isCorrect,
+          correctLetter: toDisplayedLetter(question, res.correctLetter!),
+          explanation: res.explanation || '',
         },
       }));
-    }
 
-    // Also check on server asynchronously if webhook is configured
-    const settings = Storage.getSettings();
-    if (showInstantAnswer && settings.webhookUrl) {
-      setVerifyingId(questionId);
-      const cand = Storage.getCandidate();
-      try {
-        const res = await checkAnswerOnServer(questionId, letter, cand?.emailOrCode);
-        if (res.success && res.correctLetter) {
-          const isRight = Boolean(res.isCorrect);
-          setVerifiedAnswers((prev) => ({
-            ...prev,
-            [questionId]: {
-              isCorrect: isRight,
-              correctLetter: res.correctLetter!,
-              explanation: res.explanation || q?.explanation || '',
-            },
-          }));
-
-          if (!isRight) {
-            Storage.addMistake(questionId, letter);
-            setSavedMistakes((prev) => new Set(prev).add(questionId));
-          }
-        }
-      } catch (e) {
-        console.warn('Server verification error, using local answer:', e);
-      } finally {
-        setVerifyingId(null);
+      if (!isCorrect) {
+        // Lưu nhãn gốc: Sổ Tay Câu Sai hiển thị đề chưa xáo trộn đáp án
+        Storage.addMistake(questionId, originalLetter, {
+          correctLetter: res.correctLetter,
+          explanation: res.explanation,
+        });
+        setSavedMistakes((prev) => new Set(prev).add(questionId));
       }
+    } finally {
+      setVerifyingId(null);
     }
+  };
+
+  const handleSelectOption = (questionId: string, letter: string) => {
+    setAnswers((prev) => ({ ...prev, [questionId]: letter }));
+    setCheckError('');
+    if (showInstantAnswer) void verifyAnswer(questionId, letter);
   };
 
   const handleToggleInstantAnswer = () => {
     const nextVal = !showInstantAnswer;
     setShowInstantAnswer(nextVal);
+    setCheckError('');
+    Storage.saveSettings({ showInstantAnswer: nextVal });
 
-    if (nextVal) {
-      // Reveal answers for all questions already answered
-      setVerifiedAnswers((prev) => {
-        const updated = { ...prev };
-        let changed = false;
-        Object.entries(answers).forEach(([qId, selected]) => {
-          if (!updated[qId]) {
-            const q = questions.find((item) => item.id === qId);
-            if (q && q.correctLetter) {
-              updated[qId] = {
-                isCorrect: selected === q.correctLetter,
-                correctLetter: q.correctLetter,
-                explanation: q.explanation || '',
-              };
-              changed = true;
-            }
-          }
-        });
-        return changed ? updated : prev;
-      });
+    // Bật lại chế độ hiện đáp án: chấm lại câu đang xem nếu thí sinh đã chọn đáp án
+    const currentId = filteredQuestions[currentIndex]?.id;
+    if (nextVal && currentId && answers[currentId] && !verifiedAnswers[currentId]) {
+      void verifyAnswer(currentId, answers[currentId]);
     }
   };
 
@@ -146,10 +120,8 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
   };
 
   const answeredInPart = filteredQuestions.filter((q) => Boolean(answers[q.id])).length;
-  const correctInPart = filteredQuestions.filter((q) => {
-    if (verifiedAnswers[q.id]) return verifiedAnswers[q.id].isCorrect;
-    return q.correctLetter ? answers[q.id] === q.correctLetter : false;
-  }).length;
+  const verifiedInPart = filteredQuestions.filter((q) => Boolean(verifiedAnswers[q.id])).length;
+  const correctInPart = filteredQuestions.filter((q) => verifiedAnswers[q.id]?.isCorrect).length;
 
   return (
     <div className="space-y-6">
@@ -169,7 +141,7 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
             }`}
           >
-            Tất Cả (183)
+            Tất Cả ({questions.length})
           </button>
           {[1, 2, 3, 4, 5, 6, 7].map((p) => (
             <button
@@ -197,9 +169,9 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
             <span className="font-bold text-sky-600 dark:text-sky-400">
               {answeredInPart}/{filteredQuestions.length}
             </span>
-            {answeredInPart > 0 && (
+            {verifiedInPart > 0 && (
               <span className="text-emerald-600 font-bold ml-1">
-                ({Math.round((correctInPart / answeredInPart) * 100)}% đúng)
+                ({Math.round((correctInPart / verifiedInPart) * 100)}% đúng)
               </span>
             )}
           </div>
@@ -237,6 +209,13 @@ export const PracticeRunner: React.FC<PracticeRunnerProps> = ({
           </div>
         </div>
       </div>
+
+      {checkError && (
+        <div className="p-3 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300 text-xs font-semibold flex items-center gap-2">
+          <AlertTriangle className="w-4 h-4 shrink-0" />
+          <span>{checkError}</span>
+        </div>
+      )}
 
       {/* Main Question Card */}
       {currentQuestion ? (

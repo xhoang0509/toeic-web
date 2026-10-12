@@ -7,6 +7,7 @@ export const GET: APIRoute = ({ site }) => {
   return new Response(
     `User-agent: *
 Allow: /
+Disallow: ${cleanBase}admin
 
 Sitemap: ${sitemapURL.href}
 `,

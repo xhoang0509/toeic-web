@@ -1,24 +1,21 @@
 import type { CandidateInfo, ExamResult, MistakeItem } from '../data/types';
 
 const STORAGE_CANDIDATE_KEY = 'toeic_candidate_info_v2';
-const STORAGE_LEADERBOARD_KEY = 'toeic_leaderboard_records_v2';
+const STORAGE_HISTORY_KEY = 'toeic_exam_history_v3';
 const STORAGE_MISTAKES_KEY = 'toeic_mistakes_notebook_v2';
-const STORAGE_SETTINGS_KEY = 'toeic_custom_settings_v2';
+const STORAGE_SETTINGS_KEY = 'toeic_custom_settings_v3';
 
-const DEFAULT_WEBHOOK_URL = (import.meta.env.PUBLIC_WEBHOOK_URL as string) || '';
-const DEFAULT_SECRET_TOKEN = (import.meta.env.PUBLIC_SECRET_TOKEN as string) || '';
+/** Địa chỉ Cloudflare Worker API, nhúng lúc build qua biến môi trường PUBLIC_API_BASE_URL */
+const BUILD_TIME_API_BASE_URL = ((import.meta.env.PUBLIC_API_BASE_URL as string) || '').replace(/\/+$/, '');
 
 export interface AppSettings {
-  webhookUrl: string;
-  secretToken?: string;
-  autoSync: boolean;
+  /** Cho phép ghi đè endpoint API khi phát triển cục bộ (mặc định lấy từ biến môi trường) */
+  apiBaseUrl: string;
   showInstantAnswer: boolean;
 }
 
 export const DEFAULT_SETTINGS: AppSettings = {
-  webhookUrl: DEFAULT_WEBHOOK_URL,
-  secretToken: DEFAULT_SECRET_TOKEN,
-  autoSync: true,
+  apiBaseUrl: BUILD_TIME_API_BASE_URL,
   showInstantAnswer: true,
 };
 
@@ -42,67 +39,16 @@ export const Storage = {
     }
   },
 
-  getLeaderboard(): ExamResult[] {
+  /**
+   * Lịch sử thi của chính thiết bị này. Bảng Xếp Hạng toàn hệ thống lấy từ Cloudflare D1
+   * (xem lib/api.ts → fetchLeaderboard), localStorage chỉ giữ lại kết quả cá nhân.
+   */
+  getExamHistory(): ExamResult[] {
     if (typeof window === 'undefined') return [];
     try {
-      const raw = localStorage.getItem(STORAGE_LEADERBOARD_KEY);
-      if (!raw) {
-        // Return default mockup entries
-        return [
-          {
-            id: 'mock-1',
-            candidateName: 'Đặng Tuấn Anh',
-            candidateId: 'HV-8902',
-            targetScore: '900+',
-            totalCorrect: 172,
-            totalQuestions: 183,
-            listeningCorrect: 88,
-            readingCorrect: 84,
-            scaledListening: 485,
-            scaledReading: 470,
-            totalScaledScore: 955,
-            cefrLevel: 'C1+',
-            partAccuracy: { 1: 100, 2: 98, 3: 93, 4: 93, 5: 95, 6: 88, 7: 92 },
-            timeSpentSeconds: 5820,
-            completedAt: '11/10/2026 09:15',
-          },
-          {
-            id: 'mock-2',
-            candidateName: 'Trần Thị Mai',
-            candidateId: 'HV-4412',
-            targetScore: '800+',
-            totalCorrect: 156,
-            totalQuestions: 183,
-            listeningCorrect: 81,
-            readingCorrect: 75,
-            scaledListening: 450,
-            scaledReading: 425,
-            totalScaledScore: 875,
-            cefrLevel: 'C1',
-            partAccuracy: { 1: 92, 2: 90, 3: 87, 4: 87, 5: 85, 6: 75, 7: 83 },
-            timeSpentSeconds: 6140,
-            completedAt: '10/10/2026 16:40',
-          },
-          {
-            id: 'mock-3',
-            candidateName: 'Lê Hoàng Nam',
-            candidateId: 'HV-3109',
-            targetScore: '800+',
-            totalCorrect: 142,
-            totalQuestions: 183,
-            listeningCorrect: 76,
-            readingCorrect: 66,
-            scaledListening: 420,
-            scaledReading: 380,
-            totalScaledScore: 800,
-            cefrLevel: 'C1',
-            partAccuracy: { 1: 92, 2: 86, 3: 80, 4: 80, 5: 78, 6: 75, 7: 75 },
-            timeSpentSeconds: 6480,
-            completedAt: '09/10/2026 14:22',
-          },
-        ];
-      }
-      return JSON.parse(raw);
+      const raw = localStorage.getItem(STORAGE_HISTORY_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
@@ -111,16 +57,13 @@ export const Storage = {
   addExamResult(result: ExamResult): void {
     if (typeof window === 'undefined') return;
     try {
-      const current = this.getLeaderboard();
+      const current = this.getExamHistory();
       const updated = [result, ...current.filter((item) => item.id !== result.id)];
-      // Sort by totalScaledScore desc, then timeSpentSeconds asc
       updated.sort((a, b) => {
-        if (b.totalScaledScore !== a.totalScaledScore) {
-          return b.totalScaledScore - a.totalScaledScore;
-        }
+        if (b.totalScaledScore !== a.totalScaledScore) return b.totalScaledScore - a.totalScaledScore;
         return a.timeSpentSeconds - b.timeSpentSeconds;
       });
-      localStorage.setItem(STORAGE_LEADERBOARD_KEY, JSON.stringify(updated.slice(0, 100)));
+      localStorage.setItem(STORAGE_HISTORY_KEY, JSON.stringify(updated.slice(0, 50)));
     } catch (e) {
       console.warn('Error saving exam result', e);
     }
@@ -130,20 +73,43 @@ export const Storage = {
     if (typeof window === 'undefined') return [];
     try {
       const raw = localStorage.getItem(STORAGE_MISTAKES_KEY);
-      return raw ? JSON.parse(raw) : [];
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
   },
 
-  addMistake(questionId: string, selectedLetter: string): void {
+  /**
+   * Lưu một câu sai. `meta` chứa đáp án đúng + giải thích do server trả về sau khi chấm,
+   * nhờ đó Sổ Tay Câu Sai vẫn ôn lại được mà client không cần giữ sẵn đáp án của cả đề.
+   */
+  addMistake(
+    questionId: string,
+    selectedLetter: string,
+    meta?: { correctLetter?: string; explanation?: string }
+  ): void {
     if (typeof window === 'undefined') return;
     try {
       const current = this.getMistakes();
-      if (!current.some((m) => m.questionId === questionId)) {
-        current.unshift({ questionId, selectedLetter, timestamp: Date.now() });
-        localStorage.setItem(STORAGE_MISTAKES_KEY, JSON.stringify(current));
+      const existing = current.find((m) => m.questionId === questionId);
+
+      if (existing) {
+        // Bổ sung đáp án / giải thích nếu lần lưu trước chưa có
+        existing.selectedLetter = selectedLetter;
+        if (meta?.correctLetter) existing.correctLetter = meta.correctLetter;
+        if (meta?.explanation) existing.explanation = meta.explanation;
+      } else {
+        current.unshift({
+          questionId,
+          selectedLetter,
+          timestamp: Date.now(),
+          ...(meta?.correctLetter ? { correctLetter: meta.correctLetter } : {}),
+          ...(meta?.explanation ? { explanation: meta.explanation } : {}),
+        });
       }
+
+      localStorage.setItem(STORAGE_MISTAKES_KEY, JSON.stringify(current));
     } catch (e) {
       console.warn('Error adding mistake', e);
     }
@@ -152,8 +118,7 @@ export const Storage = {
   removeMistake(questionId: string): void {
     if (typeof window === 'undefined') return;
     try {
-      const current = this.getMistakes();
-      const updated = current.filter((m) => m.questionId !== questionId);
+      const updated = this.getMistakes().filter((m) => m.questionId !== questionId);
       localStorage.setItem(STORAGE_MISTAKES_KEY, JSON.stringify(updated));
     } catch (e) {
       console.warn('Error removing mistake', e);
@@ -177,8 +142,7 @@ export const Storage = {
       return {
         ...DEFAULT_SETTINGS,
         ...parsed,
-        webhookUrl: parsed.webhookUrl || DEFAULT_SETTINGS.webhookUrl,
-        secretToken: parsed.secretToken || DEFAULT_SETTINGS.secretToken,
+        apiBaseUrl: String(parsed.apiBaseUrl || DEFAULT_SETTINGS.apiBaseUrl).replace(/\/+$/, ''),
       };
     } catch {
       return DEFAULT_SETTINGS;

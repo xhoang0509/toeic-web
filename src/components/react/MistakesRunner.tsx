@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import type { Question } from '../../data/types';
+import type { MistakeItem, Question } from '../../data/types';
 import { QuestionCard } from './QuestionCard';
 import { Storage } from '../../lib/storage';
+import { checkAnswerOnServer, type ReviewDetail } from '../../lib/api';
 import { BookmarkX, Trash2, CheckCircle, RotateCcw } from 'lucide-react';
 
 interface MistakesRunnerProps {
@@ -9,9 +10,11 @@ interface MistakesRunnerProps {
 }
 
 export const MistakesRunner: React.FC<MistakesRunnerProps> = ({ allQuestions }) => {
-  const [mistakeList, setMistakeList] = useState<{ questionId: string; selectedLetter: string }[]>([]);
+  const [mistakeList, setMistakeList] = useState<MistakeItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [verifiedAnswers, setVerifiedAnswers] = useState<Record<string, ReviewDetail>>({});
+  const [verifyingId, setVerifyingId] = useState<string | null>(null);
 
   useEffect(() => {
     setMistakeList(Storage.getMistakes());
@@ -21,14 +24,60 @@ export const MistakesRunner: React.FC<MistakesRunnerProps> = ({ allQuestions }) 
     mistakeList.some((m) => m.questionId === q.id)
   );
 
-  const currentQuestion = mistakeQuestions[currentIndex] || mistakeQuestions[0];
+  const safeIndex = Math.min(currentIndex, Math.max(0, mistakeQuestions.length - 1));
+  const currentQuestion = mistakeQuestions[safeIndex];
+
+  /**
+   * Chọn lại đáp án: ưu tiên đáp án đúng + giải thích đã lưu kèm câu sai (do server trả về
+   * lúc làm bài). Câu sai lưu từ phiên bản cũ chưa có dữ liệu này thì hỏi lại server.
+   */
+  const handleSelectOption = async (questionId: string, letter: string) => {
+    setAnswers((prev) => ({ ...prev, [questionId]: letter }));
+
+    const saved = mistakeList.find((m) => m.questionId === questionId);
+    if (saved?.correctLetter) {
+      setVerifiedAnswers((prev) => ({
+        ...prev,
+        [questionId]: {
+          correctLetter: saved.correctLetter!,
+          explanation: saved.explanation || '',
+          isCorrect: letter === saved.correctLetter,
+        },
+      }));
+      return;
+    }
+
+    setVerifyingId(questionId);
+    try {
+      const candidate = Storage.getCandidate();
+      const res = await checkAnswerOnServer(questionId, letter, candidate?.emailOrCode);
+      if (res.success && res.correctLetter) {
+        setVerifiedAnswers((prev) => ({
+          ...prev,
+          [questionId]: {
+            correctLetter: res.correctLetter!,
+            explanation: res.explanation || '',
+            isCorrect: Boolean(res.isCorrect),
+          },
+        }));
+        Storage.addMistake(questionId, letter, {
+          correctLetter: res.correctLetter,
+          explanation: res.explanation,
+        });
+        setMistakeList(Storage.getMistakes());
+      }
+    } finally {
+      setVerifyingId(null);
+    }
+  };
 
   const handleRemoveMistake = (questionId: string) => {
     Storage.removeMistake(questionId);
-    setMistakeList((prev) => prev.filter((m) => m.questionId !== questionId));
-    if (currentIndex >= mistakeQuestions.length - 1) {
-      setCurrentIndex(Math.max(0, mistakeQuestions.length - 2));
-    }
+    const remaining = mistakeList.filter((m) => m.questionId !== questionId);
+    setMistakeList(remaining);
+
+    const remainingCount = allQuestions.filter((q) => remaining.some((m) => m.questionId === q.id)).length;
+    setCurrentIndex((prev) => Math.max(0, Math.min(prev, remainingCount - 1)));
   };
 
   const handleClearAll = () => {
@@ -90,22 +139,22 @@ export const MistakesRunner: React.FC<MistakesRunnerProps> = ({ allQuestions }) 
           <QuestionCard
             question={currentQuestion}
             selectedLetter={answers[currentQuestion.id]}
-            onSelectOption={(letter) =>
-              setAnswers((prev) => ({ ...prev, [currentQuestion.id]: letter }))
-            }
+            onSelectOption={(letter) => handleSelectOption(currentQuestion.id, letter)}
             mode="practice"
             showInstantAnswer={true}
+            verifiedAnswer={verifiedAnswers[currentQuestion.id]}
+            isVerifying={verifyingId === currentQuestion.id}
             isSavedMistake={true}
             onToggleMistake={() => handleRemoveMistake(currentQuestion.id)}
-            questionIndex={currentIndex}
+            questionIndex={safeIndex}
           />
 
           {/* Controls */}
           <div className="flex items-center justify-between pt-2 gap-3">
             <button
               type="button"
-              disabled={currentIndex === 0}
-              onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
+              disabled={safeIndex === 0}
+              onClick={() => setCurrentIndex(Math.max(0, safeIndex - 1))}
               className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             >
               Câu trước
@@ -122,8 +171,8 @@ export const MistakesRunner: React.FC<MistakesRunnerProps> = ({ allQuestions }) 
 
             <button
               type="button"
-              disabled={currentIndex === mistakeQuestions.length - 1}
-              onClick={() => setCurrentIndex((prev) => Math.min(mistakeQuestions.length - 1, prev + 1))}
+              disabled={safeIndex >= mistakeQuestions.length - 1}
+              onClick={() => setCurrentIndex(Math.min(mistakeQuestions.length - 1, safeIndex + 1))}
               className="px-4 py-2.5 rounded-xl bg-sky-600 text-white font-semibold text-xs disabled:opacity-40 disabled:cursor-not-allowed hover:bg-sky-500 transition-colors shadow-sm"
             >
               Câu tiếp

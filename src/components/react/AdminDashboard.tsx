@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Storage } from '../../lib/storage';
-import {
-  authenticateAdmin,
-  updateAdminConfigs,
-} from '../../lib/admin';
-import {
-  fetchAdminData,
-  setBanStatus,
-} from '../../lib/api';
+import { authenticateAdmin, fetchAdminData, updateAdminConfigs, setBanStatus } from '../../lib/admin';
+import { getApiBaseUrl } from '../../lib/api';
 import type { UserAccount } from '../../data/types';
 import {
   Lock,
@@ -31,65 +24,61 @@ import {
   ShieldAlert,
 } from 'lucide-react';
 
-const SESSION_AUTH_KEY = 'toeic_admin_session_pass_v1';
+/** Chỉ lưu session token do server phát hành — không bao giờ lưu mật khẩu Admin */
+const SESSION_TOKEN_KEY = 'toeic_admin_session_token_v2';
+const MAX_FAILED_ATTEMPTS = 5;
+const LOCKOUT_MS = 60 * 1000;
 
 export const AdminDashboard: React.FC = () => {
-  const [webhookUrl, setWebhookUrl] = useState<string>('');
+  const apiBaseUrl = getApiBaseUrl();
   const [password, setPassword] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [token, setToken] = useState<string>('');
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [failedAttempts, setFailedAttempts] = useState<number>(0);
+  const [lockedUntil, setLockedUntil] = useState<number>(0);
 
   // Tabs
   const [activeTab, setActiveTab] = useState<'configs' | 'users'>('configs');
 
-  // Admin Configs & Users from Google Sheet
+  // Cấu hình & danh sách thí sinh lấy từ Cloudflare D1
   const [configs, setConfigs] = useState<Record<string, string>>({});
   const [users, setUsers] = useState<UserAccount[]>([]);
   const [userSearch, setUserSearch] = useState<string>('');
   const [totalSubmissions, setTotalSubmissions] = useState<number>(0);
-  const [showSecretToken, setShowSecretToken] = useState<boolean>(false);
+  const [totalQuestions, setTotalQuestions] = useState<number>(0);
   const [newAdminPassword, setNewAdminPassword] = useState<string>('');
   const [saveStatus, setSaveStatus] = useState<string>('');
   const [banActionLoading, setBanActionLoading] = useState<string | null>(null);
 
+  // Khôi phục phiên quản trị từ session token (token hết hạn thì server tự từ chối)
   useEffect(() => {
-    const settings = Storage.getSettings();
-    setWebhookUrl(settings.webhookUrl || '');
-
-    // Check existing session
-    const savedPass = sessionStorage.getItem(SESSION_AUTH_KEY);
-    if (savedPass && settings.webhookUrl) {
-      loadDashboard(savedPass);
-    }
+    const savedToken = sessionStorage.getItem(SESSION_TOKEN_KEY);
+    if (savedToken) loadDashboard(savedToken);
   }, []);
 
-  const loadDashboard = async (pass: string) => {
+  const loadDashboard = async (sessionToken: string) => {
     setIsLoading(true);
     setLoginError('');
-    const res = await fetchAdminData(pass);
+    const res = await fetchAdminData(sessionToken);
     setIsLoading(false);
 
     if (res.success && res.configs) {
       setIsAuthenticated(true);
-      setPassword(pass);
-      sessionStorage.setItem(SESSION_AUTH_KEY, pass);
+      setToken(sessionToken);
+      setPassword('');
+      sessionStorage.setItem(SESSION_TOKEN_KEY, sessionToken);
       setConfigs(res.configs);
       setUsers(res.users || []);
       setTotalSubmissions(res.totalResults || 0);
-
-      // Sync local secretToken with sheet if present
-      if (res.configs.secret_token) {
-        Storage.saveSettings({
-          secretToken: res.configs.secret_token,
-        });
-      }
+      setTotalQuestions(res.totalQuestions || 0);
     } else {
       setIsAuthenticated(false);
-      sessionStorage.removeItem(SESSION_AUTH_KEY);
-      setLoginError(res.error || 'Mật khẩu quản trị viên không chính xác');
+      setToken('');
+      sessionStorage.removeItem(SESSION_TOKEN_KEY);
+      setLoginError(res.error || 'Không tải được dữ liệu quản trị');
     }
   };
 
@@ -100,28 +89,36 @@ export const AdminDashboard: React.FC = () => {
       return;
     }
 
-    if (failedAttempts >= 5) {
-      setLoginError('Bạn đã nhập sai quá 5 lần. Vui lòng thử lại sau 1 phút.');
+    if (Date.now() < lockedUntil) {
+      const seconds = Math.ceil((lockedUntil - Date.now()) / 1000);
+      setLoginError(`Bạn đã nhập sai quá ${MAX_FAILED_ATTEMPTS} lần. Vui lòng thử lại sau ${seconds} giây.`);
       return;
     }
 
     setIsLoading(true);
-    const authRes = await authenticateAdmin(webhookUrl, password.trim());
+    const authRes = await authenticateAdmin(password.trim());
 
-    if (authRes.success) {
+    if (authRes.success && authRes.token) {
       setFailedAttempts(0);
-      await loadDashboard(password.trim());
+      setLockedUntil(0);
+      await loadDashboard(authRes.token);
     } else {
       setIsLoading(false);
-      setFailedAttempts((prev) => prev + 1);
+      const attempts = failedAttempts + 1;
+      setFailedAttempts(attempts);
+      if (attempts >= MAX_FAILED_ATTEMPTS) {
+        setFailedAttempts(0);
+        setLockedUntil(Date.now() + LOCKOUT_MS);
+      }
       setLoginError(authRes.error || 'Sai mật khẩu quản trị viên');
     }
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    setToken('');
     setPassword('');
-    sessionStorage.removeItem(SESSION_AUTH_KEY);
+    sessionStorage.removeItem(SESSION_TOKEN_KEY);
   };
 
   const handleConfigChange = (key: string, value: string) => {
@@ -131,43 +128,27 @@ export const AdminDashboard: React.FC = () => {
     }));
   };
 
-  const handleGenerateNewSecret = () => {
-    if (confirm('Tạo Secret Token mới? Khi đổi token, các kết quả thi đang gửi sẽ cần dùng mã mới này.')) {
-      const array = new Uint8Array(24);
-      window.crypto.getRandomValues(array);
-      const hex = Array.from(array)
-        .map((b) => b.toString(16).padStart(2, '0'))
-        .join('');
-      const newToken = `toeic_sec_${hex}`;
-      handleConfigChange('secret_token', newToken);
-    }
-  };
-
   const handleSaveConfigs = async () => {
+    const nextPassword = newAdminPassword.trim();
+    if (nextPassword && nextPassword.length < 8) {
+      setSaveStatus('❌ Mật khẩu quản trị viên mới phải có tối thiểu 8 ký tự.');
+      return;
+    }
+
     setIsLoading(true);
-    setSaveStatus('Đang lưu cấu hình lên Google Sheet...');
+    setSaveStatus('Đang lưu cấu hình lên Cloudflare D1...');
 
     const payloadToSave: Record<string, string> = { ...configs };
-    if (newAdminPassword.trim()) {
-      payloadToSave.admin_password = newAdminPassword.trim();
-    }
+    if (nextPassword) payloadToSave.admin_password = nextPassword;
 
-    const res = await updateAdminConfigs(webhookUrl, password, payloadToSave);
+    const res = await updateAdminConfigs(token, payloadToSave);
     setIsLoading(false);
 
     if (res.success) {
-      setSaveStatus('✅ Đã lưu cấu hình thành công vào Sheet Config!');
-      if (newAdminPassword.trim()) {
-        setPassword(newAdminPassword.trim());
-        sessionStorage.setItem(SESSION_AUTH_KEY, newAdminPassword.trim());
-        setNewAdminPassword('');
-      }
-      if (configs.secret_token) {
-        Storage.saveSettings({
-          webhookUrl,
-          secretToken: configs.secret_token,
-        });
-      }
+      setSaveStatus(
+        '✅ Đã lưu cấu hình thành công' + (nextPassword ? ' và đổi mật khẩu quản trị viên!' : '!')
+      );
+      setNewAdminPassword('');
       setTimeout(() => setSaveStatus(''), 4000);
     } else {
       setSaveStatus('❌ Lỗi: ' + (res.error || 'Không thể lưu cấu hình'));
@@ -184,7 +165,7 @@ export const AdminDashboard: React.FC = () => {
     }
 
     setBanActionLoading(email);
-    const res = await setBanStatus(email, !isCurrentlyBanned, reason, password);
+    const res = await setBanStatus(token, email, !isCurrentlyBanned, reason);
     setBanActionLoading(null);
 
     if (res.success) {
@@ -221,7 +202,7 @@ export const AdminDashboard: React.FC = () => {
             Cổng Quản Trị Hệ Thống
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Khu vực bảo mật chỉ dành cho Quản trị viên quản lý Google Sheet & User
+            Khu vực bảo mật chỉ dành cho Quản trị viên quản lý cấu hình kỳ thi & thí sinh
           </p>
         </div>
 
@@ -235,16 +216,11 @@ export const AdminDashboard: React.FC = () => {
 
           <div>
             <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-              Webhook URL (Google Apps Script)
+              Máy chủ API (Cloudflare Worker)
             </label>
-            <input
-              type="url"
-              required
-              value={webhookUrl}
-              onChange={(e) => setWebhookUrl(e.target.value)}
-              placeholder="https://script.google.com/macros/s/.../exec"
-              className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 text-slate-900 dark:text-white font-mono"
-            />
+            <div className="px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 font-mono break-all">
+              {apiBaseUrl || 'Chưa cấu hình PUBLIC_API_BASE_URL khi build'}
+            </div>
           </div>
 
           <div>
@@ -305,7 +281,7 @@ export const AdminDashboard: React.FC = () => {
               </span>
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Quản lý Cấu hình, 183 Câu hỏi & Danh sách User (Google Sheet Relational DB)
+              Cấu hình kỳ thi • {totalQuestions} câu hỏi • {users.length} thí sinh (Cloudflare D1)
             </p>
           </div>
         </div>
@@ -313,8 +289,8 @@ export const AdminDashboard: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => loadDashboard(password)}
-            title="Làm mới dữ liệu từ Google Sheet"
+            onClick={() => loadDashboard(token)}
+            title="Làm mới dữ liệu từ Cloudflare D1"
             className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
           >
             <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
@@ -413,39 +389,13 @@ export const AdminDashboard: React.FC = () => {
             <div className="flex items-center gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
               <Key className="w-5 h-5 text-amber-500" />
               <h2 className="text-base font-bold text-slate-900 dark:text-white">
-                Bảo Mật Hệ Thống & Secret Token
+                Bảo Mật Hệ Thống & Mật Khẩu Quản Trị
               </h2>
             </div>
 
-            <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Secret Token (Ký số HMAC SHA-256)
-                </label>
-                <button
-                  type="button"
-                  onClick={handleGenerateNewSecret}
-                  className="text-xs text-sky-600 hover:text-sky-700 font-semibold flex items-center gap-1"
-                >
-                  <RefreshCw className="w-3 h-3" />
-                  <span>Tạo mã ngẫu nhiên mới</span>
-                </button>
-              </div>
-              <div className="relative">
-                <input
-                  type={showSecretToken ? 'text' : 'password'}
-                  value={configs.secret_token || ''}
-                  onChange={(e) => handleConfigChange('secret_token', e.target.value)}
-                  className="w-full pl-3.5 pr-10 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm font-mono text-slate-900 dark:text-white"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowSecretToken(!showSecretToken)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                >
-                  {showSecretToken ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                </button>
-              </div>
+            <div className="p-3.5 rounded-xl bg-sky-50/60 dark:bg-sky-950/20 border border-sky-100 dark:border-sky-900 text-[11px] text-sky-900 dark:text-sky-200 leading-relaxed">
+              Session quản trị dùng token HMAC-SHA256 do Cloudflare Worker phát hành (hạn 8 giờ).
+              Mật khẩu chỉ được gửi 1 lần lúc đăng nhập và không được lưu trên trình duyệt.
             </div>
 
             <div>
@@ -456,7 +406,8 @@ export const AdminDashboard: React.FC = () => {
                 type="password"
                 value={newAdminPassword}
                 onChange={(e) => setNewAdminPassword(e.target.value)}
-                placeholder="Nhập mật khẩu quản trị viên mới..."
+                placeholder="Tối thiểu 8 ký tự..."
+                minLength={8}
                 className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white"
               />
             </div>
@@ -482,6 +433,20 @@ export const AdminDashboard: React.FC = () => {
                   max={180}
                   value={configs.exam_duration_minutes || '120'}
                   onChange={(e) => handleConfigChange('exam_duration_minutes', e.target.value)}
+                  className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white font-bold"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                  Số Thí Sinh Hiển Thị Trên Bảng Xếp Hạng
+                </label>
+                <input
+                  type="number"
+                  min={10}
+                  max={500}
+                  value={configs.leaderboard_size || '100'}
+                  onChange={(e) => handleConfigChange('leaderboard_size', e.target.value)}
                   className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white font-bold"
                 />
               </div>
@@ -534,7 +499,7 @@ export const AdminDashboard: React.FC = () => {
                 className="px-6 py-3 bg-sky-600 hover:bg-sky-500 active:scale-95 text-white font-bold text-xs rounded-xl shadow-lg shadow-sky-600/25 flex items-center gap-2 transition-all disabled:opacity-50"
               >
                 {isLoading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                <span>Lưu Cấu Hình Lên Google Sheet</span>
+                <span>Lưu Cấu Hình</span>
               </button>
             </div>
           </div>

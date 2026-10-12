@@ -4,25 +4,29 @@ export interface MediaFile {
 }
 
 export interface Option {
+  /** Nhãn hiển thị (A, B, C, D) — có thể bị đổi khi xáo trộn đáp án */
   letter: string;
   text: string;
-  isCorrect?: boolean;
+  /**
+   * Nhãn gốc trong ngân hàng đề. Khi xáo trộn đáp án, đây là nhãn phải gửi lên
+   * server để chấm điểm, vì server chỉ biết đáp án theo nhãn gốc.
+   */
+  originalLetter?: string;
 }
 
+/**
+ * Câu hỏi ở dạng công khai (src/data/questions.public.json).
+ * Không chứa `correctLetter` / `explanation`: đáp án chỉ tồn tại trong Cloudflare D1.
+ */
 export interface Question {
   id: string;
   questionNumber: number;
   partId: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   partName: string;
   skill: 'Listening' | 'Reading';
-  type: string;
-  mediaType?: string;
   mediaFiles?: MediaFile[];
   question: string;
   options: Option[];
-  correctLetter?: string;
-  correctAnswer?: string;
-  explanation?: string;
   passage?: string;
 }
 
@@ -77,6 +81,10 @@ export interface MistakeItem {
   questionId: string;
   selectedLetter: string;
   timestamp: number;
+  /** Đáp án đúng do server trả về lúc ghi nhận câu sai */
+  correctLetter?: string;
+  /** Lời giải thích do server trả về lúc ghi nhận câu sai */
+  explanation?: string;
 }
 
 export const PARTS_META: PartMeta[] = [
@@ -141,8 +149,8 @@ export const PARTS_META: PartMeta[] = [
     name: 'Part 6',
     title: 'Điền đoạn văn (Text Completion)',
     skill: 'Reading',
-    questionCount: 8,
-    description: 'Điền từ, cụm từ hoặc cả câu vào chỗ trống trong các bức thư điện tử, thông báo, bài báo ngắn.',
+    questionCount: 24,
+    description: 'Điền từ, cụm từ hoặc cả câu vào chỗ trống trong các bức thư điện tử, thông báo, bài báo ngắn. Mỗi đoạn văn có 3 chỗ trống và mỗi chỗ trống được tính là một câu hỏi riêng.',
     strategy: 'Đọc câu trước và sau chỗ trống để hiểu ngữ cảnh, đặc biệt chú ý câu nối chuyển ý logic.',
     timeRecommendation: 'Khoảng 2 - 3 phút cho mỗi bài đọc 4 câu',
   },

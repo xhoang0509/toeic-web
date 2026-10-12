@@ -1,40 +1,94 @@
 import React, { useState, useEffect } from 'react';
 import type { ExamResult } from '../../data/types';
+import { fetchLeaderboard, type LeaderboardStats } from '../../lib/api';
 import { Storage } from '../../lib/storage';
-import { Trophy, Medal, Download, Search, Users, Award, TrendingUp } from 'lucide-react';
+import {
+  Trophy,
+  Download,
+  Search,
+  Users,
+  TrendingUp,
+  Loader2,
+  AlertTriangle,
+  RefreshCw,
+  EyeOff,
+} from 'lucide-react';
+
+/** Bọc 1 ô dữ liệu theo chuẩn CSV (RFC 4180): nhân đôi dấu nháy kép bên trong */
+function csvCell(value: unknown): string {
+  return `"${String(value ?? '').replace(/"/g, '""')}"`;
+}
 
 export const LeaderboardTable: React.FC = () => {
   const [list, setList] = useState<ExamResult[]>([]);
+  const [stats, setStats] = useState<LeaderboardStats | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>('');
+  const [isHidden, setIsHidden] = useState<boolean>(false);
+
+  const load = async () => {
+    setIsLoading(true);
+    setError('');
+
+    const res = await fetchLeaderboard(100);
+    setIsLoading(false);
+
+    if (!res.success) {
+      // Mất kết nối: hiển thị lịch sử thi của chính thiết bị này thay vì bảng trống
+      const local = Storage.getExamHistory();
+      setList(local);
+      setError(
+        (res.error || 'Không tải được Bảng Xếp Hạng từ máy chủ.') +
+          (local.length > 0 ? ' Đang hiển thị kết quả đã lưu trên thiết bị này.' : '')
+      );
+      return;
+    }
+
+    setIsHidden(Boolean(res.hidden));
+    setList(res.entries);
+    setStats(res.stats || null);
+  };
 
   useEffect(() => {
-    setList(Storage.getLeaderboard());
+    load();
   }, []);
 
-  const filtered = list.filter((item) =>
-    item.candidateName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.candidateId.toLowerCase().includes(searchTerm.toLowerCase())
+  const filtered = list.filter(
+    (item) =>
+      item.candidateName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.candidateId.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const totalParticipants = list.length;
-  const maxScore = list.reduce((max, cur) => Math.max(max, cur.totalScaledScore), 0);
-  const avgScore = totalParticipants > 0
-    ? Math.round(list.reduce((sum, cur) => sum + cur.totalScaledScore, 0) / totalParticipants)
-    : 0;
+  const totalParticipants = stats?.totalAttempts ?? list.length;
+  const maxScore = stats?.bestScore ?? list.reduce((max, cur) => Math.max(max, cur.totalScaledScore), 0);
+  const avgScore =
+    stats?.averageScore ??
+    (list.length > 0
+      ? Math.round(list.reduce((sum, cur) => sum + cur.totalScaledScore, 0) / list.length)
+      : 0);
 
   const exportCSV = () => {
     if (list.length === 0) return;
 
-    let csvContent = 'STT,Họ và Tên,Mã Học Viên,Mục Tiêu,Điểm TOEIC,Số Câu Đúng,Thời Gian,Xếp Loại,Ngày Thi\n';
-
-    list.forEach((item, idx) => {
+    const header = 'STT,Họ và Tên,Mã Học Viên,Mục Tiêu,Điểm TOEIC,Số Câu Đúng,Thời Gian,Xếp Loại,Ngày Thi';
+    const rows = list.map((item, idx) => {
       const mins = Math.floor(item.timeSpentSeconds / 60);
       const secs = item.timeSpentSeconds % 60;
-      const duration = `${mins}m ${secs}s`;
-      csvContent += `${idx + 1},"${item.candidateName}","${item.candidateId}","${item.targetScore}",${item.totalScaledScore},"${item.totalCorrect}/${item.totalQuestions}","${duration}","${item.cefrLevel}","${item.completedAt}"\n`;
+      return [
+        idx + 1,
+        csvCell(item.candidateName),
+        csvCell(item.candidateId),
+        csvCell(item.targetScore),
+        item.totalScaledScore,
+        csvCell(`${item.totalCorrect}/${item.totalQuestions}`),
+        csvCell(`${mins}m ${secs}s`),
+        csvCell(item.cefrLevel),
+        csvCell(item.completedAt),
+      ].join(',');
     });
 
-    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob(['﻿' + [header, ...rows].join('\n')], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
@@ -42,6 +96,7 @@ export const LeaderboardTable: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -92,15 +147,42 @@ export const LeaderboardTable: React.FC = () => {
           />
         </div>
 
-        <button
-          type="button"
-          onClick={exportCSV}
-          className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center justify-center gap-2 transition-colors border border-slate-200 dark:border-slate-700"
-        >
-          <Download className="w-4 h-4" />
-          <span>Xuất Báo Cáo CSV</span>
-        </button>
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <button
+            type="button"
+            onClick={load}
+            disabled={isLoading}
+            className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 disabled:opacity-60 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm"
+          >
+            {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
+            <span>Làm mới</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={exportCSV}
+            disabled={list.length === 0}
+            className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 disabled:opacity-50 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center justify-center gap-2 transition-colors border border-slate-200 dark:border-slate-700"
+          >
+            <Download className="w-4 h-4" />
+            <span>Xuất Báo Cáo CSV</span>
+          </button>
+        </div>
       </div>
+
+      {error && (
+        <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 text-amber-800 dark:text-amber-300 text-xs font-semibold flex items-center gap-2">
+          <AlertTriangle className="w-4 h-4 shrink-0" />
+          <span>{error}</span>
+        </div>
+      )}
+
+      {isHidden && (
+        <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold flex items-center gap-2">
+          <EyeOff className="w-4 h-4 shrink-0" />
+          <span>Quản trị viên đang tạm ẩn Bảng Xếp Hạng công khai.</span>
+        </div>
+      )}
 
       {/* Leaderboard Table */}
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
@@ -117,12 +199,32 @@ export const LeaderboardTable: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+              {isLoading && list.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="py-12 text-center text-slate-400 text-xs font-semibold">
+                    <Loader2 className="w-5 h-5 animate-spin inline-block mr-2 align-middle" />
+                    Đang tải bảng xếp hạng…
+                  </td>
+                </tr>
+              )}
+
+              {!isLoading && filtered.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="py-12 text-center text-slate-500 text-xs">
+                    {list.length === 0
+                      ? 'Chưa có thí sinh nào nộp bài. Hãy là người đầu tiên ghi tên lên Bảng Vàng!'
+                      : 'Không tìm thấy thí sinh khớp với từ khóa tìm kiếm.'}
+                  </td>
+                </tr>
+              )}
+
               {filtered.map((item, idx) => {
                 const mins = Math.floor(item.timeSpentSeconds / 60);
                 const secs = item.timeSpentSeconds % 60;
-                const isTop1 = idx === 0;
-                const isTop2 = idx === 1;
-                const isTop3 = idx === 2;
+                const rank = list.indexOf(item) + 1;
+                const isTop1 = rank === 1;
+                const isTop2 = rank === 2;
+                const isTop3 = rank === 3;
 
                 return (
                   <tr
@@ -145,16 +247,16 @@ export const LeaderboardTable: React.FC = () => {
                           🥉
                         </span>
                       ) : (
-                        <span className="text-slate-400 font-mono">#{idx + 1}</span>
+                        <span className="text-slate-400 font-mono">#{rank}</span>
                       )}
                     </td>
 
                     <td className="py-3.5 px-4">
                       <div className="font-bold text-slate-900 dark:text-white">{item.candidateName}</div>
                       <div className="text-[11px] text-slate-400 flex items-center gap-2 mt-0.5">
-                        <span>{item.candidateId}</span>
+                        <span>{item.candidateId || '—'}</span>
                         <span>•</span>
-                        <span>Mục tiêu: {item.targetScore}</span>
+                        <span>Mục tiêu: {item.targetScore || '—'}</span>
                       </div>
                     </td>
 
@@ -167,17 +269,16 @@ export const LeaderboardTable: React.FC = () => {
                     <td className="py-3.5 px-4 text-center font-medium text-slate-600 dark:text-slate-300">
                       {item.totalCorrect} / {item.totalQuestions}
                       <span className="text-slate-400 text-xs ml-1">
-                        ({Math.round((item.totalCorrect / item.totalQuestions) * 100)}%)
+                        ({item.totalQuestions > 0 ? Math.round((item.totalCorrect / item.totalQuestions) * 100) : 0}%)
                       </span>
                     </td>
 
                     <td className="py-3.5 px-4 text-center font-mono text-slate-500">
-                      {mins}:{secs < 10 ? '0' : ''}{secs}
+                      {mins}:{secs < 10 ? '0' : ''}
+                      {secs}
                     </td>
 
-                    <td className="py-3.5 px-4 text-right text-xs text-slate-400">
-                      {item.completedAt}
-                    </td>
+                    <td className="py-3.5 px-4 text-right text-xs text-slate-400">{item.completedAt}</td>
                   </tr>
                 );
               })}

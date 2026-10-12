@@ -24,6 +24,26 @@ describe('Storage Adapter (lib/storage.ts)', () => {
   });
 
   describe('Mistakes Notebook', () => {
+    it('lưu kèm đáp án đúng & giải thích do server trả về', () => {
+      Storage.addMistake('q-500', 'A', { correctLetter: 'C', explanation: 'Vì C đúng' });
+
+      const [mistake] = Storage.getMistakes();
+      expect(mistake.correctLetter).toBe('C');
+      expect(mistake.explanation).toBe('Vì C đúng');
+    });
+
+    it('bổ sung đáp án cho câu sai đã lưu từ trước mà chưa có metadata', () => {
+      Storage.addMistake('q-501', 'A');
+      expect(Storage.getMistakes()[0].correctLetter).toBeUndefined();
+
+      Storage.addMistake('q-501', 'B', { correctLetter: 'D', explanation: 'D mới đúng' });
+
+      const mistakes = Storage.getMistakes();
+      expect(mistakes).toHaveLength(1);
+      expect(mistakes[0].selectedLetter).toBe('B');
+      expect(mistakes[0].correctLetter).toBe('D');
+    });
+
     it('adds mistake without duplicate', () => {
       Storage.addMistake('q-101', 'A');
       Storage.addMistake('q-101', 'A'); // duplicate add
@@ -51,26 +71,29 @@ describe('Storage Adapter (lib/storage.ts)', () => {
     it('returns default settings when empty', () => {
       const settings = Storage.getSettings();
       expect(settings).toBeDefined();
-      expect(settings.autoSync).toBe(true);
       expect(settings.showInstantAnswer).toBe(true);
     });
 
     it('saves and merges settings updates', () => {
       Storage.saveSettings({
-        webhookUrl: 'https://example.com/webhook',
+        apiBaseUrl: 'https://api.example.com',
         showInstantAnswer: false,
       });
 
       const updated = Storage.getSettings();
-      expect(updated.webhookUrl).toBe('https://example.com/webhook');
+      expect(updated.apiBaseUrl).toBe('https://api.example.com');
       expect(updated.showInstantAnswer).toBe(false);
+    });
+
+    it('bỏ dấu / ở cuối endpoint API để nối path không bị lặp', () => {
+      Storage.saveSettings({ apiBaseUrl: 'https://api.example.com/' });
+      expect(Storage.getSettings().apiBaseUrl).toBe('https://api.example.com');
     });
   });
 
-  describe('Leaderboard', () => {
-    it('returns default mock items if empty', () => {
-      const list = Storage.getLeaderboard();
-      expect(list.length).toBeGreaterThan(0);
+  describe('Exam history', () => {
+    it('không trả về dữ liệu mockup khi chưa có lượt thi nào', () => {
+      expect(Storage.getExamHistory()).toEqual([]);
     });
 
     it('adds result and sorts by score descending, duration ascending', () => {
@@ -113,7 +136,8 @@ describe('Storage Adapter (lib/storage.ts)', () => {
       Storage.addExamResult(res1);
       Storage.addExamResult(res2);
 
-      const sorted = Storage.getLeaderboard();
+      const sorted = Storage.getExamHistory();
+      expect(sorted).toHaveLength(2);
       expect(sorted[0].id).toBe('res-2');
     });
   });

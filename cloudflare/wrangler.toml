@@ -1,0 +1,17 @@
+name = "toeic-api"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+# Database ID được điền tự động bởi `npm run db:create` (wrangler d1 create toeic-db)
+[[d1_databases]]
+binding = "DB"
+database_name = "toeic-db"
+database_id = "d4ead5fe-6db3-478f-8590-630781c3f0c8"
+
+[vars]
+# Origin được phép gọi API. Origin đầu tiên là fallback khi request không khớp allowlist.
+ALLOWED_ORIGINS = "https://xhoang0509.github.io,http://localhost:4321,http://localhost:3000"
+
+# Secret bắt buộc (đặt bằng: wrangler secret put ADMIN_SESSION_SECRET)
+#   ADMIN_SESSION_SECRET — khóa HMAC ký session token của Quản trị viên

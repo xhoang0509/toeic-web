@@ -131,7 +131,7 @@ export const RadarSkillChart: React.FC<RadarChartProps> = ({
                     dominantBaseline="central"
                     className="text-[11px] font-semibold fill-slate-700 dark:fill-slate-300"
                   >
-                    {part.name} ({partAccuracy[part.id] ?? 0}%)
+                    {part.label.split(':')[0]} ({partAccuracy[part.id] ?? 0}%)
                   </text>
                 </g>
               );

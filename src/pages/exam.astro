@@ -1,13 +1,13 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import { ExamRunner } from '../components/react/ExamRunner';
-import questions from '../data/questions.json';
+import questions from '../data/questions.public.json';
 import type { Question } from '../data/types';
 
 const typedQuestions = questions as Question[];
 
 const pageTitle = 'Phòng Thi Thử TOEIC Online 120 Phút — Format Chuẩn Quốc Tế ETS';
-const pageDescription = 'Tham gia làm bài thi thử TOEIC 183 câu với đồng hồ đếm ngược 120 phút, audio nghe chất lượng cao, tính điểm quy đổi ETS ~/990 và phân tích trình độ CEFR.';
+const pageDescription = `Tham gia làm bài thi thử TOEIC ${typedQuestions.length} câu với đồng hồ đếm ngược 120 phút, audio nghe chất lượng cao, tính điểm quy đổi ETS ~/990 và phân tích trình độ CEFR.`;
 ---
 
 <MainLayout title={pageTitle} description={pageDescription}>

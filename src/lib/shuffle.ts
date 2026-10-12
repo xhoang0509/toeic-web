@@ -19,6 +19,8 @@ export interface ShuffleOptions {
   shuffleReadingOptions?: boolean;
 }
 
+const DISPLAY_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+
 /**
  * Nhóm các câu hỏi dùng chung media (audio/hình ảnh) để không làm đứt mạch bài nghe
  */
@@ -45,31 +47,61 @@ function groupQuestionsByMedia(questions: Question[]): Question[][] {
 }
 
 /**
- * Xáo trộn các lựa chọn A, B, C, D của câu hỏi Reading (nếu cần) và cập nhật lại correctLetter
+ * Xáo trộn lựa chọn A, B, C, D của câu hỏi Reading.
+ *
+ * Nhãn hiển thị được gán lại theo vị trí mới, nhưng nhãn gốc được giữ trong
+ * `originalLetter` — đây là nhãn bắt buộc phải gửi lên server khi chấm điểm,
+ * vì server chỉ lưu đáp án theo nhãn gốc của ngân hàng đề.
  */
 function shuffleQuestionOptions(q: Question): Question {
-  // Chỉ xáo trộn Part 5, 6, 7 và khi options có nội dung thực tế (không phải chỉ chữ cái A, B, C, D)
+  // Part 1-4 chỉ có nhãn A/B/C/D (nội dung nằm trong audio) nên không xáo trộn được
   if (q.skill !== 'Reading') return q;
   const isSimpleLetters = q.options.every((opt) => opt.text.trim() === opt.letter.trim());
   if (isSimpleLetters) return q;
 
-  const shuffledOpts = shuffleArray(q.options);
-  const letters = ['A', 'B', 'C', 'D'];
-
-  const newOptions: Option[] = shuffledOpts.map((opt, idx) => ({
+  const newOptions: Option[] = shuffleArray(q.options).map((opt, idx) => ({
     ...opt,
-    letter: letters[idx] || opt.letter,
+    letter: DISPLAY_LETTERS[idx] || opt.letter,
+    originalLetter: opt.originalLetter || opt.letter,
   }));
 
-  const correctOpt = newOptions.find((opt) => opt.isCorrect);
-  const correctLetter = correctOpt ? correctOpt.letter : q.correctLetter;
+  return { ...q, options: newOptions };
+}
 
-  return {
-    ...q,
-    options: newOptions,
-    correctLetter,
-    correctAnswer: correctOpt ? `${correctLetter}. ${correctOpt.text}` : q.correctAnswer,
-  };
+/**
+ * Đổi nhãn đang hiển thị → nhãn gốc trong ngân hàng đề (để gửi lên server chấm điểm)
+ */
+export function toOriginalLetter(question: Question, displayedLetter: string): string {
+  const option = question.options.find((opt) => opt.letter === displayedLetter);
+  return option?.originalLetter || displayedLetter;
+}
+
+/**
+ * Đổi nhãn gốc do server trả về → nhãn đang hiển thị trên giao diện
+ */
+export function toDisplayedLetter(question: Question, originalLetter: string): string {
+  const option = question.options.find(
+    (opt) => (opt.originalLetter || opt.letter) === originalLetter
+  );
+  return option?.letter || originalLetter;
+}
+
+/**
+ * Chuyển toàn bộ map đáp án người dùng chọn (theo nhãn hiển thị) sang nhãn gốc
+ */
+export function mapAnswersToOriginalLetters(
+  questions: Question[],
+  answers: Record<string, string>
+): Record<string, string> {
+  const byId = new Map(questions.map((q) => [q.id, q]));
+  const mapped: Record<string, string> = {};
+
+  for (const [questionId, displayedLetter] of Object.entries(answers)) {
+    const question = byId.get(questionId);
+    mapped[questionId] = question ? toOriginalLetter(question, displayedLetter) : displayedLetter;
+  }
+
+  return mapped;
 }
 
 /**
@@ -85,7 +117,6 @@ export function shuffleToeicQuestions(
   const { keepPartsInOrder = true, shuffleReadingOptions = false } = options;
 
   if (keepPartsInOrder) {
-    // Phân chia theo từng Part 1..7
     const parts = [1, 2, 3, 4, 5, 6, 7] as const;
     const finalQuestions: Question[] = [];
 
@@ -93,12 +124,9 @@ export function shuffleToeicQuestions(
       const partQuestions = questions.filter((q) => q.partId === partId);
       if (partQuestions.length === 0) continue;
 
-      // Gom nhóm theo audio/passage
       const clusters = groupQuestionsByMedia(partQuestions);
-      // Xáo trộn các cụm câu hỏi
       const shuffledClusters = shuffleArray(clusters);
 
-      // Duỗi phẳng mảng
       for (const cluster of shuffledClusters) {
         for (const q of cluster) {
           finalQuestions.push(shuffleReadingOptions ? shuffleQuestionOptions(q) : q);
@@ -109,7 +137,6 @@ export function shuffleToeicQuestions(
     return finalQuestions;
   }
 
-  // Xáo trộn toàn bộ cụm không theo Part
   const clusters = groupQuestionsByMedia(questions);
   const shuffledClusters = shuffleArray(clusters);
   const flat: Question[] = [];

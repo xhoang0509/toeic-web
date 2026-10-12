@@ -1,12 +1,29 @@
 import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { RadarSkillChart } from '../components/react/RadarSkillChart';
 import { QuestionCard } from '../components/react/QuestionCard';
 import { PracticeRunner } from '../components/react/PracticeRunner';
+import { Storage } from '../lib/storage';
 import type { Question } from '../data/types';
 
+const API = 'https://toeic-api.example.workers.dev';
+
+function mockFetch(payload: unknown) {
+  return vi.fn().mockResolvedValue({
+    ok: true,
+    status: 200,
+    text: async () => JSON.stringify(payload),
+  } as any);
+}
+
 describe('React Islands Components', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    vi.restoreAllMocks();
+    Storage.saveSettings({ apiBaseUrl: API });
+  });
+
   describe('RadarSkillChart', () => {
     it('renders 7 skill parts and CEFR badge', () => {
       const accuracy = { 1: 90, 2: 85, 3: 80, 4: 75, 5: 70, 6: 65, 7: 60 };
@@ -17,6 +34,14 @@ describe('React Islands Components', () => {
       expect(screen.getByText(/Part 1: Tranh/i)).toBeInTheDocument();
       expect(screen.getByText(/Part 7: Đọc hiểu/i)).toBeInTheDocument();
     });
+
+    it('vẽ nhãn từng Part trên biểu đồ radar kèm tỉ lệ đúng', () => {
+      render(<RadarSkillChart partAccuracy={{ 3: 42 }} totalScaledScore={500} />);
+
+      // Trước đây nhãn SVG đọc sai thuộc tính nên hiển thị "undefined (42%)"
+      expect(screen.getByText('Part 3 (42%)')).toBeInTheDocument();
+      expect(screen.queryByText(/undefined/)).not.toBeInTheDocument();
+    });
   });
 
   describe('QuestionCard', () => {
@@ -26,32 +51,36 @@ describe('React Islands Components', () => {
       partId: 1,
       partName: 'Part 1 - Mô tả tranh',
       skill: 'Listening',
-      type: 'mc',
       question: 'Chọn mô tả phù hợp nhất.',
       options: [
-        { letter: 'A', text: 'She is walking.', isCorrect: true },
-        { letter: 'B', text: 'She is reading.', isCorrect: false },
+        { letter: 'A', text: 'She is walking.' },
+        { letter: 'B', text: 'She is reading.' },
       ],
-      correctLetter: 'A',
-      correctAnswer: 'A. She is walking.',
-      explanation: 'Cô gái đang đi bộ.',
     };
 
-    it('renders question prompt and options without revealing answer', () => {
+    it('renders question prompt and options', () => {
       const onSelect = vi.fn();
-      render(
-        <QuestionCard
-          question={mockQuestion}
-          onSelectOption={onSelect}
-          mode="practice"
-        />
-      );
+      render(<QuestionCard question={mockQuestion} onSelectOption={onSelect} mode="practice" />);
 
       expect(screen.getByText('Chọn mô tả phù hợp nhất.')).toBeInTheDocument();
       expect(screen.getByText('She is walking.')).toBeInTheDocument();
 
       fireEvent.click(screen.getByText('She is walking.'));
       expect(onSelect).toHaveBeenCalledWith('A');
+    });
+
+    it('không tiết lộ đáp án khi server chưa chấm', () => {
+      render(
+        <QuestionCard
+          question={mockQuestion}
+          selectedLetter="B"
+          onSelectOption={() => {}}
+          mode="practice"
+          showInstantAnswer={true}
+        />
+      );
+
+      expect(screen.queryByText(/Xem lời giải thích/i)).not.toBeInTheDocument();
     });
 
     it('displays verified answer and explanation when provided', () => {
@@ -69,24 +98,9 @@ describe('React Islands Components', () => {
         />
       );
 
-      const expBtn = screen.getByText(/Xem lời giải thích/i);
-      fireEvent.click(expBtn);
+      fireEvent.click(screen.getByText(/Xem lời giải thích/i));
       expect(screen.getByText(/Cô gái đang đi bộ/i)).toBeInTheDocument();
-    });
-
-    it('reveals correct answer when showInstantAnswer is true and option is selected', () => {
-      render(
-        <QuestionCard
-          question={mockQuestion}
-          selectedLetter="B"
-          onSelectOption={() => {}}
-          mode="practice"
-          showInstantAnswer={true}
-        />
-      );
-
-      // Should show explanation toggle button because isAnswered is true and showInstantAnswer is true
-      expect(screen.getByText(/Xem lời giải thích & Transcript/i)).toBeInTheDocument();
+      expect(screen.getByText('A. She is walking.')).toBeInTheDocument();
     });
   });
 
@@ -98,55 +112,92 @@ describe('React Islands Components', () => {
         partId: 1,
         partName: 'Part 1',
         skill: 'Listening',
-        type: 'mc',
         question: 'Practice Question 1',
         options: [
           { letter: 'A', text: 'Option A' },
           { letter: 'B', text: 'Option B' },
         ],
-        correctLetter: 'A',
-        explanation: 'Detailed explanation for Q1',
       },
     ];
 
-    it('immediately reveals answer on click when Hiện đáp án: BẬT is active', () => {
+    it('chấm đáp án qua server rồi hiển thị giải thích', async () => {
+      globalThis.fetch = mockFetch({
+        success: true,
+        isCorrect: false,
+        correctLetter: 'B',
+        explanation: 'Detailed explanation for Q1',
+      });
+
       render(<PracticeRunner questions={mockQuestions} />);
 
       expect(screen.getByText('Practice Question 1')).toBeInTheDocument();
       expect(screen.getByText('Hiện đáp án: BẬT')).toBeInTheDocument();
-
-      // Before click, no explanation button
       expect(screen.queryByText(/Xem lời giải thích/i)).not.toBeInTheDocument();
 
-      // Click option A
       fireEvent.click(screen.getByText('Option A'));
 
-      // After click, explanation button is visible immediately
-      expect(screen.getByText(/Xem lời giải thích & Transcript/i)).toBeInTheDocument();
+      await waitFor(() => expect(screen.getByText(/Xem lời giải thích/i)).toBeInTheDocument());
 
-      // Click explanation button
-      fireEvent.click(screen.getByText(/Xem lời giải thích & Transcript/i));
+      fireEvent.click(screen.getByText(/Xem lời giải thích/i));
       expect(screen.getByText(/Detailed explanation for Q1/i)).toBeInTheDocument();
+
+      // Câu trả lời sai phải được ghi vào Sổ Tay Câu Sai kèm đáp án đúng
+      const mistakes = Storage.getMistakes();
+      expect(mistakes).toHaveLength(1);
+      expect(mistakes[0].correctLetter).toBe('B');
     });
 
-    it('toggles answer visibility when clicking toggle button', () => {
+    it('hiện thông báo lỗi khi không chấm được đáp án', async () => {
+      globalThis.fetch = vi.fn().mockRejectedValue(new Error('offline'));
+
+      render(<PracticeRunner questions={mockQuestions} />);
+      fireEvent.click(screen.getByText('Option A'));
+
+      await waitFor(() => expect(screen.getByText(/Không thể kết nối/i)).toBeInTheDocument());
+      expect(screen.queryByText(/Xem lời giải thích/i)).not.toBeInTheDocument();
+    });
+
+    it('tắt chế độ hiện đáp án thì không gọi server', async () => {
+      globalThis.fetch = mockFetch({ success: true, isCorrect: true, correctLetter: 'A', explanation: 'x' });
+
       render(<PracticeRunner questions={mockQuestions} />);
 
-      // Turn OFF instant answer
-      const toggleBtn = screen.getByText('Hiện đáp án: BẬT');
-      fireEvent.click(toggleBtn);
+      fireEvent.click(screen.getByText('Hiện đáp án: BẬT'));
       expect(screen.getByText('Hiện đáp án: TẮT')).toBeInTheDocument();
 
-      // Click option A while OFF
       fireEvent.click(screen.getByText('Option A'));
+      expect(globalThis.fetch).not.toHaveBeenCalled();
       expect(screen.queryByText(/Xem lời giải thích/i)).not.toBeInTheDocument();
 
-      // Turn back ON
+      // Bật lại thì chấm nốt câu đang xem
       fireEvent.click(screen.getByText('Hiện đáp án: TẮT'));
-      expect(screen.getByText('Hiện đáp án: BẬT')).toBeInTheDocument();
+      await waitFor(() => expect(screen.getByText(/Xem lời giải thích/i)).toBeInTheDocument());
+    });
 
-      // Now explanation should appear
-      expect(screen.getByText(/Xem lời giải thích & Transcript/i)).toBeInTheDocument();
+    it('không xáo trộn lại bộ đề sau mỗi lần chọn đáp án', async () => {
+      globalThis.fetch = mockFetch({ success: true, isCorrect: true, correctLetter: 'A', explanation: 'x' });
+
+      const readingQuestions: Question[] = Array.from({ length: 6 }, (_, i) => ({
+        id: `q-r-${i}`,
+        questionNumber: i + 1,
+        partId: 5,
+        partName: 'Part 5',
+        skill: 'Reading',
+        question: `Reading question ${i + 1}`,
+        options: [
+          { letter: 'A', text: `apple ${i}` },
+          { letter: 'B', text: `banana ${i}` },
+        ],
+      }));
+
+      render(<PracticeRunner questions={readingQuestions} />);
+      fireEvent.click(screen.getByText('Xáo trộn: TẮT'));
+
+      const firstQuestion = screen.getByText(/Reading question/i).textContent;
+      fireEvent.click(screen.getAllByText(/apple|banana/i)[0]);
+
+      await waitFor(() => expect(screen.getByText(/Xem lời giải thích/i)).toBeInTheDocument());
+      expect(screen.getByText(/Reading question/i).textContent).toBe(firstQuestion);
     });
   });
 });

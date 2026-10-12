@@ -5,7 +5,7 @@
 [![Platform: Static HTML5](https://img.shields.io/badge/Platform-Static%20HTML5-brightgreen.svg)](#)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-orange.svg)](https://xhoang0509.github.io/toeic-web/)
 
-Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương tiện (Audio + Hình ảnh + Trắc nghiệm), tích hợp **Bắt buộc nhập tên thí sinh**, **Bảng Xếp Hạng thời gian thực (Leaderboard)**, **Luyện tập theo từng Part**, **Audio Controller nâng cao**, **Phân tích kỹ năng Radar Chart**, **Sổ tay câu sai**, **Chứng chỉ hoàn thành PDF**, và **Đồng bộ Google Sheets Webhook**.
+Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương tiện (Audio + Hình ảnh + Trắc nghiệm), tích hợp **Bắt buộc nhập tên thí sinh**, **Bảng Xếp Hạng thời gian thực (Leaderboard)**, **Luyện tập theo từng Part**, **Audio Controller nâng cao**, **Phân tích kỹ năng Radar Chart**, **Sổ tay câu sai**, **Chứng chỉ hoàn thành PDF**, và **Backend Cloudflare Workers + D1 chấm điểm phía server**.
 
 ---
 
@@ -16,25 +16,29 @@ Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương
 - **Khóa tương tác đề thi**: Giao diện bài thi được làm mờ (backdrop blur) và khóa hoàn toàn cho tới khi thí sinh đăng ký hợp lệ.
 - **Tự động bắt đầu**: Hệ thống lưu thông tin vào `localStorage`, hiển thị tên trên thanh Top Bar và chuyển thẳng vào đề thi.
 
-### 2. 🏆 Bảng Xếp Hạng Thời Gian Thực (Leaderboard & Multi-tier Ranking)
+### 2. 🏆 Bảng Xếp Hạng Thật Trên Cloudflare D1 (Leaderboard & Multi-tier Ranking)
 - **Thuật toán xếp hạng đa tiêu chí**:
   1. Số câu đúng / Tỉ lệ `%` cao hơn xếp trước.
   2. Bằng điểm ➔ Thí sinh làm bài **nhanh hơn (thời gian ngắn hơn)** xếp trước.
   3. Bằng thời gian ➔ Thí sinh nộp bài sớm hơn xếp trước.
 - **Huy chương vinh danh**: Top 3 nổi bật (🥇 Vàng, 🥈 Bạc, 🥉 Đồng).
 - **Quy đổi điểm TOEIC (~/990)**: Tự động quy đổi sang thang điểm TOEIC quốc tế (10 - 990 điểm, làm tròn bội số 5) chuẩn ETS.
-- **Thống kê & Bộ lọc**: Tổng lượt thi, Điểm cao nhất, Điểm trung bình, Tìm kiếm theo tên.
+- **Dữ liệu thật, dùng chung mọi thiết bị**: Mỗi lượt nộp bài được ghi vào bảng `results` trên Cloudflare D1 và xếp hạng bằng truy vấn SQL (mỗi thí sinh chỉ lấy lượt thi tốt nhất). Không còn dữ liệu mockup trong `localStorage`.
+- **Thống kê & Bộ lọc**: Tổng lượt thi, Điểm cao nhất, Điểm trung bình (tính trên toàn bộ dữ liệu server), Tìm kiếm theo tên.
+- **Tự khôi phục khi mất mạng**: Nếu không gọi được API, trang hiển thị lịch sử thi đã lưu trên thiết bị kèm cảnh báo rõ ràng.
 - **Xuất CSV Báo cáo (`📥 Xuất CSV`)**: Xuất toàn bộ bảng điểm ra file Excel/CSV chuẩn UTF-8.
 
 ### 3. 📚 Chế Độ Luyện Thi Theo Từng Part (Part-by-Part Practice Mode)
 - Thí sinh có thể chọn ôn luyện chuyên sâu từng phần riêng lẻ:
   - **Part 1**: Mô tả tranh (Photographs) - 12 câu
   - **Part 2**: Hỏi & Đáp (Question-Response) - 49 câu
-  - **Part 3**: Đoạn hội thoại (Short Conversations) - 16 câu
-  - **Part 4**: Bài nói ngắn (Short Talks) - 16 câu
+  - **Part 3**: Đoạn hội thoại (Short Conversations) - 15 câu
+  - **Part 4**: Bài nói ngắn (Short Talks) - 15 câu
   - **Part 5**: Điền câu (Incomplete Sentences) - 60 câu
-  - **Part 6**: Điền đoạn văn (Text Completion) - 8 câu
-  - **Part 7**: Đọc hiểu (Reading Comprehension) - 25 câu
+  - **Part 6**: Điền đoạn văn (Text Completion) - 24 câu (8 đoạn văn × 3 chỗ trống, mỗi chỗ trống là 1 câu hỏi)
+  - **Part 7**: Đọc hiểu (Reading Comprehension) - 24 câu
+
+  Tổng cộng **199 câu hỏi** (Listening 91 • Reading 108).
 - Kiểm tra đáp án ngay lập tức kèm giải thích và nút xem transcript.
 
 ### 4. 🎧 Audio Controller Nâng Cao (Smart Audio Widget)
@@ -69,10 +73,11 @@ Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương
   - Ngày cấp & Mã số xác thực chứng chỉ (`TOEIC-2026-XXXX`).
   - Nút **"🖨️ In / Lưu PDF"** hỗ trợ print stylesheet chuẩn A4.
 
-### 9. ☁️ Đồng Bộ Cloud Không Cần Server (Google Sheets Webhook & API)
-- Tích hợp ô cấu hình Webhook URL trong mục Cài đặt (`⚙️`).
-- Khi thí sinh nộp bài, tự động gửi payload JSON đến Google Sheets Webhook hoặc REST API.
-- Cung cấp sẵn đoạn mã Google Apps Script 1-click để giáo viên tạo bảng quản lý điểm cả lớp chỉ trong 1 phút.
+### 9. ☁️ Backend Cloudflare Workers + D1 (Chấm Điểm Phía Server)
+- **Chấm điểm 100% trên server**: Đáp án đúng và lời giải thích chỉ nằm trong database D1 — bundle JavaScript của trang web **không còn chứa đáp án**, thí sinh không thể mở DevTools để xem trước.
+- **Zero-config deploy**: Không cần cấp quyền thủ công như Google Apps Script, không bị lỗi CORS preflight, quota miễn phí 100k request/ngày.
+- **Trang Quản trị**: Đăng nhập bằng mật khẩu băm SHA-256 → nhận session token HMAC có hạn 8 giờ; quản lý thời gian thi, banner thông báo, bật/tắt Bảng Xếp Hạng và khóa (BAN) thí sinh theo email.
+- Chi tiết API, schema và quy trình vận hành: [docs/CLOUDFLARE_BACKEND.md](docs/CLOUDFLARE_BACKEND.md).
 
 ### 10. 👁️ Chế Độ Bật / Tắt Đáp Án (Answer Visibility Toggle)
 - Cho phép người học chuyển đổi linh hoạt:
@@ -85,30 +90,28 @@ Hệ thống thi thử và luyện thi tiếng Anh **TOEIC Online** đa phương
 
 ```
 toeic-web/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions workflow tự động deploy GitHub Pages
-├── data/
-│   ├── questions_db.js         # Ngân hàng 183 câu hỏi TOEIC chuẩn hóa tiếng Việt
-│   ├── toeic-app.js            # Engine mở rộng: 10 tính năng nâng cao & iSpring Hooks
-│   ├── toeic-app.css           # Toàn bộ Stylesheet: Top Bar, Modals, Radar, Certificate
-│   ├── player.js               # iSpring Presentation Player Engine
-│   ├── quizplayer.js           # iSpring Quiz Player Engine
-│   ├── quiz1.js                # Dữ liệu ngân hàng câu hỏi gốc (zlib compressed)
-│   ├── quiz1/                  # 45 file Audio (.mp3), Hình ảnh (.jpg), Font (.ttf)
-│   └── slide1.js & slide1.css  # Slide mở đầu bài thi
-├── docs/
-│   ├── ARCHITECTURE.md         # Kiến trúc kỹ thuật & cơ chế Event Interception
-│   ├── USER_GUIDE.md           # Cẩm nang hướng dẫn sử dụng Thí sinh & Giáo viên
-│   └── FULL_QUESTIONS_AND_ANSWERS.md # Toàn bộ câu hỏi & đáp án TOEIC
+├── .github/workflows/deploy.yml   # CI: test → build Astro → deploy GitHub Pages
+├── cloudflare/                    # Backend Cloudflare Workers + D1
+│   ├── src/index.ts               # API: chấm điểm, bảng xếp hạng, cấu hình, quản trị
+│   ├── migrations/0001_init.sql    # Schema 4 bảng: questions / results / users / config
+│   ├── migrations/0002_seed_questions.sql  # Seed 199 câu hỏi (tự sinh)
+│   └── wrangler.toml              # Cấu hình Worker + binding D1
 ├── scripts/
-│   ├── extract_quiz.js         # Script trích xuất câu hỏi từ nhị phân sang JSON
-│   ├── inject_answers.js       # Script inject đáp án hiển thị vào quiz
-│   └── generate_markdown.js    # Script xuất câu hỏi ra Markdown
-├── .nojekyll                   # Cấu hình bypass Jekyll trên GitHub Pages
-├── index.html                  # Entry point trang web bài thi
-├── package.json                # Cấu hình dự án và npm scripts
-└── README.md                   # Tài liệu dự án
+│   ├── normalize-questions.mjs    # Chuẩn hóa đề: tách Part 6, tạo bản public không đáp án
+│   ├── build-seed-sql.mjs         # Sinh SQL seed cho D1
+│   └── extract_quiz.js            # Trích xuất đề gốc từ nhị phân iSpring
+├── src/
+│   ├── components/react/          # ExamRunner, PracticeRunner, LeaderboardTable, AdminDashboard…
+│   ├── data/
+│   │   ├── questions.json         # Đề gốc trích xuất (nguồn sự thật)
+│   │   ├── questions.full.json    # 199 câu CÓ đáp án — chỉ dùng để seed D1
+│   │   └── questions.public.json  # 199 câu KHÔNG đáp án — build vào trang web
+│   ├── lib/                       # api, admin, storage, shuffle, score, assets
+│   ├── pages/                     # index, exam, practice/[part], leaderboard, mistakes, admin
+│   └── test/                      # 62 unit test + integration test với Worker thật
+├── data/quiz1/                    # Audio (.mp3), hình ảnh, font của đề thi
+├── docs/CLOUDFLARE_BACKEND.md     # Tài liệu backend, API & vận hành database
+└── legacy/google-sheets-backend/  # Backend Google Apps Script cũ (không còn dùng)
 ```
 
 ---
@@ -158,6 +161,17 @@ Dự án đã cấu hình sẵn `.github/workflows/deploy.yml` và `.nojekyll`.
 
 | Lệnh | Ý nghĩa |
 | :--- | :--- |
+| `npm run dev` | Khởi chạy Astro dev server (http://localhost:4321/toeic-web) |
+| `npm run build` | Chuẩn hóa đề rồi build trang tĩnh ra `dist/` |
+| `npm test` | Chạy 62 unit test (Vitest, không gọi mạng) |
+| `npm run typecheck` | Kiểm tra kiểu TypeScript toàn dự án |
+| `npm run data:normalize` | Chuẩn hóa đề → `questions.full.json` + `questions.public.json` |
+| `npm run db:migrate` | Tạo lại 4 bảng trên Cloudflare D1 |
+| `npm run db:seed` | Chuẩn hóa đề, sinh SQL và nạp 199 câu hỏi vào D1 |
+| `npm run api:deploy` | Deploy Cloudflare Worker |
+| `npm run api:logs` | Xem log Worker realtime |
+
+--- | :--- |
 | `npm run start` | Khởi chạy máy chủ cục bộ xem trước website |
 | `npm run extract` | Giải mã dữ liệu `quiz1.js` sang JSON |
 | `npm run inject` | Chèn nhãn đáp án hiển thị trực tiếp vào quiz |
@@ -166,7 +180,8 @@ Dự án đã cấu hình sẵn `.github/workflows/deploy.yml` và `.nojekyll`.
 ---
 
 ## 📄 Tài Liệu Tham Khảo Thêm
-- [Kiến trúc kỹ thuật & Event Hooks](docs/ARCHITECTURE.md)
+- [Backend Cloudflare Workers + D1, API & vận hành database](docs/CLOUDFLARE_BACKEND.md)
+- [Kiến trúc kỹ thuật & Event Hooks (bản iSpring gốc)](docs/ARCHITECTURE.md)
 - [Hướng dẫn sử dụng dành cho Thí sinh & Giáo viên](docs/USER_GUIDE.md)
 - [Toàn bộ câu hỏi & đáp án TOEIC](docs/FULL_QUESTIONS_AND_ANSWERS.md)
 

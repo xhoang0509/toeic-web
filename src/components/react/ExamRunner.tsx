@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import type { Question, CandidateInfo, ExamResult } from '../../data/types';
 import { QuestionCard } from './QuestionCard';
 import { CandidateOnboardingModal } from './CandidateOnboardingModal';
 import { RadarSkillChart } from './RadarSkillChart';
 import { Storage } from '../../lib/storage';
-import { calculateScaledToeic, calculateSectionScaledScore, getCefrLevel, formatTime } from '../../lib/score';
-import { syncExamResultToWebhook } from '../../lib/webhook';
-import { gradeExamOnServer } from '../../lib/api';
-import { shuffleToeicQuestions } from '../../lib/shuffle';
+import { formatTime } from '../../lib/score';
+import { gradeExamOnServer, fetchPublicConfig, type ReviewDetail } from '../../lib/api';
+import { shuffleToeicQuestions, mapAnswersToOriginalLetters, toDisplayedLetter } from '../../lib/shuffle';
 import { Portal } from './Portal';
 import confetti from 'canvas-confetti';
 import {
@@ -30,6 +29,9 @@ interface ExamRunnerProps {
   questions: Question[];
 }
 
+/** Thời gian mặc định khi chưa tải được cấu hình từ máy chủ */
+const DEFAULT_DURATION_MINUTES = 120;
+
 export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
   const [examQuestions] = useState<Question[]>(() =>
     shuffleToeicQuestions(questions, { keepPartsInOrder: true, shuffleReadingOptions: true })
@@ -39,17 +41,23 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [flaggedIds, setFlaggedIds] = useState<Set<string>>(new Set());
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [secondsRemaining, setSecondsRemaining] = useState<number>(120 * 60); // 120 minutes
+  const [durationMinutes, setDurationMinutes] = useState<number>(DEFAULT_DURATION_MINUTES);
+  const [secondsRemaining, setSecondsRemaining] = useState<number>(DEFAULT_DURATION_MINUTES * 60);
   const [isExamCompleted, setIsExamCompleted] = useState<boolean>(false);
   const [showConfirmSubmit, setShowConfirmSubmit] = useState<boolean>(false);
   const [showNavigator, setShowNavigator] = useState<boolean>(false);
   const [examResult, setExamResult] = useState<ExamResult | null>(null);
-  const [reviewDetails, setReviewDetails] = useState<Record<string, { correctLetter: string; explanation: string; isCorrect: boolean }>>({});
+  const [reviewDetails, setReviewDetails] = useState<Record<string, ReviewDetail>>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<string>('');
   const [showCertificate, setShowCertificate] = useState<boolean>(false);
+  const [showReview, setShowReview] = useState<boolean>(false);
 
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Giữ snapshot mới nhất cho timer: hàm trong setInterval đóng gói state ở lần render đầu,
+  // nếu đọc trực tiếp state thì lúc hết giờ sẽ nộp bài rỗng với thời gian làm bài = 0.
+  const submitRef = useRef<() => void>(() => {});
+  const hasSubmittedRef = useRef<boolean>(false);
 
   // Initialize candidate
   useEffect(() => {
@@ -61,15 +69,34 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
     }
   }, []);
 
-  // Timer countdown
+  // Thời gian làm bài do Quản trị viên cấu hình (fallback 120 phút nếu không gọi được API)
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchPublicConfig().then((config) => {
+      if (cancelled || !config) return;
+      const minutes = Number(config.examDurationMinutes);
+      if (!Number.isFinite(minutes) || minutes <= 0) return;
+
+      setDurationMinutes(minutes);
+      // Chỉ chỉnh đồng hồ khi thí sinh chưa bắt đầu trả lời câu nào
+      setSecondsRemaining((prev) => (prev === DEFAULT_DURATION_MINUTES * 60 ? minutes * 60 : prev));
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Timer countdown — hết giờ thì tự động nộp bài qua submitRef (luôn trỏ tới state mới nhất)
   useEffect(() => {
     if (isExamCompleted || !candidate) return;
 
     timerRef.current = setInterval(() => {
       setSecondsRemaining((prev) => {
         if (prev <= 1) {
-          clearInterval(timerRef.current as NodeJS.Timeout);
-          handleSubmitExam();
+          if (timerRef.current) clearInterval(timerRef.current);
+          submitRef.current();
           return 0;
         }
         return prev - 1;
@@ -84,7 +111,6 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
   const currentQuestion = examQuestions[currentIndex] || examQuestions[0];
 
   const answeredCount = Object.keys(answers).length;
-  const flaggedCount = flaggedIds.size;
 
   const handleSelectOption = (questionId: string, letter: string) => {
     if (isExamCompleted) return;
@@ -106,41 +132,69 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
     });
   };
 
-  const handleSubmitExam = async () => {
+  const handleSubmitExam = useCallback(async () => {
+    if (hasSubmittedRef.current) return;
+    hasSubmittedRef.current = true;
+
     if (timerRef.current) clearInterval(timerRef.current);
     setIsSubmitting(true);
     setSubmitError('');
 
-    const timeSpent = 120 * 60 - secondsRemaining;
-    const cand = candidate || { name: 'Thí sinh', emailOrCode: 'HV-0000', targetScore: '650+' };
+    const timeSpent = Math.max(0, durationMinutes * 60 - secondsRemaining);
+    const cand = candidate || { name: 'Thí sinh', emailOrCode: '', targetScore: '650+' };
 
-    const serverRes = await gradeExamOnServer(cand, timeSpent, answers);
+    // Đáp án hiển thị có thể đã bị xáo trộn nhãn → quy đổi về nhãn gốc trước khi gửi
+    const originalAnswers = mapAnswersToOriginalLetters(examQuestions, answers);
+    const serverRes = await gradeExamOnServer(cand, timeSpent, originalAnswers);
     setIsSubmitting(false);
 
     if (serverRes.success && serverRes.examResult) {
       setShowConfirmSubmit(false);
       setExamResult(serverRes.examResult);
+
       if (serverRes.reviewDetails) {
-        setReviewDetails(serverRes.reviewDetails);
+        const questionById = new Map(examQuestions.map((q) => [q.id, q]));
+        const displayed: Record<string, ReviewDetail> = {};
+
         Object.entries(serverRes.reviewDetails).forEach(([qId, detail]) => {
-          if (!detail.isCorrect) {
-            Storage.addMistake(qId, answers[qId] || 'NONE');
+          const question = questionById.get(qId);
+          const correctLetter = question
+            ? toDisplayedLetter(question, detail.correctLetter)
+            : detail.correctLetter;
+
+          displayed[qId] = { ...detail, correctLetter };
+
+          // Chỉ ghi vào Sổ Tay Câu Sai những câu thí sinh đã trả lời nhưng sai
+          // (câu bỏ trắng không làm ngập sổ tay). Lưu nhãn gốc để trang Sổ Tay —
+          // dùng bộ đề chưa xáo trộn — tô đúng lựa chọn đã chọn.
+          if (!detail.isCorrect && originalAnswers[qId]) {
+            Storage.addMistake(qId, originalAnswers[qId], {
+              correctLetter: detail.correctLetter,
+              explanation: detail.explanation,
+            });
           }
         });
+
+        setReviewDetails(displayed);
       }
+
       setIsExamCompleted(true);
       Storage.addExamResult(serverRes.examResult);
       try {
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 },
-        });
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
       } catch {}
     } else {
+      hasSubmittedRef.current = false;
       setSubmitError(serverRes.error || 'Lỗi khi nộp bài thi. Vui lòng kiểm tra lại kết nối.');
+      // Nộp bài tự động khi hết giờ cũng phải hiện lỗi để thí sinh bấm nộp lại
+      setShowConfirmSubmit(true);
     }
-  };
+  }, [answers, candidate, durationMinutes, examQuestions, secondsRemaining]);
+
+  // Timer gọi hàm nộp bài qua ref để luôn dùng đáp án & thời gian mới nhất
+  useEffect(() => {
+    submitRef.current = handleSubmitExam;
+  }, [handleSubmitExam]);
 
   return (
     <div className="relative min-h-screen pb-20">
@@ -268,7 +322,7 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
               </h1>
 
               <p className="text-sm text-slate-300">
-                Bạn đã hoàn thành bài thi 183 câu với kết quả quy đổi chuẩn quốc tế ETS:
+                Bạn đã hoàn thành bài thi {examQuestions.length} câu với kết quả quy đổi chuẩn quốc tế ETS:
               </p>
 
               <div className="grid grid-cols-3 gap-3 pt-4">
@@ -336,6 +390,61 @@ export const ExamRunner: React.FC<ExamRunnerProps> = ({ questions }) => {
               partAccuracy={examResult.partAccuracy}
               totalScaledScore={examResult.totalScaledScore}
             />
+          )}
+
+          {/* Xem lại từng câu kèm đáp án đúng & giải thích do server trả về */}
+          {Object.keys(reviewDetails).length > 0 && (
+            <div className="space-y-4">
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white">Xem Lại Bài Làm</h2>
+                <button
+                  type="button"
+                  onClick={() => setShowReview((prev) => !prev)}
+                  className="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                >
+                  {showReview ? 'Ẩn phần xem lại' : 'Xem lại từng câu'}
+                </button>
+              </div>
+
+              {showReview && currentQuestion && (
+                <div className="space-y-4">
+                  <QuestionCard
+                    question={currentQuestion}
+                    selectedLetter={answers[currentQuestion.id]}
+                    onSelectOption={() => {}}
+                    mode="exam"
+                    verifiedAnswer={reviewDetails[currentQuestion.id]}
+                    questionIndex={currentIndex}
+                  />
+
+                  <div className="flex items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      disabled={currentIndex === 0}
+                      onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
+                      className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-800"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                      <span>Câu trước</span>
+                    </button>
+
+                    <span className="text-xs font-semibold text-slate-400">
+                      Câu {currentIndex + 1} / {examQuestions.length}
+                    </span>
+
+                    <button
+                      type="button"
+                      disabled={currentIndex === examQuestions.length - 1}
+                      onClick={() => setCurrentIndex((prev) => Math.min(examQuestions.length - 1, prev + 1))}
+                      className="px-4 py-2.5 rounded-xl bg-sky-600 text-white font-semibold text-xs flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-sky-500"
+                    >
+                      <span>Câu tiếp theo</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           )}
         </div>
       )}

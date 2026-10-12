@@ -54,15 +54,14 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   const audioMedia = question.mediaFiles?.find((m) => m.type === 'audio');
   const imageMedia = question.mediaFiles?.find((m) => m.type === 'image');
 
-  const isAnswered = Boolean(selectedLetter);
-  const correctLetter = verifiedAnswer ? verifiedAnswer.correctLetter : question.correctLetter;
-  const isCorrect = verifiedAnswer
-    ? verifiedAnswer.isCorrect
-    : (correctLetter ? selectedLetter === correctLetter : false);
+  // Đáp án đúng chỉ đến từ server (verifiedAnswer) — dữ liệu câu hỏi phía client không chứa đáp án
+  const correctLetter = verifiedAnswer?.correctLetter;
+  const correctOption = correctLetter
+    ? question.options.find((opt) => opt.letter === correctLetter)
+    : undefined;
 
   const showAnswerFeedback = Boolean(
-    (mode === 'practice' && showInstantAnswer && isAnswered && (verifiedAnswer || correctLetter)) ||
-    (mode === 'exam' && verifiedAnswer)
+    verifiedAnswer && (mode === 'exam' || showInstantAnswer)
   );
 
   return (
@@ -222,7 +221,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       </div>
 
       {/* Explanation toggle for Practice Mode or Post-Exam Review */}
-      {showAnswerFeedback && (verifiedAnswer?.explanation || question.explanation) && (
+      {showAnswerFeedback && verifiedAnswer?.explanation && (
         <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
           <button
             type="button"
@@ -245,12 +244,12 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                   Đáp án chính xác:
                 </span>
                 <span className="px-2 py-0.5 rounded font-extrabold text-xs bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                  {question.correctAnswer || correctLetter}
+                  {correctOption ? `${correctLetter}. ${correctOption.text}` : correctLetter}
                 </span>
               </div>
               <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 <span className="font-bold text-slate-900 dark:text-white">Giải thích chi tiết: </span>
-                {verifiedAnswer ? verifiedAnswer.explanation : question.explanation}
+                {verifiedAnswer?.explanation}
               </div>
             </div>
           )}
